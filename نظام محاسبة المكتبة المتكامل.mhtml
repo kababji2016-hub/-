@@ -1,0 +1,1169 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/HP/Desktop/%D9%86%D8%B8%D8%A7%D9%85%20%D9%85%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D9%83%D8%AA%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D9%83%D8%A7%D9%85%D9%84.html
+Subject: =?utf-8?Q?=D9=86=D8=B8=D8=A7=D9=85=20=D9=85=D8=AD=D8=A7=D8=B3=D8=A8=D8=A9?=
+ =?utf-8?Q?=20=D8=A7=D9=84=D9=85=D9=83=D8=AA=D8=A8=D8=A9=20=D8=A7=D9=84=D9?=
+ =?utf-8?Q?=85=D8=AA=D9=83=D8=A7=D9=85=D9=84?=
+Date: Mon, 1 Jun 2026 18:31:24 +0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--kH8nzvDfvWEPbB9ukg9tA5raIoanENMomMgM5dp7z0----"
+
+
+------MultipartBoundary--kH8nzvDfvWEPbB9ukg9tA5raIoanENMomMgM5dp7z0----
+Content-Type: text/html
+Content-ID: <frame-01EBA46D5F51AD2E3D8B61539BA55A6D@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/HP/Desktop/%D9%86%D8%B8%D8%A7%D9%85%20%D9%85%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D9%83%D8%AA%D8%A8%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D9%83%D8%A7%D9%85%D9%84.html
+
+<!DOCTYPE html><!-- saved from url=3D(0040)file:///C:/Users/HP/Desktop/libr=
+ary.html --><html lang=3D"ar" dir=3D"rtl"><head><meta http-equiv=3D"Content=
+-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=
+=3D"text/css" href=3D"cid:css-366d5bf1-e0d2-4f39-b5d4-2bc376c0f39c@mhtml.bl=
+ink" />
+   =20
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+    <title>=D9=86=D8=B8=D8=A7=D9=85 =D9=85=D8=AD=D8=A7=D8=B3=D8=A8=D8=A9 =
+=D8=A7=D9=84=D9=85=D9=83=D8=AA=D8=A8=D8=A9 =D8=A7=D9=84=D9=85=D8=AA=D9=83=
+=D8=A7=D9=85=D9=84</title>
+   =20
+</head>
+<body>
+
+    <!-- =D8=B4=D8=A7=D8=B4=D8=A9 =D8=AA=D8=B3=D8=AC=D9=8A=D9=84 =D8=A7=D9=
+=84=D8=AF=D8=AE=D9=88=D9=84 =D8=A7=D9=84=D9=85=D8=A8=D8=AF=D8=A6=D9=8A=D8=
+=A9 -->
+    <div id=3D"loginScreen">
+        <div class=3D"login-box">
+            <div class=3D"login-logo">=F0=9F=93=9A</div>
+            <h1>=D9=86=D8=B8=D8=A7=D9=85 =D9=85=D8=AD=D8=A7=D8=B3=D8=A8=D8=
+=A9 =D8=A7=D9=84=D9=85=D9=83=D8=AA=D8=A8=D8=A9</h1>
+            <p>=D8=A7=D9=84=D8=B1=D8=AC=D8=A7=D8=A1 =D8=AA=D8=B3=D8=AC=D9=
+=8A=D9=84 =D8=A7=D9=84=D8=AF=D8=AE=D9=88=D9=84 =D9=84=D9=84=D9=85=D8=AA=D8=
+=A7=D8=A8=D8=B9=D8=A9</p>
+            <div class=3D"login-field">
+                <label>=D8=A7=D8=B3=D9=85 =D8=A7=D9=84=D9=85=D8=B3=D8=AA=D8=
+=AE=D8=AF=D9=85</label>
+                <input type=3D"text" id=3D"loginUser" value=3D"admin">
+            </div>
+            <div class=3D"login-field">
+                <label>=D9=83=D9=84=D9=85=D8=A9 =D8=A7=D9=84=D9=85=D8=B1=D9=
+=88=D8=B1</label>
+                <input type=3D"password" id=3D"loginPass" value=3D"1234">
+            </div>
+            <button class=3D"login-btn">=F0=9F=94=90 =D8=AF=D8=AE=D9=88=D9=
+=84</button>
+            <div class=3D"login-error" id=3D"loginErr">=E2=9D=8C =D8=A7=D8=
+=B3=D9=85 =D8=A7=D9=84=D9=85=D8=B3=D8=AA=D8=AE=D8=AF=D9=85 =D8=A3=D9=88 =D9=
+=83=D9=84=D9=85=D8=A9 =D8=A7=D9=84=D9=85=D8=B1=D9=88=D8=B1 =D8=BA=D9=8A=D8=
+=B1 =D8=B5=D8=AD=D9=8A=D8=AD=D8=A9</div>
+            <div class=3D"login-hint">=D8=A7=D9=84=D9=85=D8=B3=D8=AA=D8=AE=
+=D8=AF=D9=85 =D8=A7=D9=84=D8=A7=D9=81=D8=AA=D8=B1=D8=A7=D8=B6=D9=8A: admin =
+| =D9=83=D9=84=D9=85=D8=A9 =D8=A7=D9=84=D9=85=D8=B1=D9=88=D8=B1: 1234</div>
+        </div>
+    </div>
+
+    <!-- =D8=A7=D9=84=D9=86=D8=B8=D8=A7=D9=85 =D8=A7=D9=84=D8=B1=D8=A6=D9=
+=8A=D8=B3=D9=8A -->
+    <div id=3D"app">
+        <!-- =D8=A7=D9=84=D9=82=D8=A7=D8=A6=D9=85=D8=A9 =D8=A7=D9=84=D8=AC=
+=D8=A7=D9=86=D8=A8=D9=8A=D8=A9 (SIDEBAR) -->
+        <nav class=3D"sidebar">
+            <div class=3D"sidebar-header">
+                <div class=3D"sidebar-logo">=F0=9F=93=9A</div>
+                <div class=3D"sidebar-title">=D9=86=D8=B8=D8=A7=D9=85 =D8=
+=A7=D9=84=D9=85=D9=83=D8=AA=D8=A8=D8=A9 =D8=A7=D9=84=D9=85=D8=AA=D9=83=D8=
+=A7=D9=85=D9=84</div>
+                <div class=3D"sidebar-store" id=3D"storeName">=D9=85=D9=83=
+=D8=AA=D8=A8=D8=A9 =D8=A7=D9=84=D9=86=D9=88=D8=B1 =D9=88=D8=A7=D9=84=D8=B4=
+=D8=B1=D9=82</div>
+            </div>
+            <div class=3D"sidebar-nav">
+                <div class=3D"nav-section">=D8=A7=D9=84=D8=B1=D8=A6=D9=8A=
+=D8=B3=D9=8A=D8=A9</div>
+                <div class=3D"nav-item active"><span class=3D"icon">=F0=9F=
+=8F=A0</span> =D9=84=D9=88=D8=AD=D8=A9 =D8=A7=D9=84=D8=AA=D8=AD=D9=83=D9=85=
+</div>
+                <div class=3D"nav-section">=D8=A7=D9=84=D9=85=D8=B9=D8=A7=
+=D9=85=D9=84=D8=A7=D8=AA</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=A7=BE</=
+span> =D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9 =D8=A7=D9=84=D9=85=D8=A8=D9=8A=
+=D8=B9=D8=A7=D8=AA</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=93=A6</=
+span> =D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9 =D8=A7=D9=84=D9=85=D8=B4=D8=AA=
+=D8=B1=D9=8A=D8=A7=D8=AA</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=93=8B</=
+span> =D8=B3=D8=AC=D9=84 =D8=A7=D9=84=D9=81=D9=88=D8=A7=D8=AA=D9=8A=D8=B1</=
+div>
+                <div class=3D"nav-section">=D8=A7=D9=84=D9=85=D8=AE=D8=B2=
+=D9=88=D9=86</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=93=97</=
+span> =D8=A7=D9=84=D8=A3=D8=B5=D9=86=D8=A7=D9=81 =D9=88=D8=A7=D9=84=D9=83=
+=D8=AA=D8=A8</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=97=82=
+=EF=B8=8F</span> =D8=A7=D9=84=D9=81=D8=A6=D8=A7=D8=AA</div>
+                <div class=3D"nav-section">=D8=A7=D9=84=D8=A3=D8=B7=D8=B1=
+=D8=A7=D9=81</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=91=A5</=
+span> =D8=A5=D8=AF=D8=A7=D8=B1=D8=A9 =D8=A7=D9=84=D8=B9=D9=85=D9=84=D8=A7=
+=D8=A1</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=8F=AD</=
+span> =D8=A5=D8=AF=D8=A7=D8=B1=D8=A9 =D8=A7=D9=84=D9=85=D9=88=D8=B1=D8=AF=
+=D9=8A=D9=86</div>
+                <div class=3D"nav-section">=D8=A7=D9=84=D9=85=D8=A7=D9=84=
+=D9=8A=D8=A9</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=92=B8</=
+span> =D8=A7=D9=84=D9=85=D8=B5=D8=B1=D9=88=D9=81=D8=A7=D8=AA</div>
+                <div class=3D"nav-section">=D8=A7=D9=84=D9=86=D8=B8=D8=A7=
+=D9=85</div>
+                <div class=3D"nav-item"><span class=3D"icon">=E2=9A=99=EF=
+=B8=8F</span> =D8=A7=D9=84=D8=A5=D8=B9=D8=AF=D8=A7=D8=AF=D8=A7=D8=AA =D8=A7=
+=D9=84=D8=B9=D8=A7=D9=85=D9=91=D8=A9</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=92=BE</=
+span> =D9=86=D8=B3=D8=AE=D8=A9 =D8=A7=D8=AD=D8=AA=D9=8A=D8=A7=D8=B7=D9=8A=
+=D8=A9</div>
+                <div class=3D"nav-item"><span class=3D"icon">=F0=9F=93=A5</=
+span> =D8=A7=D8=B3=D8=AA=D8=B9=D8=A7=D8=AF=D8=A9 =D8=A7=D9=84=D8=A8=D9=8A=
+=D8=A7=D9=86=D8=A7=D8=AA</div>
+            </div>
+            <div class=3D"sidebar-footer">=D8=A7=D9=84=D8=A5=D8=B5=D8=AF=D8=
+=A7=D8=B1 2.0 | =D9=86=D8=B8=D8=A7=D9=85 =D9=88=D9=8A=D8=A8 =D8=A2=D9=85=D9=
+=86</div>
+        </nav>
+
+        <div class=3D"main">
+            <!-- =D8=B4=D8=B1=D9=8A=D8=B7 =D8=A7=D9=84=D8=AA=D8=AD=D9=83=D9=
+=85 =D8=A7=D9=84=D8=B9=D9=84=D9=88=D9=8A -->
+            <div class=3D"topbar">
+                <div class=3D"topbar-title" id=3D"pageTitle">=D9=84=D9=88=
+=D8=AD=D8=A9 =D8=A7=D9=84=D8=AA=D8=AD=D9=83=D9=85</div>
+                <div class=3D"topbar-right">
+                    <span class=3D"topbar-badge" id=3D"alertBadge" style=3D=
+"display:none">=E2=9A=A0=EF=B8=8F =D8=AA=D9=86=D8=A8=D9=8A=D9=87=D8=A7=D8=
+=AA</span>
+                    <span class=3D"topbar-user" id=3D"topbarUser">=F0=9F=91=
+=A4 admin</span>
+                    <button class=3D"logout-btn">=D8=AA=D8=B3=D8=AC=D9=8A=
+=D9=84 =D8=A7=D9=84=D8=AE=D8=B1=D9=88=D8=AC</button>
+                </div>
+            </div>
+
+            <!-- =D9=86=D8=A7=D9=81=D8=B0=D8=A9 =D8=AA=D9=86=D8=A8=D9=8A=D9=
+=87=D8=A7=D8=AA =D8=A7=D9=84=D8=A3=D8=B3=D9=87=D9=85 =D8=A7=D9=84=D9=85=D8=
+=AE=D8=B2=D9=86=D9=8A=D8=A9 =D8=A7=D9=84=D8=B3=D8=B1=D9=8A=D8=B9=D8=A9 -->
+            <div class=3D"notif-popup" id=3D"notifPopup"></div>
+
+            <div class=3D"content">
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D9=84=D9=88=
+=D8=AD=D8=A9 =D8=A7=D9=84=D8=AA=D8=AD=D9=83=D9=85 =D8=A7=D9=84=D8=B1=D8=A6=
+=D9=8A=D8=B3=D9=8A=D9=91=D8=A9 =3D=3D=3D=3D=3D -->
+                <div class=3D"page active" id=3D"page-dashboard">
+                    <div class=3D"stats-grid" id=3D"dashStats"></div>
+                    <div style=3D"display:grid;grid-template-columns:2fr 1f=
+r;gap:16px;margin-bottom:24px">
+                        <div class=3D"card">
+                            <div class=3D"card-header"><span class=3D"card-=
+title">=F0=9F=93=88 =D8=AD=D8=AC=D9=85 =D9=85=D8=A8=D9=8A=D8=B9=D8=A7=D8=AA=
+ =D8=A2=D8=AE=D8=B1 7 =D8=A3=D9=8A=D8=A7=D9=85</span></div>
+                            <div class=3D"card-body">
+                                <div class=3D"chart-bar-container" id=3D"sa=
+lesChart"></div>
+                            </div>
+                        </div>
+                        <div class=3D"card">
+                            <div class=3D"card-header"><span class=3D"card-=
+title">=E2=9A=A0=EF=B8=8F =D8=AA=D9=86=D8=A8=D9=8A=D9=87=D8=A7=D8=AA =D8=A7=
+=D9=84=D9=86=D9=88=D8=A7=D9=82=D8=B5 =D9=81=D9=8A =D8=A7=D9=84=D9=85=D8=AE=
+=D8=B2=D9=86</span></div>
+                            <div class=3D"card-body" id=3D"stockAlerts" sty=
+le=3D"max-height:220px;overflow-y:auto"></div>
+                        </div>
+                    </div>
+                    <div style=3D"display:grid;grid-template-columns:1fr 1f=
+r;gap:16px">
+                        <div class=3D"card">
+                            <div class=3D"card-header"><span class=3D"card-=
+title">=F0=9F=A7=BE =D8=A2=D8=AE=D8=B1 =D9=81=D9=88=D8=A7=D8=AA=D9=8A=D8=B1=
+ =D8=A7=D9=84=D8=A8=D9=8A=D8=B9 =D8=A7=D9=84=D9=85=D9=86=D9=81=D8=B0=D8=A9<=
+/span></div>
+                            <div class=3D"card-body" style=3D"padding:0">
+                                <div class=3D"table-wrap"><table id=3D"last=
+SalesTable"></table></div>
+                            </div>
+                        </div>
+                        <div class=3D"card">
+                            <div class=3D"card-header"><span class=3D"card-=
+title">=F0=9F=93=97 =D8=A7=D9=84=D9=83=D8=AA=D8=A8 =D8=A7=D9=84=D8=A3=D9=83=
+=D8=AB=D8=B1 =D8=B7=D9=84=D8=A8=D8=A7=D9=8B =D9=88=D9=85=D8=A8=D9=8A=D8=B9=
+=D8=A7=D9=8B</span></div>
+                            <div class=3D"card-body" style=3D"padding:0">
+                                <div class=3D"table-wrap"><table id=3D"topP=
+roductsTable"></table></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D8=B4=D8=A7=
+=D8=B4=D8=A9 =D9=86=D9=82=D8=B7=D8=A9 =D8=A7=D9=84=D8=A8=D9=8A=D8=B9 =D9=88=
+=D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9 =D8=A7=D9=84=D8=A8=D9=8A=D8=B9 =3D=3D=
+=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-sale">
+                    <div class=3D"card mb-24">
+                        <div class=3D"card-header">
+                            <span class=3D"card-title">=F0=9F=A7=BE =D9=81=
+=D8=A7=D8=AA=D9=88=D8=B1=D8=A9 =D8=A8=D9=8A=D8=B9 =D8=B6=D8=B1=D9=8A=D8=A8=
+=D9=8A=D8=A9 =D8=AC=D8=AF=D9=8A=D8=AF=D8=A9</span>
+                            <span style=3D"font-size:12px;color:var(--text3=
+)" id=3D"saleInvNum"></span>
+                        </div>
+                        <div class=3D"card-body">
+                            <div class=3D"form-grid form-grid-3 mb-16">
+                                <div class=3D"form-group">
+                                    <label>=D8=A7=D9=84=D8=B9=D9=85=D9=8A=
+=D9=84 =D8=A7=D9=84=D9=85=D8=B3=D8=AA=D9=84=D9=85</label>
+                                    <select class=3D"form-control" id=3D"sa=
+leCustomer"></select>
+                                </div>
+                                <div class=3D"form-group">
+                                    <label>=D8=AA=D8=A7=D8=B1=D9=8A=D8=AE =
+=D8=A7=D9=84=D8=AD=D8=B1=D9=83=D8=A9</label>
+                                    <input type=3D"date" class=3D"form-cont=
+rol" id=3D"saleDate">
+                                </div>
+                                <div class=3D"form-group">
+                                    <label>=D8=B7=D8=B1=D9=8A=D9=82=D8=A9 =
+=D8=B3=D8=AF=D8=A7=D8=AF =D8=A7=D9=84=D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9</=
+label>
+                                    <select class=3D"form-control" id=3D"sa=
+lePayType">
+                                        <option value=3D"cash">=D9=86=D9=82=
+=D8=AF=D9=8A</option>
+                                        <option value=3D"card">=D8=A8=D8=B7=
+=D8=A7=D9=82=D8=A9 =D8=A8=D9=86=D9=83=D9=8A=D8=A9 / =D9=85=D8=AF=D9=89</opt=
+ion>
+                                        <option value=3D"credit">=D8=A8=D9=
+=8A=D8=B9 =D8=A2=D8=AC=D9=84 (=D8=B9=D9=84=D9=89 =D8=A7=D9=84=D8=AD=D8=B3=
+=D8=A7=D8=A8)</option>
+                                        <option value=3D"transfer">=D8=AA=
+=D8=AD=D9=88=D9=8A=D9=84 =D8=A8=D9=86=D9=83=D9=8A =D9=85=D8=A8=D8=A7=D8=B4=
+=D8=B1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style=3D"background:var(--info-light);bord=
+er-radius:8px;padding:14px;margin-bottom:16px">
+                                <div style=3D"display:grid;grid-template-co=
+lumns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:flex-end">
+                                    <div class=3D"form-group">
+                                        <label>=D8=A7=D8=AE=D8=AA=D8=B1 =D8=
+=A7=D9=84=D9=83=D8=AA=D8=A7=D8=A8 / =D8=A7=D9=84=D8=B5=D9=86=D9=81 =D9=84=
+=D9=84=D8=A8=D9=8A=D8=B9</label>
+                                        <select class=3D"form-control" id=
+=3D"saleItemProd"></select>
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=A7=D9=84=D9=83=D9=85=D9=
+=8A=D8=A9 =D8=A7=D9=84=D9=85=D8=A8=D8=A7=D8=B9=D8=A9</label>
+                                        <input type=3D"number" class=3D"for=
+m-control" id=3D"saleItemQty" value=3D"1" min=3D"1">
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=B3=D8=B9=D8=B1 =D8=A7=D9=
+=84=D8=A8=D9=8A=D8=B9 =D8=A7=D9=84=D9=85=D8=B9=D8=AA=D9=85=D8=AF</label>
+                                        <input type=3D"number" class=3D"for=
+m-control" id=3D"saleItemPrice" step=3D"0.01">
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=A5=D8=AC=D9=85=D8=A7=D9=
+=84=D9=8A =D8=A7=D9=84=D8=A8=D9=86=D8=AF</label>
+                                        <input type=3D"text" class=3D"form-=
+control" id=3D"saleItemTotal" readonly=3D"" style=3D"background:#fff">
+                                    </div>
+                                    <button class=3D"btn btn-primary">+ =D8=
+=A5=D8=B6=D8=A7=D9=81=D8=A9 =D8=A8=D9=86=D8=AF</button>
+                                </div>
+                            </div>
+
+                            <div class=3D"invoice-items">
+                                <div class=3D"invoice-row header">
+                                    <span>#</span><span>=D8=A7=D8=B3=D9=85 =
+=D8=A7=D9=84=D8=B5=D9=86=D9=81</span><span>=D8=A7=D9=84=D9=83=D9=85=D9=8A=
+=D8=A9</span><span>=D8=A7=D9=84=D8=B3=D8=B9=D8=B1</span><span>=D8=A7=D9=84=
+=D8=A5=D8=AC=D9=85=D8=A7=D9=84=D9=8A</span><span>=D8=AE=D9=8A=D8=A7=D8=B1=
+=D8=A7=D8=AA</span>
+                                </div>
+                                <div id=3D"saleItemsList"></div>
+                            </div>
+
+                            <div class=3D"invoice-total" id=3D"saleTotals">=
+</div>
+
+                            <div class=3D"form-grid form-grid-3 mb-16" styl=
+e=3D"margin-top:16px">
+                                <div class=3D"form-group">
+                                    <label>=D8=AE=D8=B5=D9=85 =D8=AE=D8=A7=
+=D8=B5 =D8=B9=D9=84=D9=89 =D8=A7=D9=84=D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9 =
+(%)</label>
+                                    <input type=3D"number" class=3D"form-co=
+ntrol" id=3D"saleDiscount" value=3D"0" min=3D"0" max=3D"100">
+                                </div>
+                                <div class=3D"form-group">
+                                    <label>=D9=86=D8=B3=D8=A8=D8=A9 =D8=B6=
+=D8=B1=D9=8A=D8=A8=D8=A9 =D8=A7=D9=84=D9=82=D9=8A=D9=85=D8=A9 =D8=A7=D9=84=
+=D9=85=D8=B6=D8=A7=D9=81=D8=A9 (%)</label>
+                                    <input type=3D"number" class=3D"form-co=
+ntrol" id=3D"saleVat" value=3D"15" min=3D"0">
+                                </div>
+                                <div class=3D"form-group">
+                                    <label>=D8=B4=D8=B1=D8=AD =D8=A3=D9=88 =
+=D9=85=D9=84=D8=A7=D8=AD=D8=B8=D8=A7=D8=AA =D8=A7=D9=84=D9=81=D8=A7=D8=AA=
+=D9=88=D8=B1=D8=A9</label>
+                                    <input type=3D"text" class=3D"form-cont=
+rol" id=3D"saleNotes" placeholder=3D"=D8=A3=D8=AF=D8=AE=D9=84 =D8=A3=D9=8A =
+=D9=85=D9=84=D8=A7=D8=AD=D8=B8=D8=A7=D8=AA =D8=AA=D8=B1=D8=BA=D8=A8 =D8=A8=
+=D8=B8=D9=87=D9=88=D8=B1=D9=87=D8=A7...">
+                                </div>
+                            </div>
+
+                            <div style=3D"display:flex;gap:12px">
+                                <button class=3D"btn btn-success">=E2=9C=85=
+ =D8=A7=D8=B9=D8=AA=D9=85=D8=A7=D8=AF =D9=88=D8=AD=D9=81=D8=B8 =D8=A7=D9=84=
+=D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9 =D8=A7=D9=84=D8=AD=D8=A7=D9=84=D9=8A=
+=D8=A9</button>
+                                <button class=3D"btn btn-outline">=F0=9F=97=
+=91=EF=B8=8F =D8=AA=D9=81=D8=B1=D9=8A=D8=BA =D9=83=D8=A7=D9=81=D8=A9 =D8=A7=
+=D9=84=D8=A8=D9=8A=D8=A7=D9=86=D8=A7=D8=AA</button>
+                                <button class=3D"btn btn-accent">=F0=9F=91=
+=81=EF=B8=8F =D9=85=D8=B9=D8=A7=D9=8A=D9=86=D8=A9 =D9=88=D8=B7=D8=A8=D8=A7=
+=D8=B9=D8=A9 =D8=A7=D9=84=D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D9=81=D9=88=
+=D8=A7=D8=AA=D9=8A=D8=B1 =D8=A7=D9=84=D8=AA=D9=88=D8=B1=D9=8A=D8=AF =D9=88=
+=D8=A7=D9=84=D9=85=D8=B4=D8=AA=D8=B1=D9=8A=D8=A7=D8=AA =3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-purchase">
+                    <div class=3D"card mb-24">
+                        <div class=3D"card-header">
+                            <span class=3D"card-title">=F0=9F=93=A6 =D9=82=
+=D9=8A=D8=AF =D9=88=D8=AA=D9=88=D8=B1=D9=8A=D8=AF =D9=85=D8=B4=D8=AA=D8=B1=
+=D9=8A=D8=A7=D8=AA =D8=AC=D8=AF=D9=8A=D8=AF=D8=A9 =D9=85=D8=AE=D8=B2=D9=86=
+=D9=8A=D8=A9</span>
+                            <span style=3D"font-size:12px;color:var(--text3=
+)" id=3D"purchInvNum"></span>
+                        </div>
+                        <div class=3D"card-body">
+                            <div class=3D"form-grid form-grid-3 mb-16">
+                                <div class=3D"form-group">
+                                    <label>=D8=A7=D9=84=D9=85=D9=88=D8=B1=
+=D8=AF / =D8=A7=D9=84=D9=85=D9=88=D8=B2=D8=B9 =D8=A7=D9=84=D9=85=D8=B9=D9=
+=86=D9=8A</label>
+                                    <select class=3D"form-control" id=3D"pu=
+rchSupplier"></select>
+                                </div>
+                                <div class=3D"form-group">
+                                    <label>=D8=AA=D8=A7=D8=B1=D9=8A=D8=AE =
+=D8=A7=D9=84=D8=B3=D9=86=D8=AF</label>
+                                    <input type=3D"date" class=3D"form-cont=
+rol" id=3D"purchDate">
+                                </div>
+                                <div class=3D"form-group">
+                                    <label>=D8=B1=D9=82=D9=85 =D9=81=D8=A7=
+=D8=AA=D9=88=D8=B1=D8=A9 =D8=A7=D9=84=D9=85=D9=88=D8=B1=D8=AF (=D8=A7=D9=84=
+=D9=85=D8=B1=D8=AC=D8=B9 =D8=A7=D9=84=D8=AE=D8=A7=D8=B1=D8=AC=D9=8A)</label=
+>
+                                    <input type=3D"text" class=3D"form-cont=
+rol" id=3D"purchExtNum" placeholder=3D"=D8=B3=D9=86=D8=AF =D8=B1=D9=82=D9=
+=85 =D8=A7=D9=84=D9=85=D9=88=D8=B1=D8=AF">
+                                </div>
+                            </div>
+
+                            <div style=3D"background:var(--success-light);b=
+order-radius:8px;padding:14px;margin-bottom:16px">
+                                <div style=3D"display:grid;grid-template-co=
+lumns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:flex-end">
+                                    <div class=3D"form-group">
+                                        <label>=D8=A7=D9=84=D8=B5=D9=86=D9=
+=81 =D8=A7=D9=84=D9=85=D8=B1=D8=A7=D8=AF =D8=AA=D9=88=D8=B1=D9=8A=D8=AF=D9=
+=87 =D9=84=D9=84=D9=85=D8=AE=D8=B2=D9=86</label>
+                                        <select class=3D"form-control" id=
+=3D"purchItemProd"></select>
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=A7=D9=84=D9=83=D9=85=D9=
+=8A=D8=A9 =D8=A7=D9=84=D9=85=D9=88=D8=B1=D8=AF=D8=A9</label>
+                                        <input type=3D"number" class=3D"for=
+m-control" id=3D"purchItemQty" value=3D"1" min=3D"1">
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=B3=D8=B9=D8=B1 =D8=A7=D9=
+=84=D8=AA=D9=83=D9=84=D9=81=D8=A9 =D8=A8=D8=A7=D9=84=D8=B4=D8=B1=D8=A7=D8=
+=A1 =D9=84=D9=84=D9=85=D8=A7=D8=AF=D8=A9</label>
+                                        <input type=3D"number" class=3D"for=
+m-control" id=3D"purchItemCost" step=3D"0.01">
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=A7=D9=84=D8=A5=D8=AC=D9=
+=85=D8=A7=D9=84=D9=8A =D8=A7=D9=84=D9=81=D8=B1=D8=B9=D9=8A</label>
+                                        <input type=3D"text" class=3D"form-=
+control" id=3D"purchItemTotal" readonly=3D"" style=3D"background:#fff">
+                                    </div>
+                                    <button class=3D"btn btn-success">+ =D8=
+=A5=D8=B6=D8=A7=D9=81=D8=A9 =D9=84=D9=84=D9=85=D8=B3=D8=AA=D9=86=D8=AF</but=
+ton>
+                                </div>
+                            </div>
+
+                            <div class=3D"invoice-items">
+                                <div class=3D"invoice-row header">
+                                    <span>#</span><span>=D8=A8=D9=8A=D8=A7=
+=D9=86 =D8=A7=D9=84=D9=85=D9=88=D8=A7=D8=AF =D8=A7=D9=84=D9=85=D9=88=D8=B1=
+=D8=AF=D8=A9</span><span>=D8=A7=D9=84=D9=83=D9=85=D9=8A=D8=A9</span><span>=
+=D8=A7=D9=84=D8=AA=D9=83=D9=84=D9=81=D8=A9</span><span>=D8=A7=D9=84=D8=A5=
+=D8=AC=D9=85=D8=A7=D9=84=D9=8A</span><span>=D8=B9=D9=85=D9=84=D9=8A=D8=A7=
+=D8=AA</span>
+                                </div>
+                                <div id=3D"purchItemsList"></div>
+                            </div>
+
+                            <div class=3D"invoice-total" id=3D"purchTotals"=
+></div>
+
+                            <div class=3D"form-grid form-grid-2 mb-16" styl=
+e=3D"margin-top:16px">
+                                <div class=3D"form-group">
+                                    <label>=D9=86=D9=88=D8=B9 =D8=B7=D8=B1=
+=D9=8A=D9=82=D8=A9 =D8=A7=D9=84=D8=B3=D8=AF=D8=A7=D8=AF =D9=84=D9=84=D9=85=
+=D9=88=D8=B1=D8=AF</label>
+                                    <select class=3D"form-control" id=3D"pu=
+rchPayType">
+                                        <option value=3D"cash">=D9=86=D9=82=
+=D8=AF=D9=8A</option>
+                                        <option value=3D"credit">=D8=A2=D8=
+=AC=D9=84 =D9=88=D8=B6=D9=85=D9=86 =D8=A7=D9=84=D9=85=D8=AF=D9=8A=D9=88=D9=
+=86=D9=8A=D8=A9</option>
+                                        <option value=3D"transfer">=D8=AA=
+=D8=AD=D9=88=D9=8A=D9=84 =D8=A8=D9=86=D9=83=D9=8A =D9=84=D9=84=D9=85=D8=A4=
+=D8=B3=D8=B3=D8=A9</option>
+                                    </select>
+                                </div>
+                                <div class=3D"form-group">
+                                    <label>=D8=A3=D9=8A =D9=85=D9=84=D8=A7=
+=D8=AD=D8=B8=D8=A7=D8=AA =D8=B9=D9=84=D9=89 =D8=A7=D9=84=D8=AA=D9=88=D8=B1=
+=D9=8A=D8=AF</label>
+                                    <input type=3D"text" class=3D"form-cont=
+rol" id=3D"purchNotes" placeholder=3D"=D9=85=D8=AB=D8=A7=D9=84: =D9=85=D8=
+=B3=D8=AA=D9=88=D8=AF=D8=B9 =D8=B1=D9=82=D9=85 1...">
+                                </div>
+                            </div>
+
+                            <div style=3D"display:flex;gap:12px">
+                                <button class=3D"btn btn-success">=E2=9C=85=
+ =D8=AD=D9=81=D8=B8 =D8=A7=D9=84=D9=81=D8=A7=D8=AA=D9=88=D8=B1=D8=A9 =D9=88=
+=D8=B2=D9=8A=D8=A7=D8=AF=D8=A9 =D9=85=D8=B3=D8=AA=D9=88=D9=8A=D8=A7=D8=AA =
+=D8=A7=D9=84=D9=85=D8=AE=D8=A7=D8=B2=D9=86</button>
+                                <button class=3D"btn btn-outline">=F0=9F=97=
+=91=EF=B8=8F =D9=85=D8=B3=D8=AD =D9=88=D8=A5=D9=84=D8=BA=D8=A7=D8=A1</butto=
+n>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D8=A3=D8=B1=
+=D8=B4=D9=8A=D9=81 =D9=88=D8=B3=D8=AC=D9=84 =D8=A7=D9=84=D9=81=D9=88=D8=A7=
+=D8=AA=D9=8A=D8=B1 =D8=A7=D9=84=D8=B9=D8=A7=D9=85 =3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-invoices">
+                    <div class=3D"card mb-16">
+                        <div class=3D"card-header">
+                            <span class=3D"card-title">=F0=9F=93=8B =D8=A7=
+=D9=84=D8=A3=D8=B1=D8=B4=D9=8A=D9=81 =D9=88=D8=A7=D9=84=D8=B3=D8=AC=D9=84 =
+=D8=A7=D9=84=D9=85=D8=A7=D9=84=D9=8A =D9=84=D9=83=D8=A7=D9=81=D8=A9 =D8=A7=
+=D9=84=D9=81=D9=88=D8=A7=D8=AA=D9=8A=D8=B1</span>
+                            <div style=3D"display:flex;gap:8px">
+                                <select class=3D"form-control" id=3D"invFil=
+terType" style=3D"padding:6px 10px;font-size:12px">
+                                    <option value=3D"">=D8=AC=D9=85=D9=8A=
+=D8=B9 =D8=A7=D9=84=D9=85=D8=B3=D8=AA=D9=86=D8=AF=D8=A7=D8=AA</option>
+                                    <option value=3D"sale">=D9=81=D9=88=D8=
+=A7=D8=AA=D9=8A=D8=B1 =D8=A7=D9=84=D8=A8=D9=8A=D8=B9</option>
+                                    <option value=3D"purchase">=D8=B3=D9=86=
+=D8=AF=D8=A7=D8=AA =D8=A7=D9=84=D8=AA=D9=88=D8=B1=D9=8A=D8=AF =D9=88=D8=A7=
+=D9=84=D8=B4=D8=B1=D8=A7=D8=A1</option>
+                                </select>
+                                <input type=3D"month" class=3D"form-control=
+" id=3D"invFilterMonth" style=3D"padding:6px 10px;font-size:12px">
+                            </div>
+                        </div>
+                        <div class=3D"card-body" style=3D"padding:0">
+                            <div class=3D"table-wrap"><table id=3D"invoices=
+Table"></table></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D8=A5=D8=AF=
+=D8=A7=D8=B1=D8=A9 =D8=AF=D9=84=D9=8A=D9=84 =D8=A7=D9=84=D8=B3=D9=84=D8=B9 =
+=D9=88=D8=A7=D9=84=D8=A3=D8=B5=D9=86=D8=A7=D9=81 =D9=88=D8=A7=D9=84=D9=83=
+=D8=AA=D8=A8 =3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-products">
+                    <div class=3D"card mb-16">
+                        <div class=3D"card-header">
+                            <span class=3D"card-title">=F0=9F=93=97 =D8=A7=
+=D9=84=D8=AF=D9=84=D9=8A=D9=84 =D8=A7=D9=84=D8=B9=D8=A7=D9=85 =D9=84=D9=84=
+=D9=83=D8=AA=D8=A8 =D9=88=D8=A7=D9=84=D9=85=D9=86=D8=AA=D8=AC=D8=A7=D8=AA</=
+span>
+                            <button class=3D"btn btn-primary btn-sm">+ =D8=
+=AA=D9=83=D9=88=D9=8A=D8=AF =D9=88=D8=A5=D8=AF=D8=B1=D8=A7=D8=AC =D8=B5=D9=
+=86=D9=81 =D8=AC=D8=AF=D9=8A=D8=AF</button>
+                        </div>
+                        <div class=3D"card-body" style=3D"padding:12px 16px=
+">
+                            <div class=3D"search-bar">
+                                <input type=3D"text" class=3D"form-control"=
+ id=3D"productSearch" placeholder=3D"=F0=9F=94=8D =D8=A7=D8=A8=D8=AD=D8=AB =
+=D8=A8=D8=A7=D9=84=D8=A7=D8=B3=D9=85=D8=8C =D8=A7=D9=84=D9=85=D8=A4=D9=84=
+=D9=81=D8=8C =D8=A3=D9=88 =D8=A7=D9=84=D8=B1=D9=82=D9=85 =D8=A7=D9=84=D8=AF=
+=D9=88=D9=84=D9=8A =D9=84=D9=84=D8=A8=D8=A7=D8=B1=D9=83=D9=88=D8=AF...">
+                                <select class=3D"form-control" id=3D"produc=
+tCatFilter" style=3D"max-width:160px"></select>
+                            </div>
+                        </div>
+                        <div class=3D"table-wrap"><table id=3D"productsTabl=
+e"></table></div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D9=85=D8=AC=
+=D9=85=D9=88=D8=B9=D8=A7=D8=AA =D9=88=D8=AA=D8=B5=D9=86=D9=8A=D9=81=D8=A7=
+=D8=AA =D8=A7=D9=84=D9=85=D9=88=D8=A7=D8=AF =3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-categories">
+                    <div class=3D"card">
+                        <div class=3D"card-header">
+                            <span class=3D"card-title">=F0=9F=97=82=EF=B8=
+=8F =D8=AA=D9=87=D9=8A=D8=A6=D8=A9 =D8=A7=D9=84=D9=81=D8=A6=D8=A7=D8=AA =D9=
+=88=D8=A7=D9=84=D8=AA=D8=B5=D9=86=D9=8A=D9=81=D8=A7=D8=AA =D8=A7=D9=84=D9=
+=87=D9=8A=D9=83=D9=84=D9=8A=D8=A9</span>
+                            <button class=3D"btn btn-primary btn-sm">+ =D8=
+=A5=D9=86=D8=B4=D8=A7=D8=A1 =D9=81=D8=A6=D8=A9 / =D9=85=D8=AC=D9=85=D9=88=
+=D8=B9=D8=A9 =D8=AC=D8=AF=D9=8A=D8=AF=D8=A9</button>
+                        </div>
+                        <div class=3D"card-body" style=3D"padding:0">
+                            <table style=3D"width:100%;font-size:13px;borde=
+r-collapse:collapse">
+                                <thead>
+                                    <tr>
+                                        <th>=D8=AA=D8=B3=D9=84=D8=B3=D9=84<=
+/th>
+                                        <th>=D8=A7=D8=B3=D9=85 =D8=A7=D9=84=
+=D9=81=D8=A6=D8=A9 / =D8=A7=D9=84=D9=85=D8=AC=D9=85=D9=88=D8=B9=D8=A9 =D8=
+=A7=D9=84=D9=85=D8=AE=D8=B2=D9=86=D9=8A=D8=A9</th>
+                                        <th>=D8=B9=D8=AF=D8=AF =D8=A7=D9=84=
+=D9=85=D9=88=D8=A7=D8=AF =D8=A7=D9=84=D9=85=D8=AF=D8=B1=D8=AC=D8=A9 =D8=AA=
+=D8=AD=D8=AA=D9=87=D8=A7</th>
+                                        <th>=D8=B9=D9=85=D9=84=D9=8A=D8=A7=
+=D8=AA =D8=A7=D9=84=D8=AA=D8=AD=D9=83=D9=85</th>
+                                    </tr>
+                                </thead>
+                                <tbody id=3D"catsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D8=A5=D8=AF=
+=D8=A7=D8=B1=D8=A9 =D8=A7=D9=84=D8=B9=D9=85=D9=84=D8=A7=D8=A1 =D9=88=D8=A7=
+=D9=84=D8=B2=D8=A8=D8=A7=D8=A6=D9=86 =3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-customers">
+                    <div class=3D"card">
+                        <div class=3D"card-header">
+                            <span class=3D"card-title">=F0=9F=91=A5 =D8=AF=
+=D9=84=D9=8A=D9=84 =D9=88=D8=A8=D9=8A=D8=A7=D9=86=D8=A7=D8=AA =D8=A7=D9=84=
+=D8=B2=D8=A8=D8=A7=D8=A6=D9=86 =D9=88=D8=A7=D9=84=D8=B9=D9=85=D9=84=D8=A7=
+=D8=A1</span>
+                            <button class=3D"btn btn-primary btn-sm">+ =D8=
+=A5=D8=B6=D8=A7=D9=81=D8=A9 =D8=B2=D8=A8=D9=88=D9=86 =D8=AC=D8=AF=D9=8A=D8=
+=AF</button>
+                        </div>
+                        <div class=3D"card-body" style=3D"padding:12px 16px=
+">
+                            <input type=3D"text" class=3D"form-control" id=
+=3D"custSearch" placeholder=3D"=F0=9F=94=8D =D8=A7=D8=A8=D8=AD=D8=AB =D8=B9=
+=D9=86 =D8=A7=D9=84=D8=B9=D9=85=D9=8A=D9=84 =D8=A8=D8=A7=D9=84=D8=A7=D8=B3=
+=D9=85 =D8=A3=D9=88 =D8=B1=D9=82=D9=85 =D8=A7=D9=84=D9=87=D8=A7=D8=AA=D9=81=
+..." style=3D"max-width:300px">
+                        </div>
+                        <div class=3D"table-wrap"><table id=3D"customersTab=
+le"></table></div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D8=A5=D8=AF=
+=D8=A7=D8=B1=D8=A9 =D8=AF=D9=84=D9=8A=D9=84 =D8=A7=D9=84=D9=85=D9=88=D8=B1=
+=D8=AF=D9=8A=D9=86 =D9=88=D8=AF=D9=88=D8=B1 =D8=A7=D9=84=D9=86=D8=B4=D8=B1 =
+=3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-suppliers">
+                    <div class=3D"card">
+                        <div class=3D"card-header">
+                            <span class=3D"card-title">=F0=9F=8F=AD =D8=AF=
+=D9=84=D9=8A=D9=84 =D8=A7=D9=84=D9=85=D9=88=D8=B1=D8=AF=D9=8A=D9=86 =D9=88=
+=D8=A7=D9=84=D9=85=D9=88=D8=B2=D8=B9=D9=8A=D9=86 =D8=A7=D9=84=D9=85=D8=B9=
+=D8=AA=D9=85=D8=AF=D9=8A=D9=86</span>
+                            <button class=3D"btn btn-primary btn-sm">+ =D8=
+=A5=D8=B6=D8=A7=D9=81=D8=A9 =D9=85=D9=88=D8=B1=D8=AF =D8=AC=D8=AF=D9=8A=D8=
+=AF</button>
+                        </div>
+                        <div class=3D"card-body" style=3D"padding:12px 16px=
+">
+                            <input type=3D"text" class=3D"form-control" id=
+=3D"suppSearch" placeholder=3D"=F0=9F=94=8D =D8=A7=D8=A8=D8=AD=D8=AB =D8=B9=
+=D9=86 =D9=85=D9=88=D8=B1=D8=AF =D8=A3=D9=88 =D8=B4=D8=B1=D9=83=D8=A9 =D9=
+=86=D9=82=D9=84..." style=3D"max-width:300px">
+                        </div>
+                        <div class=3D"table-wrap"><table id=3D"suppliersTab=
+le"></table></div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D8=AA=D9=82=
+=D9=8A=D9=8A=D8=AF =D8=A7=D9=84=D9=85=D8=B5=D8=B1=D9=88=D9=81=D8=A7=D8=AA =
+=D9=88=D8=A7=D9=84=D9=86=D9=81=D9=82=D8=A7=D8=AA =D8=A7=D9=84=D8=A5=D8=AF=
+=D8=A7=D8=B1=D9=8A=D8=A9 =3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-expenses">
+                    <div style=3D"display:grid;grid-template-columns:1fr 2f=
+r;gap:16px">
+                        <div class=3D"card">
+                            <div class=3D"card-header"><span class=3D"card-=
+title">=F0=9F=92=B8 =D8=AA=D8=B3=D8=AC=D9=8A=D9=84 =D9=82=D9=8A=D8=AF =D8=
+=A7=D8=B3=D8=AA=D9=87=D9=84=D8=A7=D9=83 =D9=85=D8=B5=D8=B1=D9=88=D9=81=D8=
+=A7=D8=AA</span></div>
+                            <div class=3D"card-body">
+                                <div class=3D"form-grid" style=3D"margin-bo=
+ttom:12px">
+                                    <div class=3D"form-group">
+                                        <label>=D8=A8=D9=8A=D8=A7=D9=86 =D9=
+=88=D8=AC=D9=87 =D8=A7=D9=84=D8=B5=D8=B1=D9=81 =D9=88=D8=A7=D9=84=D9=86=D9=
+=81=D9=82=D8=A9</label>
+                                        <input type=3D"text" class=3D"form-=
+control" id=3D"expDesc" placeholder=3D"=D9=85=D8=AB=D8=A7=D9=84: =D9=81=D9=
+=88=D8=A7=D8=AA=D9=8A=D8=B1 =D8=A5=D9=86=D8=AA=D8=B1=D9=86=D8=AA=D8=8C =D8=
+=B5=D9=8A=D8=A7=D9=86=D8=A9=D8=8C =D9=82=D8=B1=D8=B7=D8=A7=D8=B3=D9=8A=D8=
+=A9 =D9=85=D9=83=D8=AA=D8=A8=D9=8A=D8=A9...">
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=A7=D9=84=D9=85=D8=A8=D9=
+=84=D8=BA =D8=A7=D9=84=D9=85=D8=AF=D9=81=D9=88=D8=B9 (=D8=A8=D8=A7=D9=84=D8=
+=B1=D9=8A=D8=A7=D9=84 =D8=A7=D9=84=D8=B3=D8=B9=D9=88=D8=AF=D9=8A)</label>
+                                        <input type=3D"number" class=3D"for=
+m-control" id=3D"expAmount" step=3D"0.01">
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=A7=D9=84=D9=81=D8=A6=D8=
+=A9 =D8=A7=D9=84=D9=87=D9=8A=D9=83=D9=84=D9=8A=D8=A9 =D9=84=D9=84=D9=86=D9=
+=81=D9=82=D8=A9</label>
+                                        <select class=3D"form-control" id=
+=3D"expCat">
+                                            <option>=D8=A7=D9=84=D8=A5=D9=
+=8A=D8=AC=D8=A7=D8=B1=D8=A7=D8=AA =D9=88=D9=85=D8=B1=D8=A7=D9=83=D8=B2 =D8=
+=A7=D9=84=D8=AA=D8=AE=D8=B2=D9=8A=D9=86</option>
+                                            <option>=D8=A7=D9=84=D9=85=D8=
+=B1=D8=A7=D9=81=D9=82 (=D9=83=D9=87=D8=B1=D8=A8=D8=A7=D8=A1=D8=8C =D9=85=D9=
+=8A=D8=A7=D9=87=D8=8C =D8=A7=D8=AA=D8=B5=D8=A7=D9=84=D8=A7=D8=AA)</option>
+                                            <option>=D8=A7=D9=84=D8=A3=D8=
+=AC=D9=88=D8=B1 =D9=88=D8=A7=D9=84=D8=B1=D9=88=D8=A7=D8=AA=D8=A8 =D9=88=D8=
+=A7=D9=84=D9=85=D9=83=D8=A7=D9=81=D8=A2=D8=AA</option>
+                                            <option>=D8=A3=D8=B9=D9=85=D8=
+=A7=D9=84 =D8=A7=D9=84=D8=B5=D9=8A=D8=A7=D9=86=D8=A9 =D9=88=D8=A7=D9=84=D9=
+=86=D8=B8=D8=A7=D9=81=D8=A9</option>
+                                            <option>=D8=AD=D9=85=D9=84=D8=
+=A7=D8=AA =D8=AA=D8=B3=D9=88=D9=8A=D9=82=D9=8A=D8=A9 =D9=88=D8=AA=D9=88=D8=
+=B2=D9=8A=D8=B9</option>
+                                            <option>=D9=86=D9=81=D9=82=D8=
+=A7=D8=AA =D8=B9=D8=A7=D9=85=D8=A9 =D9=85=D8=AA=D9=86=D9=88=D8=B9=D8=A9</op=
+tion>
+                                        </select>
+                                    </div>
+                                    <div class=3D"form-group">
+                                        <label>=D8=AA=D8=A7=D8=B1=D9=8A=D8=
+=AE =D8=B3=D8=AF=D8=A7=D8=AF =D8=A7=D9=84=D9=82=D9=8A=D8=AF</label>
+                                        <input type=3D"date" class=3D"form-=
+control" id=3D"expDate">
+                                    </div>
+                                </div>
+                                <button class=3D"btn btn-danger">+ =D8=AA=
+=D8=B1=D8=AD=D9=8A=D9=84 =D9=82=D9=8A=D8=AF =D8=A7=D9=84=D9=85=D8=B5=D8=B1=
+=D9=88=D9=81</button>
+                            </div>
+                        </div>
+                        <div class=3D"card">
+                            <div class=3D"card-header">
+                                <span class=3D"card-title">=D9=83=D8=B4=D9=
+=81 =D9=88=D8=AC=D8=AF=D9=88=D9=84 =D8=A7=D9=84=D8=AA=D9=83=D8=A7=D9=84=D9=
+=8A=D9=81 =D9=88=D8=A7=D9=84=D9=86=D9=81=D9=82=D8=A7=D8=AA =D8=A7=D9=84=D8=
+=B4=D9=87=D8=B1=D9=8A</span>
+                                <input type=3D"month" class=3D"form-control=
+" id=3D"expFilter" style=3D"padding:6px;font-size:12px; max-width:180px">
+                            </div>
+                            <div class=3D"card-body" style=3D"padding:0">
+                                <div class=3D"table-wrap"><table id=3D"expe=
+nsesTable"></table></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =3D=3D=3D=3D=3D =D8=B4=D8=A7=D8=B4=D8=A9 =D8=A7=D9=84=
+=D8=A5=D8=B9=D8=AF=D8=A7=D8=AF=D8=A7=D8=AA =D8=A7=D9=84=D8=B9=D8=A7=D9=85=
+=D8=A9 =D9=88=D8=A5=D8=AF=D8=A7=D8=B1=D8=A9 =D8=A7=D9=84=D8=B5=D9=84=D8=A7=
+=D8=AD=D9=8A=D8=A7=D8=AA =D8=A7=D9=84=D8=A8=D9=86=D9=83=D9=8A=D8=A9 =D9=84=
+=D9=84=D9=85=D8=B3=D8=AA=D8=AE=D8=AF=D9=85=D9=8A=D9=86 =3D=3D=3D=3D=3D -->
+                <div class=3D"page" id=3D"page-settings">
+                    <div style=3D"display:grid;grid-template-columns:1fr 1f=
+r;gap:16px">
+                        <div class=3D"card">
+                            <div class=3D"card-header"><span class=3D"card-=
+title">=E2=9A=99=EF=B8=8F =D8=A7=D9=84=D9=87=D9=88=D9=8A=D8=A9 =D8=A7=D9=84=
+=D9=82=D8=A7=D9=86=D9=88=D9=86=D9=8A=D8=A9 =D9=88=D8=A7=D9=84=D8=B6=D8=B1=
+=D9=8A=D8=A8=D9=8A=D8=A9 =D9=84=D9=84=D9=85=D9=86=D8=B4=D8=A3=D8=A9</span><=
+/div>
+                            <div class=3D"card-body">
+                                <div class=3D"form-grid" style=3D"margin-bo=
+ttom:16px">
+                                    <div class=3D"form-group"><label>=D8=A7=
+=D8=B3=D9=85 =D8=A7=D9=84=D9=85=D9=83=D8=AA=D8=A8=D8=A9 =D8=A7=D9=84=D8=A3=
+=D8=B3=D8=A7=D8=B3=D9=8A =D9=84=D9=84=D9=85=D9=86=D8=B4=D8=A3=D8=A9</label>=
+<input type=3D"text" class=3D"form-control" id=3D"setStoreName"></div>
+                                    <div class=3D"form-group"><label>=D8=B1=
+=D9=82=D9=85 =D9=87=D8=A7=D8=AA=D9=81 =D8=A7=D9=84=D9=85=D9=86=D8=B4=D8=A3=
+=D8=A9 =D9=84=D9=84=D8=AA=D9=88=D8=A7=D8=B5=D9=84</label><input type=3D"tex=
+t" class=3D"form-control" id=3D"setPhone"></div>
+                                    <div class=3D"form-group"><label>=D8=A7=
+=D9=84=D8=B9=D9=86=D9=88=D8=A7=D9=86 =D8=A7=D9=84=D9=88=D8=B7=D9=86=D9=8A /=
+ =D8=A7=D9=84=D8=AA=D9=81=D8=A7=D8=B5=D9=8A=D9=84 =D8=A7=D9=84=D8=AC=D8=BA=
+=D8=B1=D8=A7=D9=81=D9=8A=D8=A9</label><input type=3D"text" class=3D"form-co=
+ntrol" id=3D"setAddress"></div>
+                                    <div class=3D"form-group"><label>=D8=A7=
+=D9=84=D8=B1=D9=82=D9=85 =D8=A7=D9=84=D8=B6=D8=B1=D9=8A=D8=A8=D9=8A =D9=84=
+=D9=84=D9=85=D9=86=D8=B4=D8=A3=D8=A9 (=D9=87=D9=8A=D8=A6=D8=A9 =D8=A7=D9=84=
+=D8=B2=D9=83=D8=A7=D8=A9 =D9=88=D8=A7=D9=84=D8=AC=D9=85=D8=A7=D8=B1=D9=83)<=
+/label><input type=3D"text" class=3D"form-control" id=3D"setVatNum"></div>
+                                    <div class=3D"form-group"><label>=D8=A7=
+=D9=84=D8=AD=D8=AF =D8=A7=D9=84=D8=A3=D8=AF=D9=86=D9=89 =D8=A7=D9=84=D8=A7=
+=D9=81=D8=AA=D8=B1=D8=A7=D8=B6=D9=8A =D9=84=D9=84=D8=B7=D9=84=D8=A8 =D9=88=
+=D8=A7=D9=84=D8=A5=D9=86=D8=B0=D8=A7=D8=B1 =D8=A8=D8=A7=D9=84=D8=B3=D9=84=
+=D8=B9</label><input type=3D"number" class=3D"form-control" id=3D"setMinSto=
+ck"></div>
+                                    <div class=3D"form-group"><label>=D9=86=
+=D8=B3=D8=A8=D8=A9 =D8=B6=D8=B1=D9=8A=D8=A8=D8=A9 =D8=A7=D9=84=D9=85=D8=A8=
+=D9=8A=D8=B9=D8=A7=D8=AA =D8=A7=D9=84=D8=A7=D9=81=D8=AA=D8=B1=D8=A7=D8=B6=
+=D9=8A=D8=A9 =D8=A8=D8=A7=D9=84=D9=85=D9=85=D9=84=D9=83=D8=A9 (%)</label><i=
+nput type=3D"number" class=3D"form-control" id=3D"setVatPct"></div>
+                                </div>
+                                <button class=3D"btn btn-primary">=F0=9F=92=
+=BE =D8=AD=D9=81=D8=B8 =D8=A7=D9=84=D8=AA=D9=87=D9=8A=D8=A6=D8=A9 =D9=88=D8=
+=A7=D9=84=D8=A5=D8=B9=D8=AF=D8=A7=D8=AF=D8=A7=D8=AA</button>
+                            </div>
+                        </div>
+                        <div class=3D"card">
+                            <div class=3D"card-header"><span class=3D"card-=
+title">=F0=9F=94=90 =D8=A5=D8=AF=D8=A7=D8=B1=D8=A9 =D8=A7=D9=84=D8=AD=D8=B3=
+=D8=A7=D8=A8=D8=A7=D8=AA =D9=88=D8=B5=D9=84=D8=A7=D8=AD=D9=8A=D8=A7=D8=AA =
+=D8=A7=D9=84=D9=85=D9=88=D8=B8=D9=81=D9=8A=D9=86</span></div>
+                            <div class=3D"card-body">
+                                <div id=3D"usersList" style=3D"margin-botto=
+m:16px"></div>
+                                <div class=3D"divider"></div>
+                                <div style=3D"font-weight:700;font-size:13p=
+x;margin-bottom:12px;color:var(--primary)">=D8=A5=D9=86=D8=B4=D8=A7=D8=A1 /=
+ =D8=AA=D8=AD=D8=AF=D9=8A=D8=AB =D8=AD=D8=B3=D8=A7=D8=A8 =D9=85=D8=A8=D9=8A=
+=D8=B9=D8=A7=D8=AA =D8=AC=D8=AF=D9=8A=D8=AF</div>
+                                <div class=3D"form-grid" style=3D"margin-bo=
+ttom:12px">
+                                    <div class=3D"form-group"><label>=D8=A7=
+=D8=B3=D9=85 =D8=AD=D8=B3=D8=A7=D8=A8 =D8=AA=D8=B3=D8=AC=D9=8A=D9=84 =D8=A7=
+=D9=84=D8=AF=D8=AE=D9=88=D9=84 (Username)</label><input type=3D"text" class=
+=3D"form-control" id=3D"newUsername"></div>
+                                    <div class=3D"form-group"><label>=D8=AA=
+=D8=B9=D9=8A=D9=8A=D9=86 =D9=83=D9=84=D9=85=D8=A9 =D8=A7=D9=84=D9=85=D8=B1=
+=D9=88=D8=B1 =D8=A7=D9=84=D8=B3=D8=B1=D9=8A=D8=A9</label><input type=3D"pas=
+sword" class=3D"form-control" id=3D"newPassword"></div>
+                                    <div class=3D"form-group"><label>=D9=85=
+=D8=B3=D8=AA=D9=88=D9=89 =D8=A7=D9=84=D8=B5=D9=84=D8=A7=D8=AD=D9=8A=D8=A9 =
+=D9=81=D9=8A =D8=A7=D9=84=D8=AD=D8=B3=D8=A7=D8=A8=D8=A7=D8=AA</label>
+                                        <select class=3D"form-control" id=
+=3D"newRole">
+                                            <option value=3D"admin">=D8=A5=
+=D8=AF=D8=A7=D8=B1=D8=A9 =D8=B9=D8=A7=D9=85=D8=A9 =D9=83=D8=A7=D9=85=D9=84=
+=D8=A9 (Admin)</option>
+                                            <option value=3D"cashier">=D8=
+=A3=D9=85=D9=8A=D9=86 =D8=B5=D9=86=D8=AF=D9=88=D9=82 / =D9=83=D8=A7=D8=B4=
+=D9=8A=D8=B1 =D9=85=D8=A8=D9=8A=D8=B9=D8=A7=D8=AA =D9=81=D9=82=D8=B7</optio=
+n>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class=3D"btn btn-primary">+ =D8=AD=
+=D9=81=D8=B8 =D9=88=D8=AA=D8=B1=D8=AD=D9=8A=D9=84 =D8=AD=D8=B3=D8=A7=D8=A8 =
+=D8=A7=D9=84=D9=85=D8=B3=D8=AA=D8=AE=D8=AF=D9=85</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /content -->
+        </div><!-- /main -->
+    </div><!-- /app -->
+
+    <!-- =D8=A7=D9=84=D9=86=D9=88=D8=A7=D9=81=D8=B0 =D8=A7=D9=84=D9=85=D9=
+=86=D8=A8=D8=AB=D9=82=D8=A9 =D8=A7=D9=84=D8=AA=D9=81=D8=A7=D8=B9=D9=84=D9=
+=8A=D8=A9 =D8=A7=D9=84=D9=85=D9=88=D8=AD=D8=AF=D8=A9 (MODALS) -->
+    <div id=3D"modalOverlay" class=3D"modal-overlay" style=3D"display:none"=
+>
+        <div class=3D"modal" id=3D"modalBox">
+            <div class=3D"modal-header">
+                <span class=3D"modal-title" id=3D"modalTitle">=D8=AA=D9=81=
+=D8=A7=D8=B5=D9=8A=D9=84 =D8=A7=D9=84=D8=AA=D8=AD=D8=AF=D9=8A=D8=AB</span>
+                <button class=3D"modal-close">=E2=9C=95</button>
+            </div>
+            <div class=3D"modal-body" id=3D"modalBody"></div>
+            <div class=3D"modal-footer" id=3D"modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- =D8=A7=D9=84=D8=AA=D8=AD=D9=83=D9=85 =D8=A7=D9=84=D8=B5=D8=A7=D9=
+=85=D8=AA =D9=88=D8=A7=D9=84=D9=85=D8=AE=D9=81=D9=8A =D8=A8=D9=85=D9=84=D9=
+=81=D8=A7=D8=AA =D8=A7=D9=84=D8=A7=D8=B3=D8=AA=D8=B9=D8=A7=D8=AF=D8=A9 =D8=
+=A7=D9=84=D8=A7=D8=AD=D8=AA=D9=8A=D8=A7=D8=B7=D9=8A=D8=A9 -->
+    <input type=3D"file" id=3D"importFile" accept=3D".json" style=3D"displa=
+y:none">
+
+   =20
+
+</body></html>
+------MultipartBoundary--kH8nzvDfvWEPbB9ukg9tA5raIoanENMomMgM5dp7z0----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-366d5bf1-e0d2-4f39-b5d4-2bc376c0f39c@mhtml.blink
+
+@charset "utf-8";
+
+:root { --primary: #1a3a5c; --primary-light: #2563a8; --accent: #e8a020; --=
+accent-light: #f5c65a; --success: #1a7a4a; --success-light: #e8f5ee; --dang=
+er: #c0392b; --danger-light: #fdecea; --warning: #d68910; --warning-light: =
+#fef9e7; --info: #1565c0; --info-light: #e8f0fe; --bg: #f0f2f5; --surface: =
+#ffffff; --surface2: #f8f9fa; --border: #dde3ec; --text: #1a2332; --text2: =
+#4a5568; --text3: #8a9ab0; --sidebar-w: 240px; --header-h: 60px; --radius: =
+10px; --shadow: 0 2px 12px rgba(0,0,0,0.08); --shadow-md: 0 4px 20px rgba(0=
+,0,0,0.12); }
+
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+body { font-family: "Segoe UI", Tahoma, Arial, sans-serif; background: var(=
+--bg); color: var(--text); direction: rtl; }
+
+#loginScreen { position: fixed; inset: 0px; background: linear-gradient(135=
+deg, rgb(26, 58, 92) 0%, rgb(37, 99, 168) 50%, rgb(26, 92, 58) 100%); displ=
+ay: flex; align-items: center; justify-content: center; z-index: 9999; }
+
+.login-box { background: white; border-radius: 20px; padding: 48px 40px; wi=
+dth: 400px; box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 60px; text-align: cente=
+r; }
+
+.login-logo { font-size: 48px; margin-bottom: 8px; }
+
+.login-box h1 { color: var(--primary); font-size: 24px; margin-bottom: 4px;=
+ }
+
+.login-box p { color: var(--text2); font-size: 14px; margin-bottom: 32px; }
+
+.login-field { margin-bottom: 16px; text-align: right; }
+
+.login-field label { display: block; font-size: 13px; color: var(--text2); =
+margin-bottom: 6px; font-weight: 600; }
+
+.login-field input { width: 100%; padding: 12px 16px; border: 1.5px solid v=
+ar(--border); border-radius: 8px; font-size: 15px; font-family: inherit; }
+
+.login-field input:focus { outline: none; border-color: var(--primary-light=
+); box-shadow: rgba(37, 99, 168, 0.15) 0px 0px 0px 3px; }
+
+.login-btn { width: 100%; padding: 14px; background: var(--primary); color:=
+ white; border-width: medium; border-style: none; border-color: currentcolo=
+r; border-image: initial; border-radius: 8px; font-size: 16px; font-weight:=
+ 700; cursor: pointer; margin-top: 8px; font-family: inherit; }
+
+.login-btn:hover { background: var(--primary-light); }
+
+.login-error { color: var(--danger); font-size: 13px; margin-top: 12px; dis=
+play: none; }
+
+.login-hint { font-size: 12px; color: var(--text3); margin-top: 16px; }
+
+#app { display: none; min-height: 100vh; }
+
+.sidebar { position: fixed; top: 0px; right: 0px; width: var(--sidebar-w); =
+height: 100vh; background: var(--primary); color: white; display: flex; fle=
+x-direction: column; z-index: 100; overflow-y: auto; }
+
+.sidebar-header { padding: 20px 16px; border-bottom: 1px solid rgba(255, 25=
+5, 255, 0.1); }
+
+.sidebar-logo { font-size: 28px; text-align: center; }
+
+.sidebar-title { font-size: 14px; font-weight: 700; text-align: center; mar=
+gin-top: 4px; color: var(--accent-light); }
+
+.sidebar-store { font-size: 11px; text-align: center; color: rgba(255, 255,=
+ 255, 0.6); margin-top: 2px; }
+
+.sidebar-nav { padding: 12px 0px; flex: 1 1 0%; }
+
+.nav-section { padding: 8px 16px 4px; font-size: 10px; color: rgba(255, 255=
+, 255, 0.4); text-transform: uppercase; letter-spacing: 1px; }
+
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 16=
+px; cursor: pointer; font-size: 13px; color: rgba(255, 255, 255, 0.8); tran=
+sition: 0.2s; border-right: 3px solid transparent; }
+
+.nav-item:hover { background: rgba(255, 255, 255, 0.1); color: white; }
+
+.nav-item.active { background: rgba(255, 255, 255, 0.15); color: white; bor=
+der-right-color: var(--accent); }
+
+.nav-item .icon { font-size: 18px; width: 22px; text-align: center; }
+
+.sidebar-footer { padding: 12px 16px; border-top: 1px solid rgba(255, 255, =
+255, 0.1); font-size: 11px; color: rgba(255, 255, 255, 0.4); }
+
+.main { margin-right: var(--sidebar-w); min-height: 100vh; display: flex; f=
+lex-direction: column; width: calc(100% - var(--sidebar-w)); }
+
+.topbar { height: var(--header-h); background: var(--surface); border-botto=
+m: 1px solid var(--border); display: flex; align-items: center; justify-con=
+tent: space-between; padding: 0px 24px; position: sticky; top: 0px; z-index=
+: 50; box-shadow: var(--shadow); }
+
+.topbar-title { font-size: 18px; font-weight: 700; color: var(--primary); }
+
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+
+.topbar-badge { background: var(--danger); color: white; border-radius: 20p=
+x; padding: 4px 12px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+.topbar-user { font-size: 13px; color: var(--text2); }
+
+.logout-btn { padding: 6px 14px; border: 1.5px solid var(--border); border-=
+radius: 6px; font-size: 12px; cursor: pointer; background: white; font-fami=
+ly: inherit; }
+
+.logout-btn:hover { background: var(--bg); }
+
+.content { flex: 1 1 0%; padding: 24px; }
+
+.page { display: none; }
+
+.page.active { display: block; }
+
+.card { background: var(--surface); border-radius: var(--radius); border: 1=
+px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
+
+.card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); =
+display: flex; align-items: center; justify-content: space-between; }
+
+.card-title { font-size: 15px; font-weight: 700; color: var(--primary); }
+
+.card-body { padding: 20px; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16=
+px; margin-bottom: 24px; }
+
+.stat-card { background: var(--surface); border-radius: var(--radius); padd=
+ing: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+
+.stat-label { font-size: 12px; color: var(--text2); margin-bottom: 8px; fon=
+t-weight: 600; }
+
+.stat-value { font-size: 26px; font-weight: 800; color: var(--primary); }
+
+.stat-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+.stat-icon { float: left; font-size: 32px; opacity: 0.15; }
+
+.table-wrap { overflow-x: auto; width: 100%; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+th { background: var(--surface2); padding: 10px 14px; text-align: right; fo=
+nt-size: 12px; font-weight: 700; color: var(--text2); border-bottom: 2px so=
+lid var(--border); white-space: nowrap; }
+
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var=
+(--text); vertical-align: middle; }
+
+tr:hover td { background: var(--surface2); }
+
+tr:last-child td { border-bottom-width: medium; border-bottom-style: none; =
+border-bottom-color: currentcolor; }
+
+.form-grid { display: grid; gap: 16px; }
+
+.form-grid-2 { grid-template-columns: 1fr 1fr; }
+
+.form-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-group label { font-size: 12px; font-weight: 700; color: var(--text2);=
+ }
+
+.form-control { padding: 9px 12px; border: 1.5px solid var(--border); borde=
+r-radius: 7px; font-size: 13px; font-family: inherit; color: var(--text); b=
+ackground: var(--surface); width: 100%; }
+
+.form-control:focus { outline: none; border-color: var(--primary-light); bo=
+x-shadow: rgba(37, 99, 168, 0.1) 0px 0px 0px 3px; }
+
+.btn { padding: 9px 18px; border-radius: 7px; font-size: 13px; font-weight:=
+ 700; cursor: pointer; border-width: medium; border-style: none; border-col=
+or: currentcolor; border-image: initial; font-family: inherit; transition: =
+0.2s; display: inline-flex; align-items: center; gap: 6px; }
+
+.btn-primary { background: var(--primary); color: white; }
+
+.btn-primary:hover { background: var(--primary-light); }
+
+.btn-success { background: var(--success); color: white; }
+
+.btn-success:hover { background: rgb(26, 154, 90); }
+
+.btn-danger { background: var(--danger); color: white; }
+
+.btn-danger:hover { background: rgb(231, 76, 60); }
+
+.btn-warning { background: var(--warning); color: white; }
+
+.btn-outline { background: white; color: var(--primary); border: 1.5px soli=
+d var(--border); }
+
+.btn-outline:hover { background: var(--bg); }
+
+.btn-sm { padding: 5px 10px; font-size: 11px; }
+
+.btn-accent { background: var(--accent); color: white; }
+
+.btn-accent:hover { background: var(--accent-light); color: var(--primary);=
+ }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; fon=
+t-size: 11px; font-weight: 700; }
+
+.badge-success { background: var(--success-light); color: var(--success); }
+
+.badge-danger { background: var(--danger-light); color: var(--danger); }
+
+.badge-warning { background: var(--warning-light); color: var(--warning); }
+
+.badge-info { background: var(--info-light); color: var(--info); }
+
+.alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-=
+size: 13px; display: flex; align-items: center; gap: 8px; }
+
+.alert-warning { background: var(--warning-light); color: var(--warning); b=
+order: 1px solid rgb(245, 197, 24); }
+
+.alert-danger { background: var(--danger-light); color: var(--danger); bord=
+er: 1px solid rgb(241, 148, 138); }
+
+.invoice-items { border: 1.5px solid var(--border); border-radius: 8px; ove=
+rflow: hidden; margin: 16px 0px; }
+
+.invoice-row { display: grid; grid-template-columns: 40px 2fr 1fr 1fr 1fr 5=
+0px; gap: 8px; padding: 8px 12px; align-items: center; border-bottom: 1px s=
+olid var(--border); font-size: 13px; }
+
+.invoice-row.header { background: var(--surface2); font-weight: 700; font-s=
+ize: 12px; color: var(--text2); }
+
+.invoice-row:last-child { border-bottom-width: medium; border-bottom-style:=
+ none; border-bottom-color: currentcolor; }
+
+.invoice-total { background: var(--surface2); padding: 12px 20px; display: =
+flex; flex-direction: column; align-items: flex-end; gap: 8px; font-size: 1=
+4px; border-top: 2px solid var(--border); }
+
+.invoice-total div { display: flex; justify-content: space-between; width: =
+250px; }
+
+.invoice-total .label { color: var(--text2); }
+
+.invoice-total .value { font-weight: 800; color: var(--primary); text-align=
+: left; }
+
+.modal-overlay { position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.5=
+); z-index: 1000; display: flex; align-items: center; justify-content: cent=
+er; padding: 20px; }
+
+.modal { background: white; border-radius: 14px; width: 100%; max-width: 70=
+0px; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-md); posi=
+tion: relative; }
+
+.modal-header { padding: 20px 24px; border-bottom: 1px solid var(--border);=
+ display: flex; align-items: center; justify-content: space-between; positi=
+on: sticky; top: 0px; background: white; z-index: 1; }
+
+.modal-title { font-size: 17px; font-weight: 700; color: var(--primary); }
+
+.modal-close { width: 32px; height: 32px; border-radius: 50%; border-width:=
+ medium; border-style: none; border-color: currentcolor; border-image: init=
+ial; background: var(--bg); cursor: pointer; font-size: 18px; display: flex=
+; align-items: center; justify-content: center; }
+
+.modal-body { padding: 24px; }
+
+.modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); di=
+splay: flex; gap: 12px; justify-content: flex-end; }
+
+.divider { height: 1px; background: var(--border); margin: 16px 0px; }
+
+.search-bar { display: flex; gap: 8px; margin-bottom: 16px; }
+
+.search-bar input { flex: 1 1 0%; }
+
+.low-stock-row td { background: rgb(255, 248, 225) !important; }
+
+.empty-state { text-align: center; padding: 48px; color: var(--text3); }
+
+.chart-bar-container { display: flex; align-items: flex-end; gap: 16px; hei=
+ght: 160px; padding: 10px 8px; }
+
+.chart-bar-wrap { flex: 1 1 0%; display: flex; flex-direction: column; alig=
+n-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+
+.chart-bar { width: 100%; background: var(--primary-light); border-radius: =
+4px 4px 0px 0px; min-height: 4px; transition: height 0.5s; }
+
+.chart-bar.income { background: var(--success); }
+
+.chart-label { font-size: 10px; color: var(--text3); text-align: center; }
+
+.chart-val { font-size: 9px; color: var(--text2); font-weight: 700; }
+
+.notif-popup { position: fixed; top: 70px; left: 24px; background: white; b=
+order: 1px solid var(--border); border-radius: 10px; width: 320px; box-shad=
+ow: var(--shadow-md); z-index: 500; display: none; max-height: 400px; overf=
+low-y: auto; }
+
+.notif-popup.show { display: block; }
+
+.notif-item { padding: 12px 16px; border-bottom: 1px solid var(--border); f=
+ont-size: 12px; }
+
+.notif-item.danger { border-right: 3px solid var(--danger); }
+
+.notif-item.warning { border-right: 3px solid var(--warning); }
+------MultipartBoundary--kH8nzvDfvWEPbB9ukg9tA5raIoanENMomMgM5dp7z0------
