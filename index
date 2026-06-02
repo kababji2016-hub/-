@@ -1,1722 +1,1568 @@
-!DOCTYPE html
-html lang=ar dir=rtl
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    titleنظام محاسبة المكتبة المتكاملtitle
-    style
-        root {
-            --primary #1a3a5c;
-            --primary-light #2563a8;
-            --accent #e8a020;
-            --accent-light #f5c65a;
-            --success #1a7a4a;
-            --success-light #e8f5ee;
-            --danger #c0392b;
-            --danger-light #fdecea;
-            --warning #d68910;
-            --warning-light #fef9e7;
-            --info #1565c0;
-            --info-light #e8f0fe;
-            --bg #f0f2f5;
-            --surface #ffffff;
-            --surface2 #f8f9fa;
-            --border #dde3ec;
-            --text #1a2332;
-            --text2 #4a5568;
-            --text3 #8a9ab0;
-            --sidebar-w 240px;
-            --header-h 60px;
-            --radius 10px;
-            --shadow 0 2px 12px rgba(0,0,0,0.08);
-            --shadow-md 0 4px 20px rgba(0,0,0,0.12);
+cat > /mnt/user-data/outputs/library_accounting.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام محاسبة المكتبة</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --primary-light: #2563a8;
+            --accent: #e8a020;
+            --accent-light: #f5c65a;
+            --success: #1a7a4a;
+            --success-light: #e8f5ee;
+            --danger: #c0392b;
+            --danger-light: #fdecea;
+            --warning: #d68910;
+            --warning-light: #fef9e7;
+            --info: #1565c0;
+            --info-light: #e8f0fe;
+            --bg: #f0f2f5;
+            --surface: #ffffff;
+            --surface2: #f8f9fa;
+            --border: #dde3ec;
+            --text: #1a2332;
+            --text2: #4a5568;
+            --text3: #8a9ab0;
+            --sidebar-w: 240px;
+            --header-h: 60px;
+            --radius: 10px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
         }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; background: var(--bg); color: var(--text); direction: rtl; }
 
-         { margin0; padding0; box-sizingborder-box; }
-        body { font-family 'Segoe UI', Tahoma, Arial, sans-serif; background var(--bg); color var(--text); direction rtl; }
+        /* تسجيل الدخول */
+        #loginScreen { position:fixed; inset:0; background:linear-gradient(135deg,#1a3a5c 0%,#2563a8 50%,#1a5c3a 100%); display:flex; align-items:center; justify-content:center; z-index:9999; }
+        .login-box { background:white; border-radius:20px; padding:48px 40px; width:400px; box-shadow:0 20px 60px rgba(0,0,0,0.3); text-align:center; }
+        .login-logo { font-size:48px; margin-bottom:8px; }
+        .login-box h1 { color:var(--primary); font-size:24px; margin-bottom:4px; }
+        .login-box p { color:var(--text2); font-size:14px; margin-bottom:32px; }
+        .login-field { margin-bottom:16px; text-align:right; }
+        .login-field label { display:block; font-size:13px; color:var(--text2); margin-bottom:6px; font-weight:600; }
+        .login-field input { width:100%; padding:12px 16px; border:1.5px solid var(--border); border-radius:8px; font-size:15px; font-family:inherit; }
+        .login-field input:focus { outline:none; border-color:var(--primary-light); box-shadow:0 0 0 3px rgba(37,99,168,0.15); }
+        .pass-wrap { position:relative; }
+        .pass-wrap input { padding-left:44px; }
+        .pass-toggle { position:absolute; left:12px; top:50%; transform:translateY(-50%); cursor:pointer; font-size:18px; color:var(--text3); user-select:none; }
+        .pass-toggle:hover { color:var(--primary); }
+        .login-btn { width:100%; padding:14px; background:var(--primary); color:white; border:none; border-radius:8px; font-size:16px; font-weight:700; cursor:pointer; margin-top:8px; font-family:inherit; }
+        .login-btn:hover { background:var(--primary-light); }
+        .login-error { color:var(--danger); font-size:13px; margin-top:12px; display:none; }
 
-         تسجيل الدخول 
-        #loginScreen { position fixed; inset 0; background linear-gradient(135deg, #1a3a5c 0%, #2563a8 50%, #1a5c3a 100%); display flex; align-items center; justify-content center; z-index 9999; }
-        .login-box { background white; border-radius 20px; padding 48px 40px; width 400px; box-shadow 0 20px 60px rgba(0,0,0,0.3); text-align center; }
-        .login-logo { font-size 48px; margin-bottom 8px; }
-        .login-box h1 { color var(--primary); font-size 24px; margin-bottom 4px; }
-        .login-box p { color var(--text2); font-size 14px; margin-bottom 32px; }
-        .login-field { margin-bottom 16px; text-align right; }
-        .login-field label { display block; font-size 13px; color var(--text2); margin-bottom 6px; font-weight 600; }
-        .login-field input { width 100%; padding 12px 16px; border 1.5px solid var(--border); border-radius 8px; font-size 15px; font-family inherit; }
-        .login-field inputfocus { outline none; border-color var(--primary-light); box-shadow 0 0 0 3px rgba(37,99,168,0.15); }
-        .login-btn { width 100%; padding 14px; background var(--primary); color white; border none; border-radius 8px; font-size 16px; font-weight 700; cursor pointer; margin-top 8px; font-family inherit; }
-        .login-btnhover { background var(--primary-light); }
-        .login-error { color var(--danger); font-size 13px; margin-top 12px; display none; }
-        .login-hint { font-size 12px; color var(--text3); margin-top 16px; }
+        /* LAYOUT */
+        #app { display:none; min-height:100vh; }
+        .sidebar { position:fixed; top:0; right:0; width:var(--sidebar-w); height:100vh; background:var(--primary); color:white; display:flex; flex-direction:column; z-index:100; overflow-y:auto; }
+        .sidebar-header { padding:20px 16px; border-bottom:1px solid rgba(255,255,255,0.1); }
+        .sidebar-logo { font-size:28px; text-align:center; }
+        .sidebar-title { font-size:14px; font-weight:700; text-align:center; margin-top:4px; color:var(--accent-light); }
+        .sidebar-store { font-size:11px; text-align:center; color:rgba(255,255,255,0.6); margin-top:2px; }
+        .sidebar-nav { padding:12px 0; flex:1; }
+        .nav-section { padding:8px 16px 4px; font-size:10px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1px; }
+        .nav-item { display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; font-size:13px; color:rgba(255,255,255,0.8); transition:all 0.2s; border-right:3px solid transparent; }
+        .nav-item:hover { background:rgba(255,255,255,0.1); color:white; }
+        .nav-item.active { background:rgba(255,255,255,0.15); color:white; border-right-color:var(--accent); }
+        .nav-item .icon { font-size:18px; width:22px; text-align:center; }
+        .sidebar-footer { padding:12px 16px; border-top:1px solid rgba(255,255,255,0.1); font-size:11px; color:rgba(255,255,255,0.4); }
 
-         LAYOUT 
-        #app { display none; min-height 100vh; }
-        .sidebar { position fixed; top 0; right 0; width var(--sidebar-w); height 100vh; background var(--primary); color white; display flex; flex-direction column; z-index100; overflow-y auto; }
-        .sidebar-header { padding 20px 16px; border-bottom 1px solid rgba(255,255,255,0.1); }
-        .sidebar-logo { font-size 28px; text-align center; }
-        .sidebar-title { font-size 14px; font-weight 700; text-align center; margin-top 4px; color var(--accent-light); }
-        .sidebar-store { font-size 11px; text-align center; color rgba(255,255,255,0.6); margin-top 2px; }
-        .sidebar-nav { padding 12px 0; flex 1; }
-        .nav-section { padding 8px 16px 4px; font-size 10px; color rgba(255,255,255,0.4); text-transform uppercase; letter-spacing 1px; }
-        .nav-item { display flex; align-items center; gap 10px; padding 10px 16px; cursor pointer; font-size 13px; color rgba(255,255,255,0.8); transition all 0.2s; border-right 3px solid transparent; }
-        .nav-itemhover { background rgba(255,255,255,0.1); color white; }
-        .nav-item.active { background rgba(255,255,255,0.15); color white; border-right-color var(--accent); }
-        .nav-item .icon { font-size 18px; width 22px; text-align center; }
-        .sidebar-footer { padding 12px 16px; border-top 1px solid rgba(255,255,255,0.1); font-size 11px; color rgba(255,255,255,0.4); }
+        .main { margin-right:var(--sidebar-w); min-height:100vh; display:flex; flex-direction:column; width:calc(100% - var(--sidebar-w)); }
+        .topbar { height:var(--header-h); background:var(--surface); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 24px; position:sticky; top:0; z-index:50; box-shadow:var(--shadow); }
+        .topbar-title { font-size:18px; font-weight:700; color:var(--primary); }
+        .topbar-right { display:flex; align-items:center; gap:12px; }
+        .topbar-badge { background:var(--danger); color:white; border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700; cursor:pointer; }
+        .topbar-user { font-size:13px; color:var(--text2); }
+        .logout-btn { padding:6px 14px; border:1.5px solid var(--border); border-radius:6px; font-size:12px; cursor:pointer; background:white; font-family:inherit; }
+        .logout-btn:hover { background:var(--bg); }
+        .content { flex:1; padding:24px; }
 
-        .main { margin-right var(--sidebar-w); min-height 100vh; display flex; flex-direction column; width calc(100% - var(--sidebar-w)); }
-        .topbar { height var(--header-h); background var(--surface); border-bottom 1px solid var(--border); display flex; align-items center; justify-content space-between; padding 0 24px; position sticky; top 0; z-index 50; box-shadow var(--shadow); }
-        .topbar-title { font-size 18px; font-weight 700; color var(--primary); }
-        .topbar-right { display flex; align-items center; gap 12px; }
-        .topbar-badge { background var(--danger); color white; border-radius 20px; padding 4px 12px; font-size 12px; font-weight 700; cursor pointer; }
-        .topbar-user { font-size 13px; color var(--text2); }
-        .logout-btn { padding 6px 14px; border 1.5px solid var(--border); border-radius 6px; font-size 12px; cursor pointer; background white; font-family inherit; }
-        .logout-btnhover { background var(--bg); }
-        .content { flex 1; padding 24px; }
+        /* الصفحات */
+        .page { display:none; }
+        .page.active { display:block; }
 
-         الصفحات 
-        .page { display none; }
-        .page.active { display block; }
+        /* البطاقات */
+        .card { background:var(--surface); border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); overflow:hidden; }
+        .card-header { padding:16px 20px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+        .card-title { font-size:15px; font-weight:700; color:var(--primary); }
+        .card-body { padding:20px; }
 
-         البطاقات 
-        .card { background var(--surface); border-radius var(--radius); border 1px solid var(--border); box-shadow var(--shadow); overflow hidden; }
-        .card-header { padding 16px 20px; border-bottom 1px solid var(--border); display flex; align-items center; justify-content space-between; }
-        .card-title { font-size 15px; font-weight 700; color var(--primary); }
-        .card-body { padding 20px; }
+        /* الإحصائيات */
+        .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+        .stat-card { background:var(--surface); border-radius:var(--radius); padding:20px; border:1px solid var(--border); box-shadow:var(--shadow); }
+        .stat-label { font-size:12px; color:var(--text2); margin-bottom:8px; font-weight:600; }
+        .stat-value { font-size:26px; font-weight:800; color:var(--primary); }
+        .stat-sub { font-size:11px; color:var(--text3); margin-top:4px; }
+        .stat-icon { float:left; font-size:32px; opacity:0.15; }
 
-         الإحصائيات 
-        .stats-grid { display grid; grid-template-columns repeat(4, 1fr); gap 16px; margin-bottom 24px; }
-        .stat-card { background var(--surface); border-radius var(--radius); padding 20px; border 1px solid var(--border); box-shadow var(--shadow); }
-        .stat-label { font-size 12px; color var(--text2); margin-bottom 8px; font-weight 600; }
-        .stat-value { font-size 26px; font-weight 800; color var(--primary); }
-        .stat-sub { font-size 11px; color var(--text3); margin-top 4px; }
-        .stat-icon { float left; font-size 32px; opacity 0.15; }
+        /* الجداول */
+        .table-wrap { overflow-x:auto; width:100%; }
+        table { width:100%; border-collapse:collapse; font-size:13px; }
+        th { background:var(--surface2); padding:10px 14px; text-align:right; font-size:12px; font-weight:700; color:var(--text2); border-bottom:2px solid var(--border); white-space:nowrap; }
+        td { padding:10px 14px; border-bottom:1px solid var(--border); color:var(--text); vertical-align:middle; }
+        tr:hover td { background:var(--surface2); }
+        tr:last-child td { border-bottom:none; }
 
-         الجداول 
-        .table-wrap { overflow-x auto; width 100%; }
-        table { width 100%; border-collapse collapse; font-size 13px; }
-        th { background var(--surface2); padding 10px 14px; text-align right; font-size 12px; font-weight 700; color var(--text2); border-bottom 2px solid var(--border); white-space nowrap; }
-        td { padding 10px 14px; border-bottom 1px solid var(--border); color var(--text); vertical-align middle; }
-        trhover td { background var(--surface2); }
-        trlast-child td { border-bottom none; }
+        /* النماذج */
+        .form-grid { display:grid; gap:16px; }
+        .form-grid-2 { grid-template-columns:1fr 1fr; }
+        .form-grid-3 { grid-template-columns:1fr 1fr 1fr; }
+        .form-group { display:flex; flex-direction:column; gap:6px; }
+        .form-group label { font-size:12px; font-weight:700; color:var(--text2); }
+        .form-control { padding:9px 12px; border:1.5px solid var(--border); border-radius:7px; font-size:13px; font-family:inherit; color:var(--text); background:var(--surface); width:100%; }
+        .form-control:focus { outline:none; border-color:var(--primary-light); box-shadow:0 0 0 3px rgba(37,99,168,0.1); }
 
-         النماذج 
-        .form-grid { display grid; gap 16px; }
-        .form-grid-2 { grid-template-columns 1fr 1fr; }
-        .form-grid-3 { grid-template-columns 1fr 1fr 1fr; }
-        .form-group { display flex; flex-direction column; gap 6px; }
-        .form-group label { font-size 12px; font-weight 700; color var(--text2); }
-        .form-control { padding 9px 12px; border 1.5px solid var(--border); border-radius 7px; font-size 13px; font-family inherit; color var(--text); background var(--surface); width 100%; }
-        .form-controlfocus { outline none; border-color var(--primary-light); box-shadow 0 0 0 3px rgba(37,99,168,0.1); }
+        /* الأزرار */
+        .btn { padding:9px 18px; border-radius:7px; font-size:13px; font-weight:700; cursor:pointer; border:none; font-family:inherit; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; }
+        .btn-primary { background:var(--primary); color:white; }
+        .btn-primary:hover { background:var(--primary-light); }
+        .btn-success { background:var(--success); color:white; }
+        .btn-success:hover { background:#1a9a5a; }
+        .btn-danger { background:var(--danger); color:white; }
+        .btn-danger:hover { background:#e74c3c; }
+        .btn-warning { background:var(--warning); color:white; }
+        .btn-outline { background:white; color:var(--primary); border:1.5px solid var(--border); }
+        .btn-outline:hover { background:var(--bg); }
+        .btn-sm { padding:5px 10px; font-size:11px; }
+        .btn-accent { background:var(--accent); color:white; }
+        .btn-accent:hover { background:var(--accent-light); color:var(--primary); }
 
-         الأزرار 
-        .btn { padding 9px 18px; border-radius 7px; font-size 13px; font-weight 700; cursor pointer; border none; font-family inherit; transition all 0.2s; display inline-flex; align-items center; gap 6px; }
-        .btn-primary { background var(--primary); color white; }
-        .btn-primaryhover { background var(--primary-light); }
-        .btn-success { background var(--success); color white; }
-        .btn-successhover { background #1a9a5a; }
-        .btn-danger { background var(--danger); color white; }
-        .btn-dangerhover { background #e74c3c; }
-        .btn-warning { background var(--warning); color white; }
-        .btn-outline { background white; color var(--primary); border 1.5px solid var(--border); }
-        .btn-outlinehover { background var(--bg); }
-        .btn-sm { padding 5px 10px; font-size 11px; }
-        .btn-accent { background var(--accent); color white; }
-        .btn-accenthover { background var(--accent-light); color var(--primary); }
+        /* الشارات */
+        .badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; }
+        .badge-success { background:var(--success-light); color:var(--success); }
+        .badge-danger { background:var(--danger-light); color:var(--danger); }
+        .badge-warning { background:var(--warning-light); color:var(--warning); }
+        .badge-info { background:var(--info-light); color:var(--info); }
 
-         الشارات 
-        .badge { display inline-block; padding 3px 10px; border-radius 20px; font-size 11px; font-weight 700; }
-        .badge-success { background var(--success-light); color var(--success); }
-        .badge-danger { background var(--danger-light); color var(--danger); }
-        .badge-warning { background var(--warning-light); color var(--warning); }
-        .badge-info { background var(--info-light); color var(--info); }
+        /* التنبيهات */
+        .alert { padding:12px 16px; border-radius:8px; margin-bottom:16px; font-size:13px; display:flex; align-items:center; gap:8px; }
+        .alert-warning { background:var(--warning-light); color:var(--warning); border:1px solid #f5c518; }
+        .alert-danger { background:var(--danger-light); color:var(--danger); border:1px solid #f1948a; }
+        .alert-success { background:var(--success-light); color:var(--success); border:1px solid #82e0aa; }
 
-         التنبيهات 
-        .alert { padding 12px 16px; border-radius 8px; margin-bottom 16px; font-size 13px; display flex; align-itemscenter; gap 8px; }
-        .alert-warning { background var(--warning-light); color var(--warning); border 1px solid #f5c518; }
-        .alert-danger { background var(--danger-light); color var(--danger); border 1px solid #f1948a; }
-        .alert-success { background var(--success-light); color var(--success); border 1px solid #82e0aa; }
+        /* الفاتورة */
+        .invoice-items { border:1.5px solid var(--border); border-radius:8px; overflow:hidden; margin:16px 0; }
+        .invoice-row { display:grid; grid-template-columns:40px 2fr 1fr 1fr 1fr 50px; gap:8px; padding:8px 12px; align-items:center; border-bottom:1px solid var(--border); font-size:13px; }
+        .invoice-row.header { background:var(--surface2); font-weight:700; font-size:12px; color:var(--text2); }
+        .invoice-row:last-child { border-bottom:none; }
+        .invoice-total { background:var(--surface2); padding:12px 20px; display:flex; flex-direction:column; align-items:flex-end; gap:8px; font-size:14px; border-top:2px solid var(--border); }
+        .invoice-total div { display:flex; justify-content:space-between; width:250px; }
+        .invoice-total .label { color:var(--text2); }
+        .invoice-total .value { font-weight:800; color:var(--primary); text-align:left; }
 
-         الفاتورة 
-        .invoice-items { border 1.5px solid var(--border); border-radius 8px; overflow hidden; margin 16px 0; }
-        .invoice-row { display grid; grid-template-columns 40px 2fr 1fr 1fr 1fr 50px; gap 8px; padding 8px 12px; align-items center; border-bottom 1px solid var(--border); font-size 13px; }
-        .invoice-row.header { background var(--surface2); font-weight 700; font-size 12px; color var(--text2); }
-        .invoice-rowlast-child { border-bottom none; }
-        .invoice-total { background var(--surface2); padding 12px 20px; display flex; flex-direction column; align-items flex-end; gap 8px; font-size 14px; border-top 2px solid var(--border); }
-        .invoice-total div { display flex; justify-content space-between; width 250px; }
-        .invoice-total .label { color var(--text2); }
-        .invoice-total .value { font-weight 800; color var(--primary); text-align left; }
+        /* MODAL */
+        .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; display:flex; align-items:center; justify-content:center; padding:20px; }
+        .modal { background:white; border-radius:14px; width:100%; max-width:700px; max-height:90vh; overflow-y:auto; box-shadow:var(--shadow-md); position:relative; }
+        .modal-header { padding:20px 24px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:white; z-index:1; }
+        .modal-title { font-size:17px; font-weight:700; color:var(--primary); }
+        .modal-close { width:32px; height:32px; border-radius:50%; border:none; background:var(--bg); cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; }
+        .modal-body { padding:24px; }
+        .modal-footer { padding:16px 24px; border-top:1px solid var(--border); display:flex; gap:12px; justify-content:flex-end; }
 
-         MODAL 
-        .modal-overlay { position fixed; inset 0; background rgba(0,0,0,0.5); z-index 1000; display flex; align-items center; justify-content center; padding 20px; }
-        .modal { background white; border-radius 14px; width 100%; max-width 700px; max-height 90vh; overflow-y auto; box-shadow var(--shadow-md); position relative; }
-        .modal-header { padding 20px 24px; border-bottom 1px solid var(--border); display flex; align-items center; justify-content space-between; position sticky; top 0; background white; z-index 1; }
-        .modal-title { font-size 17px; font-weight 700; color var(--primary); }
-        .modal-close { width 32px; height 32px; border-radius 50%; border none; background var(--bg); cursor pointer; font-size 18px; display flex; align-items center; justify-content center; }
-        .modal-body { padding 24px; }
-        .modal-footer { padding 16px 24px; border-top 1px solid var(--border); display flex; gap 12px; justify-content flex-end; }
+        /* مساعدون */
+        .flex { display:flex; }
+        .items-center { align-items:center; }
+        .gap-8 { gap:8px; }
+        .gap-12 { gap:12px; }
+        .mb-16 { margin-bottom:16px; }
+        .mb-24 { margin-bottom:24px; }
+        .text-right { text-align:right; }
+        .text-center { text-align:center; }
+        .text-danger { color:var(--danger); }
+        .text-success { color:var(--success); }
+        .text-warning { color:var(--warning); }
+        .fw-bold { font-weight:700; }
+        .empty-state { text-align:center; padding:48px; color:var(--text3); }
+        .empty-state .icon { font-size:48px; margin-bottom:12px; }
+        .search-bar { display:flex; gap:8px; margin-bottom:16px; }
+        .search-bar input { flex:1; }
+        .divider { height:1px; background:var(--border); margin:16px 0; }
+        .low-stock-row td { background:#fff8e1 !important; }
 
-         المساعدين والمخططات 
-        .flex { display flex; }
-        .items-center { align-items center; }
-        .gap-8 { gap 8px; }
-        .gap-12 { gap 12px; }
-        .mb-16 { margin-bottom 16px; }
-        .mb-24 { margin-bottom 24px; }
-        .text-right { text-align right; }
-        .text-center { text-align center; }
-        .text-danger { color var(--danger); }
-        .text-success { color var(--success); }
-        .text-warning { color var(--warning); }
-        .fw-bold { font-weight 700; }
-        .empty-state { text-align center; padding 48px; color var(--text3); }
-        .empty-state .icon { font-size 48px; margin-bottom 12px; }
-        .search-bar { display flex; gap 8px; margin-bottom 16px; }
-        .search-bar input { flex 1; }
-        .divider { height 1px; background var(--border); margin 16px 0; }
-        .low-stock-row td { background #fff8e1 !important; }
+        .chart-bar-container { display:flex; align-items:flex-end; gap:16px; height:160px; padding:10px 8px; }
+        .chart-bar-wrap { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; height:100%; justify-content:flex-end; }
+        .chart-bar { width:100%; background:var(--primary-light); border-radius:4px 4px 0 0; min-height:4px; transition:height 0.5s; }
+        .chart-bar.income { background:var(--success); }
+        .chart-label { font-size:10px; color:var(--text3); text-align:center; }
+        .chart-val { font-size:9px; color:var(--text2); font-weight:700; }
 
-        .chart-bar-container { display flex; align-items flex-end; gap 16px; height 160px; padding 10px 8px; }
-        .chart-bar-wrap { flex 1; display flex; flex-direction column; align-items center; gap 4px; height 100%; justify-content flex-end; }
-        .chart-bar { width 100%; background var(--primary-light); border-radius 4px 4px 0 0; min-height 4px; transition height 0.5s; }
-        .chart-bar.income { background var(--success); }
-        .chart-label { font-size 10px; color var(--text3); text-align center; }
-        .chart-val { font-size 9px; color var(--text2); font-weight 700; }
+        /* الإشعارات */
+        .notif-popup { position:fixed; top:70px; left:24px; background:white; border:1px solid var(--border); border-radius:10px; width:320px; box-shadow:var(--shadow-md); z-index:500; display:none; max-height:400px; overflow-y:auto; }
+        .notif-popup.show { display:block; }
+        .notif-item { padding:12px 16px; border-bottom:1px solid var(--border); font-size:12px; }
+        .notif-item:last-child { border-bottom:none; }
+        .notif-item.danger { border-right:3px solid var(--danger); }
+        .notif-item.warning { border-right:3px solid var(--warning); }
 
-         الإشعارات 
-        .notif-popup { position fixed; top 70px; left 24px; background white; border 1px solid var(--border); border-radius 10px; width 320px; box-shadow var(--shadow-md); z-index 500; display none; max-height 400px; overflow-y auto; }
-        .notif-popup.show { display block; }
-        .notif-item { padding 12px 16px; border-bottom 1px solid var(--border); font-size 12px; }
-        .notif-itemlast-child { border-bottom none; }
-        .notif-item.danger { border-right 3px solid var(--danger); }
-        .notif-item.warning { border-right 3px solid var(--warning); }
-    style
-head
-body
+        /* صلاحيات */
+        .perm-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+        .perm-item { display:flex; align-items:center; gap:8px; padding:8px 12px; border:1.5px solid var(--border); border-radius:8px; cursor:pointer; font-size:12px; }
+        .perm-item input[type=checkbox] { width:16px; height:16px; cursor:pointer; }
+        .perm-item.checked { border-color:var(--primary-light); background:var(--info-light); }
+    </style>
+</head>
+<body>
 
-    !-- تسجيل الدخول --
-    div id=loginScreen
-        div class=login-box
-            div class=login-logo📚div
-            h1نظام محاسبة المكتبةh1
-            pالرجاء تسجيل الدخول للمتابعةp
-            div class=login-field
-                labelاسم المستخدمlabel
-                input type=text id=loginUser value=admin placeholder=admin 
-            div
-            div class=login-field
-                labelكلمة المرورlabel
-                input type=password id=loginPass value=1234 placeholder=•••••••• onkeydown=if(event.key==='Enter')doLogin() 
-            div
-            button class=login-btn onclick=doLogin()🔐 دخولbutton
-            div class=login-error id=loginErr❌ اسم المستخدم أو كلمة المرور غير صحيحةdiv
-            div class=login-hintالمستخدم الافتراضي admin  كلمة المرور 1234div
-        div
-    div
+<!-- تسجيل الدخول -->
+<div id="loginScreen">
+    <div class="login-box">
+        <div class="login-logo">📚</div>
+        <h1>نظام محاسبة المكتبة</h1>
+        <p>الرجاء تسجيل الدخول للمتابعة</p>
+        <div class="login-field">
+            <label>اسم المستخدم</label>
+            <input type="text" id="loginUser" placeholder="اسم المستخدم">
+        </div>
+        <div class="login-field">
+            <label>كلمة المرور</label>
+            <div class="pass-wrap">
+                <input type="password" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+                <span class="pass-toggle" onclick="togglePassVisibility('loginPass', this)" title="إظهار/إخفاء كلمة المرور">👁️</span>
+            </div>
+        </div>
+        <button class="login-btn" onclick="doLogin()">🔐 دخول</button>
+        <div class="login-error" id="loginErr">❌ اسم المستخدم أو كلمة المرور غير صحيحة</div>
+    </div>
+</div>
 
-    !-- التطبيق الرئيسي --
-    div id=app
-        !-- SIDEBAR --
-        nav class=sidebar
-            div class=sidebar-header
-                div class=sidebar-logo📚div
-                div class=sidebar-titleنظام المكتبة المتكاملdiv
-                div class=sidebar-store id=storeNameمكتبة النور والشرقdiv
-            div
-            div class=sidebar-nav
-                div class=nav-sectionالرئيسيةdiv
-                div class=nav-item active onclick=showPage('dashboard')span class=icon🏠span لوحة التحكمdiv
-                div class=nav-sectionالمعاملاتdiv
-                div class=nav-item onclick=showPage('sale')span class=icon🧾span فاتورة المبيعاتdiv
-                div class=nav-item onclick=showPage('purchase')span class=icon📦span فاتورة المشترياتdiv
-                div class=nav-item onclick=showPage('invoices')span class=icon📋span سجل الفواتيرdiv
-                div class=nav-sectionالمخزونdiv
-                div class=nav-item onclick=showPage('products')span class=icon📗span الأصناف والكتبdiv
-                div class=nav-item onclick=showPage('categories')span class=icon🗂️span الفئاتdiv
-                div class=nav-sectionالأطرافdiv
-                div class=nav-item onclick=showPage('customers')span class=icon👥span إدارة العملاءdiv
-                div class=nav-item onclick=showPage('suppliers')span class=icon🏭span إدارة الموردينdiv
-                div class=nav-sectionالماليةdiv
-                div class=nav-item onclick=showPage('expenses')span class=icon💸span المصروفاتdiv
-                div class=nav-sectionالنظامdiv
-                div class=nav-item onclick=showPage('settings')span class=icon⚙️span الإعدادات العامّةdiv
-                div class=nav-item onclick=backupData()span class=icon💾span نسخة احتياطيةdiv
-                div class=nav-item onclick=importBackup()span class=icon📥span استعادة البياناتdiv
-            div
-            div class=sidebar-footerالإصدار 2.0  نظام آمنdiv
-        nav
+<!-- التطبيق الرئيسي -->
+<div id="app">
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">📚</div>
+            <div class="sidebar-title">نظام المكتبة المتكامل</div>
+            <div class="sidebar-store" id="storeName"></div>
+        </div>
+        <div class="sidebar-nav" id="sidebarNav">
+            <!-- تُملأ ديناميكياً بناءً على الصلاحيات -->
+        </div>
+        <div class="sidebar-footer">الإصدار 2.0 | نظام آمن</div>
+    </nav>
 
-        div class=main
-            !-- الشريط العلوي --
-            div class=topbar
-                div class=topbar-title id=pageTitleلوحة التحكمdiv
-                div class=topbar-right
-                    span class=topbar-badge onclick=toggleNotif() id=alertBadge style=displaynone⚠️ تنبيهاتspan
-                    span class=topbar-user id=topbarUser👤 adminspan
-                    button class=logout-btn onclick=doLogout()تسجيل الخروجbutton
-                div
-            div
+    <div class="main">
+        <!-- الشريط العلوي -->
+        <div class="topbar">
+            <div class="topbar-title" id="pageTitle">لوحة التحكم</div>
+            <div class="topbar-right">
+                <span class="topbar-badge" onclick="toggleNotif()" id="alertBadge" style="display:none">⚠️ تنبيهات</span>
+                <span class="topbar-user" id="topbarUser">👤</span>
+                <button class="logout-btn" onclick="doLogout()">تسجيل الخروج</button>
+            </div>
+        </div>
 
-            !-- نافذة الإشعارات المنبثقة --
-            div class=notif-popup id=notifPopupdiv
+        <!-- نافذة الإشعارات -->
+        <div class="notif-popup" id="notifPopup"></div>
 
-            div class=content
-                !-- ===== لوحة التحكم ===== --
-                div class=page active id=page-dashboard
-                    div class=stats-grid id=dashStatsdiv
-                    div style=displaygrid;grid-template-columns2fr 1fr;gap16px;margin-bottom24px
-                        div class=card
-                            div class=card-headerspan class=card-title📈 مبيعات آخر 7 أيامspandiv
-                            div class=card-body
-                                div class=chart-bar-container id=salesChartdiv
-                            div
-                        div
-                        div class=card
-                            div class=card-headerspan class=card-title⚠️ تنبيهات المخزون المنخفضspandiv
-                            div class=card-body id=stockAlerts style=max-height220px;overflow-yautodiv
-                        div
-                    div
-                    div style=displaygrid;grid-template-columns1fr 1fr;gap16px
-                        div class=card
-                            div class=card-headerspan class=card-title🧾 آخر عمليات البيعspandiv
-                            div class=card-body style=padding0
-                                div class=table-wraptable id=lastSalesTabletablediv
-                            div
-                        div
-                        div class=card
-                            div class=card-headerspan class=card-title📗 السلع الأكثر مبيعاًspandiv
-                            div class=card-body style=padding0
-                                div class=table-wraptable id=topProductsTabletablediv
-                            div
-                        div
-                    div
-                div
+        <div class="content">
+            <!-- لوحة التحكم -->
+            <div class="page active" id="page-dashboard">
+                <div class="stats-grid" id="dashStats"></div>
+                <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:24px">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">📈 مبيعات آخر 7 أيام</span></div>
+                        <div class="card-body"><div class="chart-bar-container" id="salesChart"></div></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">⚠️ تنبيهات المخزون المنخفض</span></div>
+                        <div class="card-body" id="stockAlerts" style="max-height:220px;overflow-y:auto"></div>
+                    </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">🧾 آخر عمليات البيع</span></div>
+                        <div class="card-body" style="padding:0"><div class="table-wrap"><table id="lastSalesTable"></table></div></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">📗 السلع الأكثر مبيعاً</span></div>
+                        <div class="card-body" style="padding:0"><div class="table-wrap"><table id="topProductsTable"></table></div></div>
+                    </div>
+                </div>
+            </div>
 
-                !-- ===== فاتورة بيع ===== --
-                div class=page id=page-sale
-                    div class=card mb-24
-                        div class=card-header
-                            span class=card-title🧾 إنشاء فاتورة مبيعات جديدةspan
-                            span style=font-size12px;colorvar(--text3) id=saleInvNumspan
-                        div
-                        div class=card-body
-                            div class=form-grid form-grid-3 mb-16
-                                div class=form-group
-                                    labelالعميلlabel
-                                    select class=form-control id=saleCustomerselect
-                                div
-                                div class=form-group
-                                    labelالتاريخlabel
-                                    input type=date class=form-control id=saleDate
-                                div
-                                div class=form-group
-                                    labelنوع الدفعlabel
-                                    select class=form-control id=salePayType
-                                        option value=cashنقديoption
-                                        option value=cardبطاقةoption
-                                        option value=creditآجلoption
-                                        option value=transferتحويل بنكيoption
-                                    select
-                                div
-                            div
+            <!-- فاتورة بيع -->
+            <div class="page" id="page-sale">
+                <div class="card mb-24">
+                    <div class="card-header">
+                        <span class="card-title">🧾 إنشاء فاتورة مبيعات جديدة</span>
+                        <span style="font-size:12px;color:var(--text3)" id="saleInvNum"></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-grid form-grid-3 mb-16">
+                            <div class="form-group"><label>العميل</label><select class="form-control" id="saleCustomer"></select></div>
+                            <div class="form-group"><label>التاريخ</label><input type="date" class="form-control" id="saleDate"></div>
+                            <div class="form-group"><label>نوع الدفع</label>
+                                <select class="form-control" id="salePayType">
+                                    <option value="cash">نقدي</option>
+                                    <option value="card">بطاقة</option>
+                                    <option value="credit">آجل</option>
+                                    <option value="transfer">تحويل بنكي</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="background:var(--info-light);border-radius:8px;padding:14px;margin-bottom:16px">
+                            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:flex-end">
+                                <div class="form-group"><label>اختر الكتاب / الصنف</label><select class="form-control" id="saleItemProd" onchange="fillSaleItem()"></select></div>
+                                <div class="form-group"><label>الكمية</label><input type="number" class="form-control" id="saleItemQty" value="1" min="1" oninput="calcSaleItemTotal()"></div>
+                                <div class="form-group"><label>سعر البيع</label><input type="number" class="form-control" id="saleItemPrice" step="0.01" oninput="calcSaleItemTotal()"></div>
+                                <div class="form-group"><label>الإجمالي</label><input type="text" class="form-control" id="saleItemTotal" readonly style="background:#fff"></div>
+                                <button class="btn btn-primary" onclick="addSaleItem()">+ إضافة</button>
+                            </div>
+                        </div>
+                        <div class="invoice-items">
+                            <div class="invoice-row header"><span>#</span><span>الصنف</span><span>الكمية</span><span>السعر</span><span>الإجمالي</span><span>حذف</span></div>
+                            <div id="saleItemsList"></div>
+                        </div>
+                        <div class="invoice-total" id="saleTotals"></div>
+                        <div class="form-grid form-grid-3 mb-16" style="margin-top:16px">
+                            <div class="form-group"><label>خصم (%)</label><input type="number" class="form-control" id="saleDiscount" value="0" min="0" max="100" oninput="calcSaleTotals()"></div>
+                            <div class="form-group"><label>ضريبة القيمة المضافة (%)</label><input type="number" class="form-control" id="saleVat" value="15" min="0" oninput="calcSaleTotals()"></div>
+                            <div class="form-group"><label>ملاحظات الفاتورة</label><input type="text" class="form-control" id="saleNotes" placeholder="أدخل أي ملاحظات..."></div>
+                        </div>
+                        <div style="display:flex;gap:12px">
+                            <button class="btn btn-success" onclick="saveSaleInvoice()">✅ حفظ الفاتورة وتحديث المخزون</button>
+                            <button class="btn btn-outline" onclick="clearSaleForm()">🗑️ تفريغ الحقول</button>
+                            <button class="btn btn-accent" onclick="previewSaleInvoice()">👁️ معاينة وطباعة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            div style=backgroundvar(--info-light);border-radius8px;padding14px;margin-bottom16px
-                                div style=displaygrid;grid-template-columns2fr 1fr 1fr 1fr auto;gap8px;align-itemsflex-end
-                                    div class=form-group
-                                        labelاختر الكتاب  الصنفlabel
-                                        select class=form-control id=saleItemProd onchange=fillSaleItem()select
-                                    div
-                                    div class=form-group
-                                        labelالكميةlabel
-                                        input type=number class=form-control id=saleItemQty value=1 min=1 oninput=calcSaleItemTotal()
-                                    div
-                                    div class=form-group
-                                        labelسعر البيعlabel
-                                        input type=number class=form-control id=saleItemPrice step=0.01 oninput=calcSaleItemTotal()
-                                    div
-                                    div class=form-group
-                                        labelالإجماليlabel
-                                        input type=text class=form-control id=saleItemTotal readonly style=background#fff
-                                    div
-                                    button class=btn btn-primary onclick=addSaleItem()+ إضافةbutton
-                                div
-                            div
+            <!-- فاتورة الشراء -->
+            <div class="page" id="page-purchase">
+                <div class="card mb-24">
+                    <div class="card-header">
+                        <span class="card-title">📦 إنشاء فاتورة مشتريات جديدة</span>
+                        <span style="font-size:12px;color:var(--text3)" id="purchInvNum"></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-grid form-grid-3 mb-16">
+                            <div class="form-group"><label>المورد</label><select class="form-control" id="purchSupplier"></select></div>
+                            <div class="form-group"><label>التاريخ</label><input type="date" class="form-control" id="purchDate"></div>
+                            <div class="form-group"><label>رقم المرجع الخارجي</label><input type="text" class="form-control" id="purchExtNum" placeholder="رقم فاتورة المورد"></div>
+                        </div>
+                        <div style="background:var(--success-light);border-radius:8px;padding:14px;margin-bottom:16px">
+                            <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:flex-end">
+                                <div class="form-group"><label>الصنف / الكتاب</label><select class="form-control" id="purchItemProd" onchange="fillPurchItem()"></select></div>
+                                <div class="form-group"><label>الكمية</label><input type="number" class="form-control" id="purchItemQty" value="1" min="1" oninput="calcPurchItemTotal()"></div>
+                                <div class="form-group"><label>سعر التكلفة</label><input type="number" class="form-control" id="purchItemCost" step="0.01" oninput="calcPurchItemTotal()"></div>
+                                <div class="form-group"><label>الإجمالي</label><input type="text" class="form-control" id="purchItemTotal" readonly style="background:#fff"></div>
+                                <button class="btn btn-success" onclick="addPurchItem()">+ إضافة</button>
+                            </div>
+                        </div>
+                        <div class="invoice-items">
+                            <div class="invoice-row header"><span>#</span><span>الصنف</span><span>الكمية</span><span>التكلفة</span><span>الإجمالي</span><span>حذف</span></div>
+                            <div id="purchItemsList"></div>
+                        </div>
+                        <div class="invoice-total" id="purchTotals"></div>
+                        <div class="form-grid form-grid-2 mb-16" style="margin-top:16px">
+                            <div class="form-group"><label>نوع الدفع</label>
+                                <select class="form-control" id="purchPayType">
+                                    <option value="cash">نقدي</option>
+                                    <option value="credit">آجل</option>
+                                    <option value="transfer">تحويل</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>ملاحظات</label><input type="text" class="form-control" id="purchNotes" placeholder="أي تفاصيل إضافية..."></div>
+                        </div>
+                        <div style="display:flex;gap:12px">
+                            <button class="btn btn-success" onclick="savePurchInvoice()">✅ حفظ الفاتورة وإدخال المستودع</button>
+                            <button class="btn btn-outline" onclick="clearPurchForm()">🗑️ مسح</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            div class=invoice-items
-                                div class=invoice-row header
-                                    span#spanspanالصنفspanspanالكميةspanspanالسعرspanspanالإجماليspanspanعملياتspan
-                                div
-                                div id=saleItemsListdiv
-                            div
+            <!-- سجل الفواتير -->
+            <div class="page" id="page-invoices">
+                <div class="card mb-16">
+                    <div class="card-header">
+                        <span class="card-title">📋 سجل الفواتير والمستندات</span>
+                        <div style="display:flex;gap:8px">
+                            <select class="form-control" id="invFilterType" onchange="renderInvoices()" style="padding:6px 10px;font-size:12px">
+                                <option value="">كل الأنواع</option>
+                                <option value="sale">بيع</option>
+                                <option value="purchase">شراء</option>
+                            </select>
+                            <input type="month" class="form-control" id="invFilterMonth" onchange="renderInvoices()" style="padding:6px 10px;font-size:12px">
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding:0"><div class="table-wrap"><table id="invoicesTable"></table></div></div>
+                </div>
+            </div>
 
-                            div class=invoice-total id=saleTotalsdiv
+            <!-- المنتجات -->
+            <div class="page" id="page-products">
+                <div class="card mb-16">
+                    <div class="card-header">
+                        <span class="card-title">📗 دليل الكتب والأصناف</span>
+                        <button class="btn btn-primary btn-sm" onclick="openProductModal()">+ إضافة صنف جديد</button>
+                    </div>
+                    <div class="card-body" style="padding:12px 16px">
+                        <div class="search-bar">
+                            <input type="text" class="form-control" id="productSearch" placeholder="🔍 بحث بالاسم أو الباركود..." oninput="renderProducts()">
+                            <select class="form-control" id="productCatFilter" onchange="renderProducts()" style="max-width:160px"></select>
+                        </div>
+                    </div>
+                    <div class="table-wrap"><table id="productsTable"></table></div>
+                </div>
+            </div>
 
-                            div class=form-grid form-grid-3 mb-16 style=margin-top16px
-                                div class=form-group
-                                    labelخصم (%)label
-                                    input type=number class=form-control id=saleDiscount value=0 min=0 max=100 oninput=calcSaleTotals()
-                                div
-                                div class=form-group
-                                    labelضريبة القيمة المضافة (%)label
-                                    input type=number class=form-control id=saleVat value=15 min=0 oninput=calcSaleTotals()
-                                div
-                                div class=form-group
-                                    labelملاحظات الفاتورةlabel
-                                    input type=text class=form-control id=saleNotes placeholder=أدخل أي ملاحظات...
-                                div
-                            div
+            <!-- الفئات -->
+            <div class="page" id="page-categories">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">🗂️ تصنيفات ومجموعات المواد</span>
+                        <button class="btn btn-primary btn-sm" onclick="openCatModal()">+ إضافة فئة جديدة</button>
+                    </div>
+                    <div class="card-body" style="padding:0">
+                        <table style="width:100%;font-size:13px;border-collapse:collapse">
+                            <thead><tr><th>#</th><th>اسم الفئة</th><th>عدد السلع</th><th>إجراءات</th></tr></thead>
+                            <tbody id="catsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-                            div style=displayflex;gap12px
-                                button class=btn btn-success onclick=saveSaleInvoice()✅ حفظ الفاتورة وتحديث المخزونbutton
-                                button class=btn btn-outline onclick=clearSaleForm()🗑️ تفريغ الحقولbutton
-                                button class=btn btn-accent onclick=previewSaleInvoice()👁️ معاينة وطباعةbutton
-                            div
-                        div
-                    div
-                div
+            <!-- العملاء -->
+            <div class="page" id="page-customers">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">👥 دليل الزبائن والعملاء</span>
+                        <button class="btn btn-primary btn-sm" onclick="openPersonModal('customer')">+ إضافة عميل</button>
+                    </div>
+                    <div class="card-body" style="padding:12px 16px">
+                        <input type="text" class="form-control" id="custSearch" placeholder="🔍 بحث عن عميل..." oninput="renderCustomers()" style="max-width:300px">
+                    </div>
+                    <div class="table-wrap"><table id="customersTable"></table></div>
+                </div>
+            </div>
 
-                !-- ===== فاتورة الشراء ===== --
-                div class=page id=page-purchase
-                    div class=card mb-24
-                        div class=card-header
-                            span class=card-title📦 إنشاء فاتورة مشتريات جديدةspan
-                            span style=font-size12px;colorvar(--text3) id=purchInvNumspan
-                        div
-                        div class=card-body
-                            div class=form-grid form-grid-3 mb-16
-                                div class=form-group
-                                    labelالموردlabel
-                                    select class=form-control id=purchSupplierselect
-                                div
-                                div class=form-group
-                                    labelالتاريخlabel
-                                    input type=date class=form-control id=purchDate
-                                div
-                                div class=form-group
-                                    labelرقم المرجع الخارجيlabel
-                                    input type=text class=form-control id=purchExtNum placeholder=رقم فاتورة المورد
-                                div
-                            div
+            <!-- الموردون -->
+            <div class="page" id="page-suppliers">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">🏭 جهات التوريد والدور النشر</span>
+                        <button class="btn btn-primary btn-sm" onclick="openPersonModal('supplier')">+ إضافة مورد جديد</button>
+                    </div>
+                    <div class="card-body" style="padding:12px 16px">
+                        <input type="text" class="form-control" id="suppSearch" placeholder="🔍 بحث عن مورد..." oninput="renderSuppliers()" style="max-width:300px">
+                    </div>
+                    <div class="table-wrap"><table id="suppliersTable"></table></div>
+                </div>
+            </div>
 
-                            div style=backgroundvar(--success-light);border-radius8px;padding14px;margin-bottom16px
-                                div style=displaygrid;grid-template-columns2fr 1fr 1fr 1fr auto;gap8px;align-itemsflex-end
-                                    div class=form-group
-                                        labelالصنف  الكتابlabel
-                                        select class=form-control id=purchItemProd onchange=fillPurchItem()select
-                                    div
-                                    div class=form-group
-                                        labelالكميةlabel
-                                        input type=number class=form-control id=purchItemQty value=1 min=1 oninput=calcPurchItemTotal()
-                                    div
-                                    div class=form-group
-                                        labelسعر التكلفة بالشراءlabel
-                                        input type=number class=form-control id=purchItemCost step=0.01 oninput=calcPurchItemTotal()
-                                    div
-                                    div class=form-group
-                                        labelالإجماليlabel
-                                        input type=text class=form-control id=purchItemTotal readonly style=background#fff
-                                    div
-                                    button class=btn btn-success onclick=addPurchItem()+ إضافةbutton
-                                div
-                            div
+            <!-- المصاريف -->
+            <div class="page" id="page-expenses">
+                <div style="display:grid;grid-template-columns:1fr 2fr;gap:16px">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">💸 تسجيل مصروف جديد</span></div>
+                        <div class="card-body">
+                            <div class="form-grid" style="margin-bottom:12px">
+                                <div class="form-group"><label>بيان المصروف</label><input type="text" class="form-control" id="expDesc" placeholder="مثال: فاتورة كهرباء، إيجار..."></div>
+                                <div class="form-group"><label>المبلغ (ريال سعودي)</label><input type="number" class="form-control" id="expAmount" step="0.01"></div>
+                                <div class="form-group">
+                                    <label>الفئة</label>
+                                    <div style="display:flex;gap:8px">
+                                        <select class="form-control" id="expCat"></select>
+                                        <button class="btn btn-outline btn-sm" onclick="openExpCatModal()" title="إضافة فئة جديدة">⚙️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group"><label>التاريخ</label><input type="date" class="form-control" id="expDate"></div>
+                            </div>
+                            <button class="btn btn-danger" onclick="addExpense()">+ تقييد المصروف</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">كشف النفقات الشهري</span>
+                            <input type="month" class="form-control" id="expFilter" onchange="renderExpenses()" style="padding:6px;font-size:12px;max-width:180px">
+                        </div>
+                        <div class="card-body" style="padding:0"><div class="table-wrap"><table id="expensesTable"></table></div></div>
+                    </div>
+                </div>
+            </div>
 
-                            div class=invoice-items
-                                div class=invoice-row header
-                                    span#spanspanالصنفspanspanالكميةspanspanالتكلفةspanspanالإجماليspanspanعملياتspan
-                                div
-                                div id=purchItemsListdiv
-                            div
+            <!-- الإعدادات -->
+            <div class="page" id="page-settings">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">⚙️ الهوية والبيانات الضريبية</span></div>
+                        <div class="card-body">
+                            <div class="form-grid" style="margin-bottom:16px">
+                                <div class="form-group"><label>اسم المكتبة</label><input type="text" class="form-control" id="setStoreName"></div>
+                                <div class="form-group"><label>رقم الاتصال</label><input type="text" class="form-control" id="setPhone"></div>
+                                <div class="form-group"><label>العنوان</label><input type="text" class="form-control" id="setAddress"></div>
+                                <div class="form-group"><label>الرقم الضريبي (VAT ID)</label><input type="text" class="form-control" id="setVatNum"></div>
+                                <div class="form-group"><label>الحد الأدنى للمخزون</label><input type="number" class="form-control" id="setMinStock"></div>
+                                <div class="form-group"><label>نسبة الضريبة الافتراضية (%)</label><input type="number" class="form-control" id="setVatPct"></div>
+                            </div>
+                            <button class="btn btn-primary" onclick="saveSettings()">💾 حفظ الإعدادات</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">🔐 إدارة المستخدمين والصلاحيات</span></div>
+                        <div class="card-body">
+                            <div id="usersList" style="margin-bottom:16px"></div>
+                            <div class="divider"></div>
+                            <div style="font-weight:700;font-size:13px;margin-bottom:12px;color:var(--primary)">إنشاء / تعديل مستخدم</div>
+                            <div class="form-grid" style="margin-bottom:12px">
+                                <div class="form-group"><label>اسم الحساب</label><input type="text" class="form-control" id="newUsername"></div>
+                                <div class="form-group"><label>كلمة المرور</label>
+                                    <div class="pass-wrap">
+                                        <input type="password" class="form-control" id="newPassword" style="padding-left:44px">
+                                        <span class="pass-toggle" onclick="togglePassVisibility('newPassword', this)">👁️</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="font-weight:700;font-size:12px;margin-bottom:8px;color:var(--text2)">الصلاحيات المخصصة:</div>
+                            <div class="perm-grid" id="permGrid"></div>
+                            <div style="margin-top:16px">
+                                <button class="btn btn-primary" onclick="saveUser()">+ حفظ الحساب</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            div class=invoice-total id=purchTotalsdiv
+        </div><!-- content -->
+    </div><!-- main -->
+</div><!-- app -->
 
-                            div class=form-grid form-grid-2 mb-16 style=margin-top16px
-                                div class=form-group
-                                    labelنوع الدفعlabel
-                                    select class=form-control id=purchPayType
-                                        option value=cashنقديoption
-                                        option value=creditآجلoption
-                                        option value=transferتحويلoption
-                                    select
-                                div
-                                div class=form-group
-                                    labelملاحظاتlabel
-                                    input type=text class=form-control id=purchNotes placeholder=أي تفاصيل إضافية...
-                                div
-                            div
+<!-- Modal موحد -->
+<div id="modalOverlay" class="modal-overlay" style="display:none" onclick="closeModal(event)">
+    <div class="modal" id="modalBox">
+        <div class="modal-header">
+            <span class="modal-title" id="modalTitle">عنوان النافذة</span>
+            <button class="modal-close" onclick="closeModalNow()">✕</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer" id="modalFooter"></div>
+    </div>
+</div>
 
-                            div style=displayflex;gap12px
-                                button class=btn btn-success onclick=savePurchInvoice()✅ حفظ الفاتورة وإدخال المستودعbutton
-                                button class=btn btn-outline onclick=clearPurchForm()🗑️ مسحbutton
-                            div
-                        div
-                    div
-                div
+<!-- ملف استعادة -->
+<input type="file" id="importFile" accept=".json" style="display:none" onchange="doImport(event)">
 
-                !-- ===== سجل قائمة الفواتير ===== --
-                div class=page id=page-invoices
-                    div class=card mb-16
-                        div class=card-header
-                            span class=card-title📋 سجل الفواتير والمستنداتspan
-                            div style=displayflex;gap8px
-                                select class=form-control id=invFilterType onchange=renderInvoices() style=padding6px 10px;font-size12px
-                                    option value=كل الأنواعoption
-                                    option value=saleبيعoption
-                                    option value=purchaseشراءoption
-                                select
-                                input type=month class=form-control id=invFilterMonth onchange=renderInvoices() style=padding6px 10px;font-size12px
-                            div
-                        div
-                        div class=card-body style=padding0
-                            div class=table-wraptable id=invoicesTabletablediv
-                        div
-                    div
-                div
+<script>
+// ===================== قاعدة البيانات =====================
+const DB_KEY = 'libsys_v3';
+let db = {};
 
-                !-- ===== المنتجات والأصناف ===== --
-                div class=page id=page-products
-                    div class=card mb-16
-                        div class=card-header
-                            span class=card-title📗 دليل الكتب والأصنافspan
-                            button class=btn btn-primary btn-sm onclick=openProductModal()+ إضافة صنف جديدbutton
-                        div
-                        div class=card-body style=padding12px 16px
-                            div class=search-bar
-                                input type=text class=form-control id=productSearch placeholder=🔍 بحث بالاسم أو الباركود الدولي... oninput=renderProducts()
-                                select class=form-control id=productCatFilter onchange=renderProducts() style=max-width160pxselect
-                            div
-                        div
-                        div class=table-wraptable id=productsTabletablediv
-                    div
-                div
+// تعريف الصلاحيات المتاحة
+const ALL_PERMISSIONS = [
+    { key: 'dashboard', label: '🏠 لوحة التحكم' },
+    { key: 'sale', label: '🧾 فاتورة مبيعات' },
+    { key: 'purchase', label: '📦 فاتورة مشتريات' },
+    { key: 'invoices', label: '📋 سجل الفواتير' },
+    { key: 'products', label: '📗 الأصناف والكتب' },
+    { key: 'categories', label: '🗂️ الفئات' },
+    { key: 'customers', label: '👥 إدارة العملاء' },
+    { key: 'suppliers', label: '🏭 إدارة الموردين' },
+    { key: 'expenses', label: '💸 المصروفات' },
+    { key: 'settings', label: '⚙️ الإعدادات' },
+];
 
-                !-- ===== الفئات ===== --
-                div class=page id=page-categories
-                    div class=card
-                        div class=card-header
-                            span class=card-title🗂️ تصنيفات ومجموعات الموادspan
-                            button class=btn btn-primary btn-sm onclick=openCatModal()+ إضافة فئة جديدةbutton
-                        div
-                        div class=card-body style=padding0
-                            table style=width100%;font-size13px;border-collapsecollapse
-                                thead
-                                    tr
-                                        th#th
-                                        thاسم الفئة  المجموعةth
-                                        thعدد السلع المدرجةth
-                                        thإجراءات التحكمth
-                                    tr
-                                thead
-                                tbody id=catsTableBodytbody
-                            table
-                        div
-                    div
-                div
+function loadDB() {
+    try {
+        const raw = localStorage.getItem(DB_KEY);
+        if (raw) db = JSON.parse(atob(raw));
+    } catch(e) { console.error('خطأ في قراءة قاعدة البيانات', e); }
 
-                !-- ===== العملاء ===== --
-                div class=page id=page-customers
-                    div class=card
-                        div class=card-header
-                            span class=card-title👥 دليل الزبائن والعملاءspan
-                            button class=btn btn-primary btn-sm onclick=openPersonModal('customer')+ إضافة عميلbutton
-                        div
-                        div class=card-body style=padding12px 16px
-                            input type=text class=form-control id=custSearch placeholder=🔍 بحث عن عميل بالاسم أو الهاتف... oninput=renderCustomers() style=max-width300px
-                        div
-                        div class=table-wraptable id=customersTabletablediv
-                    div
-                div
-
-                !-- ===== الموردون ===== --
-                div class=page id=page-suppliers
-                    div class=card
-                        div class=card-header
-                            span class=card-title🏭 جهات التوريد والدور النشرspan
-                            button class=btn btn-primary btn-sm onclick=openPersonModal('supplier')+ إضافة مورد جديدbutton
-                        div
-                        div class=card-body style=padding12px 16px
-                            input type=text class=form-control id=suppSearch placeholder=🔍 بحث عن مورد... oninput=renderSuppliers() style=max-width300px
-                        div
-                        div class=table-wraptable id=suppliersTabletablediv
-                    div
-                div
-
-                !-- ===== المصاريف ===== --
-                div class=page id=page-expenses
-                    div style=displaygrid;grid-template-columns1fr 2fr;gap16px
-                        div class=card
-                            div class=card-headerspan class=card-title💸 تسجيل قيد مصروف جديدspandiv
-                            div class=card-body
-                                div class=form-grid style=margin-bottom12px
-                                    div class=form-group
-                                        labelبيان المصروفlabel
-                                        input type=text class=form-control id=expDesc placeholder=مثال فاتورة كهرباء، إيجار...
-                                    div
-                                    div class=form-group
-                                        labelالمبلغ (ريال سعودي)label
-                                        input type=number class=form-control id=expAmount step=0.01
-                                    div
-                                    div class=form-group
-                                        labelالفئةlabel
-                                        select class=form-control id=expCat
-                                            optionإيجار ومستودعاتoption
-                                            optionكهرباء ومياه ومرافقoption
-                                            optionرواتب وأجورoption
-                                            optionصيانة وتشغيلoption
-                                            optionتسويق وإعلاناتoption
-                                            optionأخرى متنوعةoption
-                                        select
-                                    div
-                                    div class=form-group
-                                        labelالتاريخlabel
-                                        input type=date class=form-control id=expDate
-                                    div
-                                div
-                                button class=btn btn-danger onclick=addExpense()+ تقييد المصروفbutton
-                            div
-                        div
-                        div class=card
-                            div class=card-header
-                                span class=card-titleكشف النفقات الشهريspan
-                                input type=month class=form-control id=expFilter onchange=renderExpenses() style=padding6px;font-size12px; max-width180px
-                            div
-                            div class=card-body style=padding0
-                                div class=table-wraptable id=expensesTabletablediv
-                            div
-                        div
-                    div
-                div
-
-                !-- ===== الإعدادات وعملاء النظام ===== --
-                div class=page id=page-settings
-                    div style=displaygrid;grid-template-columns1fr 1fr;gap16px
-                        div class=card
-                            div class=card-headerspan class=card-title⚙️ الهوية والبيانات الضريبية المنشأةspandiv
-                            div class=card-body
-                                div class=form-grid style=margin-bottom16px
-                                    div class=form-grouplabelاسم المكتبة الأساسيlabelinput type=text class=form-control id=setStoreNamediv
-                                    div class=form-grouplabelرقم الاتصال الدوليlabelinput type=text class=form-control id=setPhonediv
-                                    div class=form-grouplabelالعنوان الجغرافيlabelinput type=text class=form-control id=setAddressdiv
-                                    div class=form-grouplabelالرقم الضريبي للمنشأة (VAT ID)labelinput type=text class=form-control id=setVatNumdiv
-                                    div class=form-grouplabelالحد الأدنى الافتراضي للطلب والأسهمlabelinput type=number class=form-control id=setMinStockdiv
-                                    div class=form-grouplabelنسبة الضريبة الافتراضية (%)labelinput type=number class=form-control id=setVatPctdiv
-                                div
-                                button class=btn btn-primary onclick=saveSettings()💾 حفظ التهيئة العامةbutton
-                            div
-                        div
-                        div class=card
-                            div class=card-headerspan class=card-title🔐 صلاحيات الحسابات والمستخدمينspandiv
-                            div class=card-body
-                                div id=usersList style=margin-bottom16pxdiv
-                                div class=dividerdiv
-                                div style=font-weight700;font-size13px;margin-bottom12px;colorvar(--primary)إنشاء  تحديث مستخدمdiv
-                                div class=form-grid style=margin-bottom12px
-                                    div class=form-grouplabelاسم الحساب (User)labelinput type=text class=form-control id=newUsernamediv
-                                    div class=form-grouplabelكلمة المرورlabelinput type=password class=form-control id=newPassworddiv
-                                    div class=form-grouplabelمستوى الصلاحيةlabel
-                                        select class=form-control id=newRole
-                                            option value=adminمدير النظام (كامل الصلاحيات)option
-                                            option value=cashierأمين صندوق  كاشيرoption
-                                        select
-                                    div
-                                div
-                                button class=btn btn-primary onclick=saveUser()+ حفظ الحساب الجديدbutton
-                            div
-                        div
-                    div
-                div
-
-            div!-- content --
-        div!-- main --
-    div!-- app --
-
-    !-- النوافذ المنبثقة الموحدة (MODALS) --
-    div id=modalOverlay class=modal-overlay style=displaynone onclick=closeModal(event)
-        div class=modal id=modalBox
-            div class=modal-header
-                span class=modal-title id=modalTitleعنوان النافذةspan
-                button class=modal-close onclick=closeModalNow()✕button
-            div
-            div class=modal-body id=modalBodydiv
-            div class=modal-footer id=modalFooterdiv
-        div
-    div
-
-    !-- التحكم بملفات الاستعادة الخلفية غير المرئية --
-    input type=file id=importFile accept=.json style=displaynone onchange=doImport(event)
-
-    script
-         ===================== محرك إدارة قاعدة البيانات الافتراضية المحلية =====================
-        const DB_KEY = 'libsys_v2';
-        let db = {};
-
-        function loadDB() {
-            try {
-                const raw = localStorage.getItem(DB_KEY);
-                if (raw) {
-                    db = JSON.parse(atob(raw));
-                }
-            } catch(e) { console.error(تعذر قراءة قاعدة البيانات المحلية الحالية, e); }
-            
-            if (!db.settings) db.settings = { storeName'مكتبة النور والشرق', phone'', address'', vatNum'', minStock5, vatPct15 };
-            if (!db.users) db.users = [{ username'admin', password'1234', role'admin' }];
-            if (!db.categories) db.categories = [{ id'cat1', name'كتب علمية وروايات' }, { id'cat2', name'قرطاسية وأدوات مكتبية' }];
-            if (!db.products) db.products = [];
-            if (!db.customers) db.customers = [{ id'cust0', name'عميل نقدي عام', phone'', address'' }];
-            if (!db.suppliers) db.suppliers = [];
-            if (!db.invoices) db.invoices = [];
-            if (!db.expenses) db.expenses = [];
-            saveDB();
+    if (!db.settings) db.settings = { storeName: '', phone: '', address: '', vatNum: '', minStock: 5, vatPct: 15 };
+    if (!db.users) db.users = [{
+        username: 'admin',
+        password: '1234',
+        permissions: ALL_PERMISSIONS.map(p => p.key)
+    }];
+    // ترقية المستخدمين القدامى: إضافة permissions إن لم تكن موجودة
+    db.users = db.users.map(u => {
+        if (!u.permissions) {
+            u.permissions = u.role === 'admin' ? ALL_PERMISSIONS.map(p => p.key) : ['dashboard', 'sale'];
         }
+        return u;
+    });
+    if (!db.categories) db.categories = [
+        { id: 'cat1', name: 'كتب علمية وروايات' },
+        { id: 'cat2', name: 'قرطاسية وأدوات مكتبية' }
+    ];
+    if (!db.expenseCategories) db.expenseCategories = [
+        'إيجار ومستودعات',
+        'كهرباء ومياه ومرافق',
+        'رواتب وأجور',
+        'صيانة وتشغيل',
+        'تسويق وإعلانات',
+        'أخرى متنوعة'
+    ];
+    if (!db.products) db.products = [];
+    if (!db.customers) db.customers = [{ id: 'cust0', name: 'عميل نقدي عام', phone: '', address: '' }];
+    if (!db.suppliers) db.suppliers = [];
+    if (!db.invoices) db.invoices = [];
+    if (!db.expenses) db.expenses = [];
+    saveDB();
+}
 
-        function saveDB() {
-            try {
-                localStorage.setItem(DB_KEY, btoa(unescape(encodeURIComponent(JSON.stringify(db)))));
-            } catch(e) {
-                alert('عذراً، فشل محرك المتصفح في حفظ البيانات الحالية ' + e.message);
-            }
+function saveDB() {
+    try {
+        localStorage.setItem(DB_KEY, btoa(unescape(encodeURIComponent(JSON.stringify(db)))));
+    } catch(e) {
+        alert('فشل حفظ البيانات: ' + e.message);
+    }
+}
+
+function genId(prefix) {
+    return prefix + '_' + Date.now() + '_' + Math.random().toString(36).substr(2,4);
+}
+
+// ===================== تسجيل الدخول =====================
+let currentUser = null;
+
+function togglePassVisibility(inputId, btn) {
+    const input = document.getElementById(inputId);
+    if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = '🙈';
+    } else {
+        input.type = 'password';
+        btn.textContent = '👁️';
+    }
+}
+
+function doLogin() {
+    const u = document.getElementById('loginUser').value.trim();
+    const p = document.getElementById('loginPass').value;
+    const user = db.users.find(x => x.username === u && x.password === p);
+    if (user) {
+        currentUser = user;
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('app').style.display = 'flex';
+        document.getElementById('topbarUser').textContent = '👤 ' + user.username;
+        document.getElementById('loginErr').style.display = 'none';
+        initApp();
+    } else {
+        document.getElementById('loginErr').style.display = 'block';
+    }
+}
+
+function doLogout() {
+    currentUser = null;
+    document.getElementById('loginScreen').style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+    document.getElementById('loginPass').value = '';
+    document.getElementById('loginUser').value = '';
+}
+
+function hasPermission(page) {
+    if (!currentUser) return false;
+    return currentUser.permissions && currentUser.permissions.includes(page);
+}
+
+// ===================== التوجيه والصلاحيات =====================
+const pageTitles = {
+    dashboard: 'لوحة التحكم',
+    sale: 'إنشاء فاتورة مبيعات',
+    purchase: 'فاتورة مشتريات',
+    invoices: 'سجل الفواتير',
+    products: 'دليل الأصناف والكتب',
+    categories: 'التصنيفات',
+    customers: 'إدارة العملاء',
+    suppliers: 'إدارة الموردين',
+    expenses: 'المصروفات',
+    settings: 'الإعدادات'
+};
+
+const navItems = [
+    { section: 'الرئيسية' },
+    { page: 'dashboard', icon: '🏠', label: 'لوحة التحكم' },
+    { section: 'المعاملات' },
+    { page: 'sale', icon: '🧾', label: 'فاتورة المبيعات' },
+    { page: 'purchase', icon: '📦', label: 'فاتورة المشتريات' },
+    { page: 'invoices', icon: '📋', label: 'سجل الفواتير' },
+    { section: 'المخزون' },
+    { page: 'products', icon: '📗', label: 'الأصناف والكتب' },
+    { page: 'categories', icon: '🗂️', label: 'الفئات' },
+    { section: 'الأطراف' },
+    { page: 'customers', icon: '👥', label: 'إدارة العملاء' },
+    { page: 'suppliers', icon: '🏭', label: 'إدارة الموردين' },
+    { section: 'المالية' },
+    { page: 'expenses', icon: '💸', label: 'المصروفات' },
+    { section: 'النظام' },
+    { page: 'settings', icon: '⚙️', label: 'الإعدادات' },
+    { special: 'backup' },
+    { special: 'import' },
+];
+
+function buildSidebar() {
+    const nav = document.getElementById('sidebarNav');
+    nav.innerHTML = navItems.map(item => {
+        if (item.section) return `<div class="nav-section">${item.section}</div>`;
+        if (item.page) {
+            if (!hasPermission(item.page)) return '';
+            return `<div class="nav-item" onclick="showPage('${item.page}')"><span class="icon">${item.icon}</span>${item.label}</div>`;
         }
-
-        function genId(prefix) {
-            return prefix + '_' + Date.now() + '_' + Math.random().toString(36).substr(2,4);
-        }
-
-         ===================== إدارة الدخول وحفظ الجلسات =====================
-        let currentUser = null;
-        function doLogin() {
-            const u = document.getElementById('loginUser').value.trim();
-            const p = document.getElementById('loginPass').value;
-            const user = db.users.find(x = x.username === u && x.password === p);
-            
-            if (user) {
-                currentUser = user;
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('app').style.display = 'flex';
-                document.getElementById('topbarUser').textContent = '👤 ' + user.username + ' (' + (user.role === 'admin'  'مدير عام'  'كاشير') + ')';
-                document.getElementById('loginErr').style.display = 'none';
-                initApp();
-            } else {
-                document.getElementById('loginErr').style.display = 'block';
-            }
-        }
-
-        function doLogout() {
-            currentUser = null;
-            document.getElementById('loginScreen').style.display = 'flex';
-            document.getElementById('app').style.display = 'none';
-            document.getElementById('loginPass').value = '';
-        }
-
-         ===================== محرك التوجيه (ROUTING) والصفحات =====================
-        const pageTitles = {
-            dashboard 'لوحة التحكم والمؤشرات الرقمية',
-            sale 'إنشاء فاتورة مبيعات جديدة',
-            purchase 'إثبات فاتورة مشتريات وموردين',
-            invoices 'الأرشيف والسجل العام للفواتير',
-            products 'دليل السلع والأصناف الدائم',
-            categories 'تصنيفات ومجموعات المواد',
-            customers 'إدارة الزبائن والعملاء',
-            suppliers 'دليل جهات التوريد والموردين',
-            expenses 'حساب القيود والمصروفات الإدارية',
-            settings 'تهيئة إعدادات النظام والهوية'
-        };
-
-        function showPage(name) {
-            document.querySelectorAll('.page').forEach(p = p.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n = n.classList.remove('active'));
-            
-            const targetPage = document.getElementById('page-' + name);
-            if(targetPage) targetPage.classList.add('active');
-            
-            document.querySelectorAll('.nav-item').forEach(n = {
-                if (n.getAttribute('onclick') && n.getAttribute('onclick').includes(' + name + ')) {
-                    n.classList.add('active');
-                }
-            });
-            
-            document.getElementById('pageTitle').textContent = pageTitles[name]  name;
-            
-            if (name === 'dashboard') renderDashboard();
-            if (name === 'products') renderProducts();
-            if (name === 'invoices') renderInvoices();
-            if (name === 'customers') renderCustomers();
-            if (name === 'suppliers') renderSuppliers();
-            if (name === 'expenses') renderExpenses();
-            if (name === 'categories') renderCategories();
-            if (name === 'settings') renderSettings();
-            if (name === 'sale') initSaleForm();
-            if (name === 'purchase') initPurchForm();
-        }
-
-         ===================== لوحة التحكم الرسومية والمؤشرات =====================
-        function renderDashboard() {
-            const today = new Date().toISOString().split('T')[0];
-            const thisMonth = today.slice(0,7);
-            
-            const sales = db.invoices.filter(i = i.type === 'sale');
-            const todaySales = sales.filter(i = i.date === today);
-            const monthSales = sales.filter(i = i.date.startsWith(thisMonth));
-            
-            const totalRevenue = monthSales.reduce((s,i) = s + (i.netTotal0), 0);
-            const totalProfit = monthSales.reduce((s,i) = s + ((i.netTotal0) - (i.costTotal0)), 0);
-            const lowStock = db.products.filter(p = p.qty = (p.minStock  db.settings.minStock));
-
-            document.getElementById('dashStats').innerHTML = `
-                div class=stat-card
-                    div class=stat-icon💰div
-                    div class=stat-labelمبيعات الشهر الحاليdiv
-                    div class=stat-value${fmt(totalRevenue)}div
-                    div class=stat-subريال سعودي صافيdiv
-                div
-                div class=stat-card
-                    div class=stat-icon📈div
-                    div class=stat-labelالعوائد الربحية (تقريبي)div
-                    div class=stat-value style=colorvar(--success)${fmt(totalProfit)}div
-                    div class=stat-subبناءً على فروقات التكلفةdiv
-                div
-                div class=stat-card
-                    div class=stat-icon🧾div
-                    div class=stat-labelمبيعات اليومdiv
-                    div class=stat-value${fmt(todaySales.reduce((s,i)=s+(i.netTotal0),0))}div
-                    div class=stat-sub${todaySales.length} عمليات فواتير منفذةdiv
-                div
-                div class=stat-card
-                    div class=stat-icon⚠️div
-                    div class=stat-labelالأصناف تحت حد الطلبdiv
-                    div class=stat-value style=colorvar(--danger)${lowStock.length}div
-                    div class=stat-subتتطلب إعادة مشتريات وتوريدdiv
-                div
-            `;
-
-             رسم مخطط المبيعات البسيط لآخر 7 أيام
-            const days7 = [];
-            for (let i = 6; i = 0; i--) {
-                const d = new Date();
-                d.setDate(d.getDate() - i);
-                const ds = d.toISOString().split('T')[0];
-                const dayTotal = sales.filter(s = s.date === ds).reduce((s,i) = s + (i.netTotal0), 0);
-                days7.push({
-                    label d.toLocaleDateString('ar-SA', {weekday'short'}),
-                    val dayTotal
-                });
-            }
-            
-            const maxV = Math.max(...days7.map(d = d.val), 1);
-            document.getElementById('salesChart').innerHTML = days7.map(d = `
-                div class=chart-bar-wrap
-                    div class=chart-val${d.val  0  fmt(d.val)  ''}div
-                    div class=chart-bar income style=height${Math.round((d.valmaxV)120)+4}pxdiv
-                    div class=chart-label${d.label}div
-                div
-            `).join('');
-
-             تنبيهات مخزون منخفض
-            const sa = document.getElementById('stockAlerts');
-            if (lowStock.length === 0) {
-                sa.innerHTML = 'div style=text-aligncenter;colorvar(--success);padding20px;font-size13px✅ مستويات المخزون الحالي ممتازة وآمنة تماماًdiv';
-            } else {
-                sa.innerHTML = lowStock.map(p = `
-                    div class=alert ${p.qty === 0  'alert-danger'  'alert-warning'} style=margin-bottom8px;padding8px 12px;font-size12px
-                        ${p.qty === 0  '🚫'  '⚠️'} strong${p.name}strong — الكمية المتوفرة ${p.qty} وحدة فقط.
-                    div
-                `).join('');
-            }
-
-             تحديث الشارات في الأعلى
-            const badge = document.getElementById('alertBadge');
-            if (lowStock.length  0) {
-                badge.style.display = '';
-                badge.textContent = '⚠️ ' + lowStock.length + ' تنبيه مخزون';
-            } else {
-                badge.style.display = 'none';
-            }
-
-             جدول آخر مبيعات منفذة
-            const lastSales = [...sales].sort((a,b) = b.date.localeCompare(a.date)).slice(0,5);
-            document.getElementById('lastSalesTable').innerHTML = `
-                theadtrthرقم الفاتورةththالتاريخththالعميلththالصافيthtrthead
-                tbody${lastSales.length  lastSales.map(i=`trtdb${i.num}btdtd${i.date}tdtd${i.customerName'-'}tdtd style=colorvar(--success);font-weight700${fmt(i.netTotal)} ر.سtdtr`).join('')  'trtd colspan=4 class=empty-stateلا توجد عمليات مبيعات مسجلة حتى الآنtdtr'}tbody
-            `;
-
-             السلع الأكثر مبيعاً
-            const salesCount = {};
-            sales.forEach(inv = inv.items.forEach(it = {
-                salesCount[it.productId] = (salesCount[it.productId]0) + it.qty;
-            }));
-            const top5 = Object.entries(salesCount).sort((a,b)=b[1]-a[1]).slice(0,5);
-            document.getElementById('topProductsTable').innerHTML = `
-                theadtrthاسم الكتاب  الصنفththالوحدات المباعةthtrthead
-                tbody${top5.length  top5.map(([pid,cnt])={const p=db.products.find(x=x.id===pid); return `trtd${pp.namepid}tdtdb${cnt} وحدةbtdtr`;}).join('')  'trtd colspan=2 class=empty-stateلا توجد مبيعات لإدراج إحصائيةtdtr'}tbody
-            `;
-        }
-
-         ===================== المساعدين الماليين والأدوات العامة =====================
-        function fmt(n) { return parseFloat(n0).toFixed(2).replace(B(=(d{3})+(!d))g,','); }
-        function getTodayDate() { return new Date().toISOString().split('T')[0]; }
-        
-        function toggleNotif() {
-            const popup = document.getElementById('notifPopup');
-            const lowStock = db.products.filter(p = p.qty = (p.minStock  db.settings.minStock));
-            popup.innerHTML = `div style=padding10px 16px;font-weight700;font-size13px;border-bottom1px solid var(--border);colorvar(--primary)🔔 قائمة الإشعارات الحرجة للمستودعdiv` + 
-                (lowStock.length === 0  'div class=notif-item✅ المخزون سليم بالكاملdiv'  lowStock.map(p=`div class=notif-item ${p.qty===0'danger''warning'}${p.qty===0'🚫 نفد تماماً''⚠️ منخفض جداً'} b${p.name}b (المتبقي ${p.qty})div`).join(''));
-            popup.classList.toggle('show');
-        }
-
-        document.addEventListener('click', e = {
-            if (!e.target.closest('#notifPopup') && !e.target.closest('#alertBadge')) {
-                document.getElementById('notifPopup').classList.remove('show');
-            }
-        });
-
-         ===================== دورة حياة فواتير المبيعات وزاوية النقاط =====================
-        let saleItems = [];
-        function initSaleForm() {
-            document.getElementById('saleCustomer').innerHTML = db.customers.map(c=`option value=${c.id}${c.name}option`).join('');
-            document.getElementById('saleItemProd').innerHTML = 'option value=-- اختر الكتاب أو المادة للبيع --option' + db.products.filter(p=p.qty0).map(p=`option value=${p.id}${p.name} (المتاح ${p.qty})option`).join('');
-            document.getElementById('saleDate').value = getTodayDate();
-            document.getElementById('saleInvNum').textContent = 'رقم المستند المقترح ' + getNextInvNum('S');
-            document.getElementById('saleVat').value = db.settings.vatPct  15;
-            saleItems = [];
-            renderSaleItems();
-        }
-
-        function fillSaleItem() {
-            const pid = document.getElementById('saleItemProd').value;
-            const p = db.products.find(x = x.id === pid);
-            if (p) {
-                document.getElementById('saleItemPrice').value = p.price  0;
-                calcSaleItemTotal();
-            }
-        }
-
-        function calcSaleItemTotal() {
-            const q = parseFloat(document.getElementById('saleItemQty').value)0;
-            const pr = parseFloat(document.getElementById('saleItemPrice').value)0;
-            document.getElementById('saleItemTotal').value = fmt(q  pr);
-        }
-
-        function addSaleItem() {
-            const pid = document.getElementById('saleItemProd').value;
-            const p = db.products.find(x = x.id === pid);
-            if (!p) return alert('الرجاء تحديد صنف صحيح للعملية');
-            
-            const qty = parseInt(document.getElementById('saleItemQty').value)0;
-            if (qty = 0) return alert('الكمية المباعة يجب أن تزيد عن صفر');
-            if (qty  p.qty) return alert(`المخزون لا يكفي! المتاح حالياً من [${p.name}] هو ${p.qty} فقط.`);
-            
-            const price = parseFloat(document.getElementById('saleItemPrice').value)0;
-            const existing = saleItems.find(x = x.productId === pid);
-            
-            if (existing) {
-                if (existing.qty + qty  p.qty) return alert('إجمالي الكمية المضافة يتجاوز سقف المستودع المتاح');
-                existing.qty += qty;
-                existing.total = existing.qty  existing.price;
-            } else {
-                saleItems.push({
-                    productId pid,
-                    name p.name,
-                    qty,
-                    price,
-                    cost p.cost  0,
-                    total qty  price
-                });
-            }
-            renderSaleItems();
-        }
-
-        function removeSaleItem(idx) {
-            saleItems.splice(idx, 1);
-            renderSaleItems();
-        }
-
-        function renderSaleItems() {
-            const list = document.getElementById('saleItemsList');
-            list.innerHTML = saleItems.map((it, i) = `
-                div class=invoice-row
-                    span${i+1}spanspan${it.name}spanspan${it.qty}span
-                    span${fmt(it.price)}spanspan style=font-weight700${fmt(it.total)}span
-                    button class=btn btn-danger btn-sm onclick=removeSaleItem(${i})✕button
-                div
-            `).join('')  'div style=padding16px;text-aligncenter;colorvar(--text3);font-size13pxلم تقم بإضافة عناصر للفاتورة الحالية بعدdiv';
-            calcSaleTotals();
-        }
-
-        function calcSaleTotals() {
-            const subtotal = saleItems.reduce((s, it) = s + it.total, 0);
-            const disc = parseFloat(document.getElementById('saleDiscount').value)0;
-            const vat = parseFloat(document.getElementById('saleVat').value)0;
-            
-            const discAmt = subtotal  disc  100;
-            const afterDisc = subtotal - discAmt;
-            const vatAmt = afterDisc  vat  100;
-            const net = afterDisc + vatAmt;
-
-            document.getElementById('saleTotals').innerHTML = `
-                divspan class=labelالإجمالي قبل الخصمspanspan class=value${fmt(subtotal)} ر.سspandiv
-                ${disc  0  `divspan class=labelالخصم الممنوح (${disc}%)spanspan class=value style=colorvar(--danger)- ${fmt(discAmt)} ر.سspandiv`  ''}
-                ${vat  0  `divspan class=labelضريبة القيمة المضافة (${vat}%)spanspan class=value${fmt(vatAmt)} ر.سspandiv`  ''}
-                divspan class=label style=font-weight800;colorvar(--primary)الصافي الإجمالي المطلوبspanspan class=value style=colorvar(--primary);font-size18px${fmt(net)} ر.سspandiv
-            `;
-            return { subtotal, discAmt, vatAmt, net };
-        }
-
-        function saveSaleInvoice() {
-            if (saleItems.length === 0) return alert('لا يمكن حفظ الفاتورة بدون بنود وعناصر مضافة');
-            const custId = document.getElementById('saleCustomer').value  'cust0';
-            const cust = db.customers.find(c = c.id === custId);
-            const totals = calcSaleTotals();
-            const invNum = getNextInvNum('S');
-
-            const inv = {
-                id genId('SINV'),
-                type 'sale',
-                num invNum,
-                date document.getElementById('saleDate').value,
-                customerId custId,
-                customerName cust  cust.name  'عميل نقدي',
-                payType document.getElementById('salePayType').value,
-                notes document.getElementById('saleNotes').value,
-                items JSON.parse(JSON.stringify(saleItems)),
-                subtotal totals.subtotal,
-                discAmt totals.discAmt,
-                vatAmt totals.vatAmt,
-                netTotal totals.net,
-                costTotal saleItems.reduce((s, it) = s + (it.cost  it.qty), 0),
-                discount parseFloat(document.getElementById('saleDiscount').value)0,
-                vat parseFloat(document.getElementById('saleVat').value)0
-            };
-
-             ترحيل المخزون الفوري والخصم
-            saleItems.forEach(it = {
-                const p = db.products.find(x = x.id === it.productId);
-                if (p) p.qty -= it.qty;
-            });
-
-            db.invoices.push(inv);
-            saveDB();
-            alert('✅ تم ترحيل وحفظ فاتورة المبيعات بنجاح برقم ' + invNum);
-            clearSaleForm();
-            showPage('dashboard');
-        }
-
-        function clearSaleForm() {
-            saleItems = [];
-            document.getElementById('saleDiscount').value = '0';
-            document.getElementById('saleNotes').value = '';
-            document.getElementById('saleItemQty').value = '1';
-            document.getElementById('saleItemPrice').value = '';
-            document.getElementById('saleItemTotal').value = '';
-            initSaleForm();
-        }
-
-        function previewSaleInvoice() {
-            if (saleItems.length === 0) return alert('أضف عناصر أولاً للمعاينة والطباعة');
-            const totals = calcSaleTotals();
-            const custId = document.getElementById('saleCustomer').value  'cust0';
-            const cust = db.customers.find(c = c.id === custId);
-            const s = db.settings;
-            
-            const html = buildInvoiceHTML({
-                type 'sale',
-                num getNextInvNum('S'),
-                date document.getElementById('saleDate').value,
-                personName cust  cust.name  'عميل نقدي',
-                payType document.getElementById('salePayType').value,
-                notes document.getElementById('saleNotes').value,
-                items saleItems,
-                totals,
-                s
-            });
-            
-            const w = window.open('', '_blank');
-            w.document.write(html);
-            w.document.close();
-        }
-
-         ===================== تسيير فواتير المشتريات والموردين =====================
-        let purchItems = [];
-        function initPurchForm() {
-            if(db.suppliers.length === 0) {
-                document.getElementById('purchSupplier').innerHTML = 'option value=-- الرجاء إضافة مورد أولاً من قسم الأطراف --option';
-            } else {
-                document.getElementById('purchSupplier').innerHTML = db.suppliers.map(s=`option value=${s.id}${s.name}option`).join('');
-            }
-            document.getElementById('purchItemProd').innerHTML = 'option value=-- اختر صنفاً للتوريد --optionoption value=__new__+ تسجيل وإضافة صنف جديد تماماًoption' + db.products.map(p=`option value=${p.id}${p.name}option`).join('');
-            document.getElementById('purchDate').value = getTodayDate();
-            document.getElementById('purchInvNum').textContent = 'رقم السند ' + getNextInvNum('P');
-            purchItems = [];
-            renderPurchItems();
-        }
-
-        function fillPurchItem() {
-            const v = document.getElementById('purchItemProd').value;
-            if (v === '__new__') {
-                openProductModal(null, true);
-                document.getElementById('purchItemProd').value = '';
-                return;
-            }
-            const p = db.products.find(x = x.id === v);
-            if (p) {
-                document.getElementById('purchItemCost').value = p.cost  0;
-                calcPurchItemTotal();
-            }
-        }
-
-        function calcPurchItemTotal() {
-            const q = parseFloat(document.getElementById('purchItemQty').value)0;
-            const c = parseFloat(document.getElementById('purchItemCost').value)0;
-            document.getElementById('purchItemTotal').value = fmt(q  c);
-        }
-
-        function addPurchItem() {
-            const pid = document.getElementById('purchItemProd').value;
-            if (!pid  pid === '__new__') return alert('يرجى اختيار صنف صحيح من القائمة المتاحة');
-            const p = db.products.find(x = x.id === pid);
-            if (!p) return alert('لم يتم العثور على الصنف المختار');
-            
-            const qty = parseInt(document.getElementById('purchItemQty').value)0;
-            const cost = parseFloat(document.getElementById('purchItemCost').value)0;
-            if (qty = 0) return alert('كمية الشراء يجب أن تكون وحدة فأكثر');
-            
-            const existing = purchItems.find(x = x.productId === pid);
-            if (existing) {
-                existing.qty += qty;
-                existing.total = existing.qty  existing.cost;
-            } else {
-                purchItems.push({ productId pid, name p.name, qty, cost, total qty  cost });
-            }
-            renderPurchItems();
-        }
-
-        function removePurchItem(idx) {
-            purchItems.splice(idx, 1);
-            renderPurchItems();
-        }
-
-        function renderPurchItems() {
-            document.getElementById('purchItemsList').innerHTML = purchItems.map((it, i) = `
-                div class=invoice-row
-                    span${i+1}spanspan${it.name}spanspan${it.qty}span
-                    span${fmt(it.cost)}spanspan style=font-weight700${fmt(it.total)}span
-                    button class=btn btn-danger btn-sm onclick=removePurchItem(${i})✕button
-                div
-            `).join('')  'div style=padding16px;text-aligncenter;colorvar(--text3);font-size13pxلم يتم إضافة أي بنود شراء في القائمة الحاليةdiv';
-            
-            const sub = purchItems.reduce((s, it) = s + it.total, 0);
-            document.getElementById('purchTotals').innerHTML = `
-                divspan class=label style=font-weight800;colorvar(--primary)إجمالي تكلفة المشترياتspanspan class=value style=colorvar(--primary);font-size18px${fmt(sub)} ر.سspandiv
-            `;
-        }
-
-        function savePurchInvoice() {
-            if (purchItems.length === 0) return alert('الرجاء إدراج بنود التوريد أولاً');
-            const suppId = document.getElementById('purchSupplier').value;
-            if(!suppId) return alert('الرجاء تعيين المورد لإتمام العملية القيود الماليّة');
-            const supp = db.suppliers.find(s = s.id === suppId);
-            const sub = purchItems.reduce((s, it) = s + it.total, 0);
-            const invNum = getNextInvNum('P');
-
-            const inv = {
-                id genId('PINV'),
-                type 'purchase',
-                num invNum,
-                date document.getElementById('purchDate').value,
-                supplierId suppId,
-                supplierName supp  supp.name  'مورد غير محدد',
-                extNum document.getElementById('purchExtNum').value,
-                payType document.getElementById('purchPayType').value,
-                notes document.getElementById('purchNotes').value,
-                items JSON.parse(JSON.stringify(purchItems)),
-                netTotal sub
-            };
-
-             ترحيل الكميات وتعديل المتوسط المرجح للتكلفة
-            purchItems.forEach(it = {
-                const p = db.products.find(x = x.id === it.productId);
-                if (p) {
-                    p.qty += it.qty;
-                    p.cost = it.cost;  تحديث التكلفة لآخر شراء
-                }
-            });
-
-            db.invoices.push(inv);
-            saveDB();
-            alert('✅ تم حفظ مستند التوريد بنجاح برقم ' + invNum + ' وجرى زيادة المخازن فورا.');
-            clearPurchForm();
-            showPage('invoices');
-        }
-
-        function clearPurchForm() {
-            purchItems = [];
-            document.getElementById('purchExtNum').value = '';
-            document.getElementById('purchNotes').value = '';
-            initPurchForm();
-        }
-
-        function getNextInvNum(type) {
-            const prefix = type === 'S'  'S'  'P';
-            const last = db.invoices.filter(i = i.num && i.num.startsWith(prefix)).map(i = parseInt(i.num.replace(prefix, ''))  0);
-            return prefix + String((last.length  Math.max(...last)  0) + 1).padStart(5, '0');
-        }
-
-         ===================== أرشيف وسجل الفواتير العام =====================
-        function renderInvoices() {
-            const type = document.getElementById('invFilterType').value;
-            const month = document.getElementById('invFilterMonth').value;
-            let invs = [...db.invoices].sort((a,b) = b.date.localeCompare(a.date));
-            
-            if (type) invs = invs.filter(i = i.type === type);
-            if (month) invs = invs.filter(i = i.date.startsWith(month));
-
-            document.getElementById('invoicesTable').innerHTML = `
-                thead
-                    tr
-                        thرقم الحركةth
-                        thالنوعth
-                        thتاريخ الحركةth
-                        thالطرف المعنيth
-                        thالصافي الماليth
-                        thطريقة الدفعth
-                        thعمليات تحكمth
-                    tr
-                thead
-                tbody${invs.length  invs.map(i = `
-                    tr
-                        tdb${i.num}btd
-                        tdspan class=badge ${i.type==='sale''badge-success''badge-info'}${i.type==='sale''فاتورة مبيعات''توريد مشتريات'}spantd
-                        td${i.date}td
-                        td${i.customerName  i.supplierName  '-'}td
-                        td style=font-weight700;color${i.type==='sale''var(--success)''var(--danger)'}${fmt(i.netTotal)} ر.سtd
-                        td${payLabel(i.payType)}td
-                        td
-                            button class=btn btn-outline btn-sm onclick=printInvoice('${i.id}')🖨️ طباعةbutton
-                            button class=btn btn-danger btn-sm onclick=deleteInvoice('${i.id}')🗑️ حذفbutton
-                        td
-                    tr
-                `).join('')  'trtd colspan=7 class=empty-stateلا توجد سجلات مطابقة للبحث الحاليtdtr'}tbody
-            `;
-        }
-
-        function payLabel(t) {
-            const m = { cash 'نقدي', card 'بطاقة مدىائتمان', credit 'بيع آجل (مديونية)', transfer 'تحويل بنكي' };
-            return m[t]  t  '-';
-        }
-
-        function deleteInvoice(id) {
-            if (!confirm('تحذير حذف الفاتورة يسقط قيدها المالي فقط ولا يؤثر على تراجع حركة مستودع السلع الحالي لسلامة الفترات، هل تود الاستمرار؟')) return;
-            db.invoices = db.invoices.filter(i = i.id !== id);
-            saveDB();
-            renderInvoices();
-        }
-
-        function printInvoice(id) {
-            const inv = db.invoices.find(i = i.id === id);
-            if (!inv) return;
-            const s = db.settings;
-            const totals = { subtotal inv.subtotal  inv.netTotal, discAmt inv.discAmt  0, vatAmt inv.vatAmt  0, net inv.netTotal };
-            
-            const html = buildInvoiceHTML({
-                type inv.type,
-                num inv.num,
-                date inv.date,
-                personName inv.customerName  inv.supplierName  '-',
-                payType inv.payType,
-                notes inv.notes,
-                items inv.items,
-                totals,
-                s
-            });
-            const w = window.open('', '_blank');
-            w.document.write(html);
-            w.document.close();
-        }
-
-        function buildInvoiceHTML({type, num, date, personName, payType, notes, items, totals, s}) {
-            return `!DOCTYPE htmlhtml lang=ar dir=rtlheadmeta charset=UTF-8titleمستند رقم ${num}title
-            style
-                body{font-familyTahoma,Arial,sans-serif;margin0;padding30px;directionrtl;color#1a2332;font-size13px}
-                .inv-header{displayflex;justify-contentspace-between;align-itemsflex-start;margin-bottom30px;border-bottom3px solid #1a3a5c;padding-bottom16px}
-                .inv-company{font-size22px;font-weight800;color#1a3a5c}
-                .inv-sub{font-size12px;color#666;margin-top4px}
-                .inv-title{font-size24px;font-weight800;color#1a3a5c;text-alignleft}
-                .inv-num{font-size14px;color#444;text-alignleft;margin-top6px}
-                .inv-info{displaygrid;grid-template-columns1fr 1fr;gap12px;margin-bottom24px;background#f8f9fa;padding16px;border-radius8px;border1px solid #eee}
-                .inv-info label{font-weight700;color#1a3a5c}
-                table{width100%;border-collapsecollapse;margin20px 0}
-                th{background#1a3a5c;colorwhite;padding10px 14px;text-alignright}
-                td{padding10px 14px;border-bottom1px solid #eee}
-                .total-section{padding-top12px;displayflex;flex-directioncolumn;align-itemsflex-end;gap6px}
-                .total-row{displayflex;justify-contentspace-between;width280px;font-size13px;border-bottom1px dashed #ddd;padding4px 0}
-                .total-row.grand{font-size18px;font-weight800;color#1a3a5c;border-bottomnone;border-top2px solid #1a3a5c;padding-top8px}
-                .footer{margin-top50px;text-aligncenter;font-size11px;color#999;border-top1px solid #eee;padding-top12px}
-                @media print{body{padding0}}
-            styleheadbody
-            div class=inv-header
-                div
-                    div class=inv-company${s.storeName'نظام حسابات المكتبة الافتراضي'}div
-                    div class=inv-sub${s.address'المملكة العربية السعودية'}div
-                    div class=inv-subهاتف العمل ${s.phone'-'}div
-                    ${s.vatNum  `div class=inv-subالرقم الضريبي للمنشأة ${s.vatNum}div`  ''}
-                div
-                div
-                    div class=inv-title${type==='sale''فاتورة مبيعات ضريبية''سند استلام وتوريد مشتريات'}div
-                    div class=inv-numالرقم المرجعي ${num}div
-                    div class=inv-numالتاريخ ${date}div
-                div
-            div
-            div class=inv-info
-                divlabel${type==='sale''الزبون  العميل''السيد المورد'}label ${personName}div
-                divlabelطريقة السداد التدفي label ${payLabel(payType)}div
-                ${notes  `div style=grid-columnspan 2labelملاحظات الشرحlabel ${notes}div`  ''}
-            div
-            table
-                theadtrth#ththبيان اسم الصنف  الكتابththالكمية الوحداتththسعر الوحدةththالإجمالي الفرعيthtrthead
-                tbody${items.map((it,i)=`trtd${i+1}tdtdb${it.name}btdtd${it.qty}tdtd${fmt(it.price  it.cost  0)} ريالtdtd${fmt(it.total)} ريالtdtr`).join('')}tbody
-            table
-            div class=total-section
-                div class=total-rowspanالإجمالي قبل الاحتسابspanspan${fmt(totals.subtotal)} ريالspandiv
-                ${totals.discAmt  0  `div class=total-rowspanمجموع قيمة الخصمspanspan- ${fmt(totals.discAmt)} ريالspandiv`  ''}
-                ${totals.vatAmt  0  `div class=total-rowspanضريبة القيمة المضافةspanspan+ ${fmt(totals.vatAmt)} ريالspandiv`  ''}
-                div class=total-row grandspanالصافي النهائي المستحقspanspan${fmt(totals.net)} ريال سعوديspandiv
-            div
-            div class=footerصُدرت تلقائياً عبر النظام الموحد للمكتبة الماليّة • تاريخ الطباعة ${new Date().toLocaleString('ar-SA')}div
-            scriptwindow.onload=()= { window.print(); window.close(); }scriptbodyhtml`;
-        }
-
-         ===================== دليل إدارة المستودعات والسلع والكتب =====================
-        function renderProducts() {
-            const q = (document.getElementById('productSearch').value'').toLowerCase();
-            const cat = document.getElementById('productCatFilter').value;
-            
-            const cf = document.getElementById('productCatFilter');
-            cf.innerHTML = 'option value=كل فئات المخزنoption' + db.categories.map(c=`option value=${c.id} ${c.id===cat'selected'''}${c.name}option`).join('');
-            
-            let prods = db.products;
-            if (q) prods = prods.filter(p = p.name.toLowerCase().includes(q)  (p.barcode'').includes(q));
-            if (cat) prods = prods.filter(p = p.categoryId === cat);
-            
-            const minStock = db.settings.minStock  5;
-            document.getElementById('productsTable').innerHTML = `
-                thead
-                    tr
-                        thالباركود  ISBNth
-                        thاسم الصنف والبيانth
-                        thالفئةth
-                        thالمخزون الحاليth
-                        thحد الأمانth
-                        thسعر التكلفةth
-                        thسعر البيع الافتراضيth
-                        thحالة التوفرth
-                        thإجراءاتth
-                    tr
-                thead
-                tbody${prods.length  prods.map(p = {
-                    const lowQ = p.qty = (p.minStock  minStock);
-                    const cInfo = db.categories.find(c = c.id === p.categoryId);
-                    return `tr class=${p.qty===0'low-stock-row'lowQ'low-stock-row'''}
-                        td style=font-familymonospace;colorvar(--text3)${p.barcode  '-'}td
-                        tdb${p.name}bbrsmall style=colorvar(--text3)${p.author''}smalltd
-                        td${cInfo  cInfo.name  '-'}td
-                        td style=font-weight800;color${p.qty===0'var(--danger)'lowQ'var(--warning)''var(--success)'}${p.qty} وحدةtd
-                        td${p.minStock  minStock}td
-                        td${fmt(p.cost)} ر.سtd
-                        td style=font-weight700;colorvar(--primary)${fmt(p.price)} ر.سtd
-                        td${p.qty===0'span class=badge badge-dangerنفد المخزونspan'lowQ'span class=badge badge-warningتحت حد الطلبspan''span class=badge badge-successمتوفر بالمستودعspan'}td
-                        td style=displayflex;gap4px
-                            button class=btn btn-outline btn-sm onclick=openProductModal('${p.id}')✏️ تعديلbutton
-                            button class=btn btn-danger btn-sm onclick=deleteProduct('${p.id}')🗑️button
-                        td
-                    tr`;
-                }).join('')  'trtd colspan=9 class=empty-stateلا توجد سلع مدرجة في دليل المواد الحاليtdtr'}tbody
-            `;
-        }
-
-        function openProductModal(id, fromPurch = false) {
-            const p = id  db.products.find(x = x.id === id)  null;
-            document.getElementById('modalTitle').textContent = p  'تعديل الصنف الحركي للسلعة'  'إضافة وتكويد صنف كتاب  سلعة جديدة';
-            
-            document.getElementById('modalBody').innerHTML = `
-                div class=form-grid form-grid-2
-                    div class=form-grouplabelاسم المادة  عنوان الكتاب labelinput type=text class=form-control id=pmName value=${pp.name''} requireddiv
-                    div class=form-grouplabelالباركود الدولي الرقمي  ISBNlabelinput type=text class=form-control id=pmBarcode value=${pp.barcode''''}div
-                    div class=form-group
-                        labelالتصنيف والفئة المخزنيةlabel
-                        select class=form-control id=pmCat
-                            option value=-- بدون تصنيف عام --option
-                            ${db.categories.map(c=`option value=${c.id} ${p && p.categoryId===c.id'selected'''}${c.name}option`).join('')}
-                        select
-                    div
-                    div class=form-grouplabelالمؤلف  جهة النشر والتوزيعlabelinput type=text class=form-control id=pmAuthor value=${pp.author''''}div
-                    div class=form-grid-2 style=grid-column span 2; displaygrid; gap16px;
-                        div class=form-grouplabelالكمية الافتتاحية للمستودع labelinput type=number class=form-control id=pmQty value=${pp.qty0} min=0div
-                        div class=form-grouplabelحد الأمان الأدنى للمخزونlabelinput type=number class=form-control id=pmMin value=${pp.minStock55} min=0div
-                    div
-                    div class=form-grouplabelسعر التكلفة بالشراء (ريال)labelinput type=number class=form-control id=pmCost value=${pp.cost00} step=0.01div
-                    div class=form-grouplabelسعر البيع النهائي للجمهور labelinput type=number class=form-control id=pmPrice value=${pp.price00} step=0.01div
-                    div class=form-group style=grid-columnspan 2labelالوصف والملاحظات الداخلية لرفوف التخزينlabelinput type=text class=form-control id=pmDesc value=${pp.desc''''}div
-                div
-            `;
-            
-            document.getElementById('modalFooter').innerHTML = `
-                button class=btn btn-outline onclick=closeModalNow()إغلاق التراجعbutton
-                button class=btn btn-primary onclick=saveProduct('${id''}', ${fromPurch})💾 حفظ الصنفbutton
-            `;
-            document.getElementById('modalOverlay').style.display = 'flex';
-        }
-
-        function saveProduct(id, fromPurch) {
-            const name = document.getElementById('pmName').value.trim();
-            if (!name) return alert('يجب تعيين وتسمية بيان الصنف لإتمام تكويده');
-            
-            const prod = {
-                id id  genId('PRD'),
-                name,
-                barcode document.getElementById('pmBarcode').value.trim(),
-                categoryId document.getElementById('pmCat').value,
-                author document.getElementById('pmAuthor').value.trim(),
-                qty parseInt(document.getElementById('pmQty').value)0,
-                minStock parseInt(document.getElementById('pmMin').value)5,
-                cost parseFloat(document.getElementById('pmCost').value)0,
-                price parseFloat(document.getElementById('pmPrice').value)0,
-                desc document.getElementById('pmDesc').value.trim()
-            };
-
-            if (id) {
-                const idx = db.products.findIndex(x = x.id === id);
-                if (idx = 0) db.products[idx] = prod;
-            } else {
-                db.products.push(prod);
-            }
-            
-            saveDB();
-            closeModalNow();
-            if (fromPurch) {
-                initPurchForm();
-            } else {
-                renderProducts();
-            }
-        }
-
-        function deleteProduct(id) {
-            if (!confirm('هل تود حذف هذه السلعة نهائياً من كشوف المستودعات؟')) return;
-            db.products = db.products.filter(x = x.id !== id);
-            saveDB();
-            renderProducts();
-        }
-
-         ===================== تهيئة مجموعات وفئات الأصناف =====================
-        function renderCategories() {
-            document.getElementById('catsTableBody').innerHTML = db.categories.map((c, i) = `
-                tr
-                    td${i+1}td
-                    tdb${c.name}btd
-                    tdspan class=badge badge-info${db.products.filter(p=p.categoryId===c.id).length} صنف مسجّلspantd
-                    td
-                        button class=btn btn-outline btn-sm onclick=openCatModal('${c.id}')✏️ تعديل البيانbutton
-                        button class=btn btn-danger btn-sm onclick=deleteCat('${c.id}')🗑️ حذفbutton
-                    td
-                tr
-            `).join('');
-        }
-
-        function openCatModal(id) {
-            const c = id  db.categories.find(x = x.id === id)  null;
-            document.getElementById('modalTitle').textContent = c  'تعديل الفئة'  'إضافة تصنيف مخزني جديد';
-            document.getElementById('modalBody').innerHTML = `div class=form-grouplabelاسم المجموعة  التصنيف الجديدlabelinput type=text class=form-control id=catName value=${cc.name''}div`;
-            document.getElementById('modalFooter').innerHTML = `button class=btn btn-outline onclick=closeModalNow()إلغاءbuttonbutton class=btn btn-primary onclick=saveCat('${id''}')💾 حفظ البياناتbutton`;
-            document.getElementById('modalOverlay').style.display = 'flex';
-        }
-
-        function saveCat(id) {
-            const name = document.getElementById('catName').value.trim();
-            if (!name) return alert('الرجاء كتابة اسم الفئة المراد إنشاؤها');
-            
-            if (id) {
-                const c = db.categories.find(x = x.id === id);
-                if (c) c.name = name;
-            } else {
-                db.categories.push({ id genId('CAT'), name });
-            }
-            saveDB();
-            closeModalNow();
-            renderCategories();
-        }
-
-        function deleteCat(id) {
-            if (!confirm('حذف الفئة لا يسقط السلع المرتبطة بها بل يحولها لأصناف غير مصنفة، هل تريد الإزالة؟')) return;
-            db.categories = db.categories.filter(x = x.id !== id);
-            saveDB();
-            renderCategories();
-        }
-
-         ===================== أطراف الشركة (الزبائن والموردين) =====================
-        function renderCustomers() {
-            const q = (document.getElementById('custSearch').value'').toLowerCase();
-            let custs = db.customers.filter(c = c.name.toLowerCase().includes(q)  (c.phone'').includes(q));
-            
-            document.getElementById('customersTable').innerHTML = `
-                theadtrthاسم العميلththرقم جوال العميلththالعنوان والمدينةththمسحوبات مبيعاته الإجماليةththعمليات وتحكمthtrthead
-                tbody${custs.map(c = {
-                    const totalSales = db.invoices.filter(i = i.type==='sale' && i.customerId===c.id).reduce((s,i) = s + (i.netTotal0), 0);
-                    return `tr
-                        tdb${c.name}btd
-                        td${c.phone  '-'}td
-                        td${c.address  '-'}td
-                        td style=font-weight700;colorvar(--success)${fmt(totalSales)} ر.سtd
-                        td
-                            button class=btn btn-outline btn-sm onclick=openPersonModal('customer','${c.id}')✏️ تعديلbutton
-                            ${c.id !== 'cust0'  `button class=btn btn-danger btn-sm onclick=deletePerson('customer','${c.id}')🗑️button`''}
-                        td
-                    tr`;
-                }).join('')}tbody
-            `;
-        }
-
-        function renderSuppliers() {
-            const q = (document.getElementById('suppSearch').value'').toLowerCase();
-            let supps = db.suppliers.filter(s = s.name.toLowerCase().includes(q)  (s.phone'').includes(q));
-            
-            document.getElementById('suppliersTable').innerHTML = `
-                theadtrthاسم المورد  دار التوزيعththرقم الجوال والاتصالththالعنوان البريديththإجمالي التوريدات منهththعملياتthtrthead
-                tbody${supps.length  supps.map(s = {
-                    const totalPurch = db.invoices.filter(i = i.type==='purchase' && i.supplierId===s.id).reduce((sum,i) = sum + (i.netTotal0), 0);
-                    return `tr
-                        tdb${s.name}btd
-                        td${s.phone  '-'}td
-                        td${s.address  '-'}td
-                        td style=font-weight700;colorvar(--info)${fmt(totalPurch)} ر.سtd
-                        td
-                            button class=btn btn-outline btn-sm onclick=openPersonModal('supplier','${s.id}')✏️ تعديلbutton
-                            button class=btn btn-danger btn-sm onclick=deletePerson('supplier','${s.id}')🗑️button
-                        td
-                    tr`;
-                }).join('')  'trtd colspan=5 class=empty-stateلا يوجد أي مورد معتمد مضاف حالياًtdtr'}tbody
-            `;
-        }
-
-        function openPersonModal(type, id) {
-            const arr = type === 'customer'  db.customers  db.suppliers;
-            const item = id  arr.find(x = x.id === id)  null;
-            const lbl = type === 'customer'  'الزبون  العميل'  'الشركة الموردة';
-            
-            document.getElementById('modalTitle').textContent = (item  'تعديل بيانات '  'إضافة وتهيئة ') + lbl;
-            document.getElementById('modalBody').innerHTML = `
-                div class=form-grid
-                    div class=form-grouplabelالاسم الكامل  الاسم التجاري المعتمد labelinput type=text class=form-control id=perName value=${itemitem.name''} requireddiv
-                    div class=form-grouplabelرقم هاتف الاتصال  الجوالlabelinput type=text class=form-control id=perPhone value=${itemitem.phone''''}div
-                    div class=form-grouplabelتفاصيل العنوان الوطني  الفروعlabelinput type=text class=form-control id=perAddress value=${itemitem.address''''}div
-                div
-            `;
-            
-            document.getElementById('modalFooter').innerHTML = `
-                button class=btn btn-outline onclick=closeModalNow()إغلاق النافذةbutton
-                button class=btn btn-primary onclick=savePerson('${type}', '${id''}')💾 حفظ البيانات للأطرافbutton
-            `;
-            document.getElementById('modalOverlay').style.display = 'flex';
-        }
-
-        function savePerson(type, id) {
-            const name = document.getElementById('perName').value.trim();
-            if (!name) return alert('الاسم الكامل هو حقل أساسي إلزامي');
-            
-            const arr = type === 'customer'  db.customers  db.suppliers;
-            const data = {
-                id id  genId(type === 'customer'  'CST'  'SPL'),
-                name,
-                phone document.getElementById('perPhone').value.trim(),
-                address document.getElementById('perAddress').value.trim()
-            };
-
-            if (id) {
-                const idx = arr.findIndex(x = x.id === id);
-                if (idx = 0) arr[idx] = data;
-            } else {
-                arr.push(data);
-            }
-            
-            saveDB();
-            closeModalNow();
-            type === 'customer'  renderCustomers()  renderSuppliers();
-        }
-
-        function deletePerson(type, id) {
-            if (!confirm('هل تود استبعاد وحذف هذا الطرف نهائياً من سجلاتك التجارية؟')) return;
-            if (type === 'customer') {
-                db.customers = db.customers.filter(x = x.id !== id);
-                renderCustomers();
-            } else {
-                db.suppliers = db.suppliers.filter(x = x.id !== id);
-                renderSuppliers();
-            }
-            saveDB();
-        }
-
-         ===================== نظام تقييد وإدارة قيود المصروفات =====================
-        function addExpense() {
-            const desc = document.getElementById('expDesc').value.trim();
-            const amount = parseFloat(document.getElementById('expAmount').value)0;
-            const category = document.getElementById('expCat').value;
-            const date = document.getElementById('expDate').value;
-            
-            if (!desc  amount = 0  !date) return alert('يرجى استيفاء الحقول والمبلغ بشكل صحيح تزيد عن صفر');
-            
-            db.expenses.push({ id genId('EXP'), desc, amount, category, date });
-            saveDB();
-            alert('✅ جرى إثبات قيد المصرف المالي وخفض الصندوق التقديري المالي.');
-            
-            document.getElementById('expDesc').value = '';
-            document.getElementById('expAmount').value = '';
-            renderExpenses();
-        }
-
-        function renderExpenses() {
-            document.getElementById('expDate').value = getTodayDate();
-            const filterMonth = document.getElementById('expFilter').value  getTodayDate().slice(0,7);
-            document.getElementById('expFilter').value = filterMonth;
-            
-            const list = db.expenses.filter(e = e.date.startsWith(filterMonth));
-            const sumEx = list.reduce((s, e) = s + e.amount, 0);
-
-            document.getElementById('expensesTable').innerHTML = `
-                theadtrthالتاريخththبيان النفقة وقيد المصرفththالفئة الهيكليةththالمبلغ المدفوعththإجراءاتthtrthead
-                tbody${list.length  list.map(e = `
-                    tr
-                        td${e.date}td
-                        tdb${e.desc}btd
-                        tdspan class=badge badge-warning${e.category}spantd
-                        td style=font-weight700;colorvar(--danger)${fmt(e.amount)} ر.سtd
-                        tdbutton class=btn btn-danger btn-sm onclick=deleteExpense('${e.id}')🗑️ شطبbuttontd
-                    tr
-                `).join('')  'trtd colspan=5 class=empty-stateلم يتم تدوين قيود نفقات خلال هذا الشهر الحالي بعدtdtr'}
-                tr style=background#f1f3f5;font-weightboldtd colspan=3 class=text-leftمجموع النفقات الخارجة الكلي للشهرtdtd style=colorvar(--danger);font-size14px${fmt(sumEx)} ريال سtdtdtdtr
-                tbody
-            `;
-        }
-
-        function deleteExpense(id) {
-            if (!confirm('هل تريد شطب قيد هذا المصرف نهائياً؟')) return;
-            db.expenses = db.expenses.filter(e = e.id !== id);
-            saveDB();
-            renderExpenses();
-        }
-
-         ===================== قسم الإعدادات العامة والتهيئة المتقدمة المنشأة =====================
-        function renderSettings() {
-            document.getElementById('setStoreName').value = db.settings.storeName  '';
-            document.getElementById('setPhone').value = db.settings.phone  '';
-            document.getElementById('setAddress').value = db.settings.address  '';
-            document.getElementById('setVatNum').value = db.settings.vatNum  '';
-            document.getElementById('setMinStock').value = db.settings.minStock  5;
-            document.getElementById('setVatPct').value = db.settings.vatPct  15;
-            
-            document.getElementById('usersList').innerHTML = db.users.map(u = `
-                div style=displayflex; justify-contentspace-between; align-itemscenter; padding8px; border-bottom1px solid var(--border)
-                    span👤 b${u.username}b — صلاحية [${u.role === 'admin'  'مدير كامل'  'كاشير مبيعات'}]span
-                    ${u.username !== 'admin'  `button class=btn btn-danger btn-sm onclick=deleteUser('${u.username}')تعطيل وحسابbutton`  'small style=colorvar(--text3)الحساب الأساسي محميsmall'}
-                div
-            `).join('');
-        }
-
-        function saveSettings() {
-            db.settings = {
-                storeName document.getElementById('setStoreName').value.trim(),
-                phone document.getElementById('setPhone').value.trim(),
-                address document.getElementById('setAddress').value.trim(),
-                vatNum document.getElementById('setVatNum').value.trim(),
-                minStock parseInt(document.getElementById('setMinStock').value)  5,
-                vatPct parseFloat(document.getElementById('setVatPct').value)  0
-            };
-            document.getElementById('storeName').textContent = db.settings.storeName;
-            saveDB();
-            alert('✅ جرى حفظ التهيئة والمقاييس الجديدة في ملف النظام بنجاح.');
-        }
-
-        function saveUser() {
-            const u = document.getElementById('newUsername').value.trim();
-            const p = document.getElementById('newPassword').value;
-            const r = document.getElementById('newRole').value;
-            
-            if (!u  !p) return alert('الرجاء تعبئة بيانات اسم الحساب الرقمي السري');
-            if(db.users.some(x = x.username === u)) return alert('اسم المستخدم مسجل مسبقاً بنظام الحسابات الحالية');
-            
-            db.users.push({ username u, password p, role r });
-            saveDB();
-            document.getElementById('newUsername').value = '';
-            document.getElementById('newPassword').value = '';
-            renderSettings();
-            alert('✅ جرى إنشاء مستخدم جديد بنجاح.');
-        }
-
-        function deleteUser(username) {
-            if (!confirm(`هل تود حظر وحذف المستخدم [${username}]؟`)) return;
-            db.users = db.users.filter(x = x.username !== username);
-            saveDB();
-            renderSettings();
-        }
-
-         ===================== أدوات السلامة والنسخ الاحتياطي للأمان =====================
-        function backupData() {
-            try {
-                const rawStr = btoa(unescape(encodeURIComponent(JSON.stringify(db))));
-                const dataUri = 'dataapplicationjson;charset=utf-8;base64,' + rawStr;
-                
-                const exportFileDefaultName = 'محفوظات_نظام_المكتبة_' + new Date().toISOString().split('T')[0] + '.json';
-                const linkElement = document.createElement('a');
-                linkElement.setAttribute('href', dataUri);
-                linkElement.setAttribute('download', exportFileDefaultName);
-                linkElement.click();
-            } catch(e) {
-                alert(تعذر إنشاء ملف تصدير البيانات  + e.message);
-            }
-        }
-
-        function importBackup() {
-            if (confirm(تحذير حرج للغاية استعادة قاعدة بيانات سابقة سيؤدي لمسح وحذف كافة العمليات المدونة الحالية وإحلال البيانات القديمة مكانها بالكامل، هل أنت متأكد من المتابعة؟)) {
-                document.getElementById('importFile').click();
-            }
-        }
-
-        function doImport(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                try {
-                    let rawData = evt.target.result;
-                     فحص إذا كان الملف مشفر أو نص عادي
-                    if (!rawData.trim().startsWith('{')) {
-                        rawData = decodeURIComponent(escape(atob(rawData.trim())));
-                    }
-                    const parsed = JSON.parse(rawData);
-                    
-                    if (parsed.settings && parsed.users) {
-                        db = parsed;
-                        saveDB();
-                        alert(✅ تهانينا، تم استعادة وتكامل قاعدة البيانات بنجاح، سيقوم المتصفح بإعادة التشغيل فورا.);
-                        location.reload();
-                    } else {
-                        alert(فشل الاستيراد هيكلية بنية الملف المختار غير متطابقة مع هذا الإصدار البرمي المعتمد.);
-                    }
-                } catch(err) {
-                    alert(عذراً، تعذر فك تشفير وقراءة الملف المختار بشكل سليم  + err.message);
-                }
-            };
-            reader.readAsText(file);
-        }
-
-         ===================== تهيئة إغلاق النوافذ (MODAL LOGIC) الموحدة =====================
-        function closeModal(e) { if(e.target.id === 'modalOverlay') closeModalNow(); }
-        function closeModalNow() { document.getElementById('modalOverlay').style.display = 'none'; }
-        
-        function initApp() {
-            loadDB();
-            document.getElementById('storeName').textContent = db.settings.storeName;
-            renderDashboard();
-        }
-        
-         التحميل الأولي الهادئ عند فتح الصفحة المباشرة
-        window.onload = () = { loadDB(); };
-    script
-body
-html
+        if (item.special === 'backup') return `<div class="nav-item" onclick="backupData()"><span class="icon">💾</span>نسخة احتياطية</div>`;
+        if (item.special === 'import') return `<div class="nav-item" onclick="importBackup()"><span class="icon">📥</span>استعادة البيانات</div>`;
+        return '';
+    }).join('');
+}
+
+function showPage(name) {
+    if (!hasPermission(name)) return alert('ليس لديك صلاحية للوصول إلى هذه الصفحة');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    const tp = document.getElementById('page-' + name);
+    if (tp) tp.classList.add('active');
+    document.querySelectorAll('.nav-item').forEach(n => {
+        if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + name + "'")) n.classList.add('active');
+    });
+    document.getElementById('pageTitle').textContent = pageTitles[name] || name;
+    if (name === 'dashboard') renderDashboard();
+    if (name === 'products') renderProducts();
+    if (name === 'invoices') renderInvoices();
+    if (name === 'customers') renderCustomers();
+    if (name === 'suppliers') renderSuppliers();
+    if (name === 'expenses') renderExpenses();
+    if (name === 'categories') renderCategories();
+    if (name === 'settings') renderSettings();
+    if (name === 'sale') initSaleForm();
+    if (name === 'purchase') initPurchForm();
+}
+
+// ===================== لوحة التحكم =====================
+function renderDashboard() {
+    const today = new Date().toISOString().split('T')[0];
+    const thisMonth = today.slice(0,7);
+    const sales = db.invoices.filter(i => i.type === 'sale');
+    const todaySales = sales.filter(i => i.date === today);
+    const monthSales = sales.filter(i => i.date.startsWith(thisMonth));
+    const totalRevenue = monthSales.reduce((s,i) => s + (i.netTotal||0), 0);
+    const totalProfit = monthSales.reduce((s,i) => s + ((i.netTotal||0) - (i.costTotal||0)), 0);
+    const lowStock = db.products.filter(p => p.qty <= (p.minStock || db.settings.minStock));
+
+    document.getElementById('dashStats').innerHTML = `
+        <div class="stat-card"><div class="stat-icon">💰</div><div class="stat-label">مبيعات الشهر الحالي</div><div class="stat-value">${fmt(totalRevenue)}</div><div class="stat-sub">ريال سعودي صافي</div></div>
+        <div class="stat-card"><div class="stat-icon">📈</div><div class="stat-label">العوائد الربحية (تقريبي)</div><div class="stat-value" style="color:var(--success)">${fmt(totalProfit)}</div><div class="stat-sub">بناءً على فروقات التكلفة</div></div>
+        <div class="stat-card"><div class="stat-icon">🧾</div><div class="stat-label">مبيعات اليوم</div><div class="stat-value">${fmt(todaySales.reduce((s,i)=>s+(i.netTotal||0),0))}</div><div class="stat-sub">${todaySales.length} عملية</div></div>
+        <div class="stat-card"><div class="stat-icon">⚠️</div><div class="stat-label">أصناف تحت حد الطلب</div><div class="stat-value" style="color:var(--danger)">${lowStock.length}</div><div class="stat-sub">تتطلب إعادة توريد</div></div>
+    `;
+
+    const days7 = [];
+    for (let i = 6; i >= 0; i--) {
+        const d = new Date(); d.setDate(d.getDate() - i);
+        const ds = d.toISOString().split('T')[0];
+        const dayTotal = sales.filter(s => s.date === ds).reduce((s,i) => s + (i.netTotal||0), 0);
+        days7.push({ label: d.toLocaleDateString('ar-SA', {weekday:'short'}), val: dayTotal });
+    }
+    const maxV = Math.max(...days7.map(d => d.val), 1);
+    document.getElementById('salesChart').innerHTML = days7.map(d => `
+        <div class="chart-bar-wrap">
+            <div class="chart-val">${d.val > 0 ? fmt(d.val) : ''}</div>
+            <div class="chart-bar income" style="height:${Math.round((d.val/maxV)*120)+4}px"></div>
+            <div class="chart-label">${d.label}</div>
+        </div>
+    `).join('');
+
+    const sa = document.getElementById('stockAlerts');
+    if (lowStock.length === 0) {
+        sa.innerHTML = '<div style="text-align:center;color:var(--success);padding:20px;font-size:13px">✅ مستويات المخزون ممتازة</div>';
+    } else {
+        sa.innerHTML = lowStock.map(p => `
+            <div class="alert ${p.qty === 0 ? 'alert-danger' : 'alert-warning'}" style="margin-bottom:8px;padding:8px 12px;font-size:12px">
+                ${p.qty === 0 ? '🚫' : '⚠️'} <strong>${p.name}</strong> — الكمية: ${p.qty}
+            </div>
+        `).join('');
+    }
+
+    const badge = document.getElementById('alertBadge');
+    if (lowStock.length > 0) { badge.style.display = ''; badge.textContent = '⚠️ ' + lowStock.length + ' تنبيه'; }
+    else badge.style.display = 'none';
+
+    const lastSales = [...sales].sort((a,b) => b.date.localeCompare(a.date)).slice(0,5);
+    document.getElementById('lastSalesTable').innerHTML = `
+        <thead><tr><th>رقم الفاتورة</th><th>التاريخ</th><th>العميل</th><th>الصافي</th></tr></thead>
+        <tbody>${lastSales.length ? lastSales.map(i=>`<tr><td><b>${i.num}</b></td><td>${i.date}</td><td>${i.customerName||'-'}</td><td style="color:var(--success);font-weight:700">${fmt(i.netTotal)} ر.س</td></tr>`).join('') : '<tr><td colspan="4" class="empty-state">لا توجد مبيعات</td></tr>'}</tbody>
+    `;
+
+    const salesCount = {};
+    sales.forEach(inv => inv.items.forEach(it => { salesCount[it.productId] = (salesCount[it.productId]||0) + it.qty; }));
+    const top5 = Object.entries(salesCount).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    document.getElementById('topProductsTable').innerHTML = `
+        <thead><tr><th>الصنف</th><th>الوحدات المباعة</th></tr></thead>
+        <tbody>${top5.length ? top5.map(([pid,cnt])=>{const p=db.products.find(x=>x.id===pid);return `<tr><td>${p?p.name:pid}</td><td><b>${cnt} وحدة</b></td></tr>`;}).join('') : '<tr><td colspan="2" class="empty-state">لا توجد مبيعات</td></tr>'}</tbody>
+    `;
+}
+
+// ===================== أدوات عامة =====================
+function fmt(n) { return parseFloat(n||0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+function getTodayDate() { return new Date().toISOString().split('T')[0]; }
+
+function toggleNotif() {
+    const popup = document.getElementById('notifPopup');
+    const lowStock = db.products.filter(p => p.qty <= (p.minStock || db.settings.minStock));
+    popup.innerHTML = `<div style="padding:10px 16px;font-weight:700;font-size:13px;border-bottom:1px solid var(--border);color:var(--primary)">🔔 تنبيهات المخزون</div>` +
+        (lowStock.length === 0 ? '<div class="notif-item">✅ المخزون سليم</div>' :
+         lowStock.map(p=>`<div class="notif-item ${p.qty===0?'danger':'warning'}">${p.qty===0?'🚫':'⚠️'} <b>${p.name}</b> (${p.qty})</div>`).join(''));
+    popup.classList.toggle('show');
+}
+
+document.addEventListener('click', e => {
+    if (!e.target.closest('#notifPopup') && !e.target.closest('#alertBadge')) {
+        document.getElementById('notifPopup').classList.remove('show');
+    }
+});
+
+// ===================== فاتورة مبيعات =====================
+let saleItems = [];
+function initSaleForm() {
+    document.getElementById('saleCustomer').innerHTML = db.customers.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+    document.getElementById('saleItemProd').innerHTML = '<option value="">-- اختر الكتاب أو المادة --</option>' + db.products.filter(p=>p.qty>0).map(p=>`<option value="${p.id}">${p.name} (المتاح: ${p.qty})</option>`).join('');
+    document.getElementById('saleDate').value = getTodayDate();
+    document.getElementById('saleInvNum').textContent = 'رقم المستند: ' + getNextInvNum('S');
+    document.getElementById('saleVat').value = db.settings.vatPct || 15;
+    saleItems = [];
+    renderSaleItems();
+}
+
+function fillSaleItem() {
+    const pid = document.getElementById('saleItemProd').value;
+    const p = db.products.find(x => x.id === pid);
+    if (p) { document.getElementById('saleItemPrice').value = p.price || 0; calcSaleItemTotal(); }
+}
+
+function calcSaleItemTotal() {
+    const q = parseFloat(document.getElementById('saleItemQty').value)||0;
+    const pr = parseFloat(document.getElementById('saleItemPrice').value)||0;
+    document.getElementById('saleItemTotal').value = fmt(q * pr);
+}
+
+function addSaleItem() {
+    const pid = document.getElementById('saleItemProd').value;
+    const p = db.products.find(x => x.id === pid);
+    if (!p) return alert('الرجاء تحديد صنف صحيح');
+    const qty = parseInt(document.getElementById('saleItemQty').value)||0;
+    if (qty <= 0) return alert('الكمية يجب أن تزيد عن صفر');
+    if (qty > p.qty) return alert(`المخزون لا يكفي! المتاح: ${p.qty}`);
+    const price = parseFloat(document.getElementById('saleItemPrice').value)||0;
+    const existing = saleItems.find(x => x.productId === pid);
+    if (existing) {
+        if (existing.qty + qty > p.qty) return alert('إجمالي الكمية يتجاوز المخزون');
+        existing.qty += qty; existing.total = existing.qty * existing.price;
+    } else {
+        saleItems.push({ productId: pid, name: p.name, qty, price, cost: p.cost||0, total: qty*price });
+    }
+    renderSaleItems();
+}
+
+function removeSaleItem(idx) { saleItems.splice(idx,1); renderSaleItems(); }
+
+function renderSaleItems() {
+    const list = document.getElementById('saleItemsList');
+    list.innerHTML = saleItems.length ? saleItems.map((it,i) => `
+        <div class="invoice-row">
+            <span>${i+1}</span><span>${it.name}</span><span>${it.qty}</span>
+            <span>${fmt(it.price)}</span><span style="font-weight:700">${fmt(it.total)}</span>
+            <button class="btn btn-danger btn-sm" onclick="removeSaleItem(${i})">✕</button>
+        </div>
+    `).join('') : '<div style="padding:16px;text-align:center;color:var(--text3);font-size:13px">لم تقم بإضافة عناصر بعد</div>';
+    calcSaleTotals();
+}
+
+function calcSaleTotals() {
+    const subtotal = saleItems.reduce((s,it) => s + it.total, 0);
+    const disc = parseFloat(document.getElementById('saleDiscount').value)||0;
+    const vat = parseFloat(document.getElementById('saleVat').value)||0;
+    const discAmt = subtotal * disc / 100;
+    const afterDisc = subtotal - discAmt;
+    const vatAmt = afterDisc * vat / 100;
+    const net = afterDisc + vatAmt;
+    document.getElementById('saleTotals').innerHTML = `
+        <div><span class="label">الإجمالي قبل الخصم</span><span class="value">${fmt(subtotal)} ر.س</span></div>
+        ${disc > 0 ? `<div><span class="label">الخصم (${disc}%)</span><span class="value" style="color:var(--danger)">- ${fmt(discAmt)} ر.س</span></div>` : ''}
+        ${vat > 0 ? `<div><span class="label">ضريبة القيمة المضافة (${vat}%)</span><span class="value">${fmt(vatAmt)} ر.س</span></div>` : ''}
+        <div><span class="label" style="font-weight:800;color:var(--primary)">الصافي الإجمالي</span><span class="value" style="color:var(--primary);font-size:18px">${fmt(net)} ر.س</span></div>
+    `;
+    return { subtotal, discAmt, vatAmt, net };
+}
+
+function saveSaleInvoice() {
+    if (saleItems.length === 0) return alert('لا يمكن حفظ الفاتورة بدون بنود');
+    const custId = document.getElementById('saleCustomer').value || 'cust0';
+    const cust = db.customers.find(c => c.id === custId);
+    const totals = calcSaleTotals();
+    const invNum = getNextInvNum('S');
+    const inv = {
+        id: genId('SINV'), type: 'sale', num: invNum,
+        date: document.getElementById('saleDate').value,
+        customerId: custId, customerName: cust ? cust.name : 'عميل نقدي',
+        payType: document.getElementById('salePayType').value,
+        notes: document.getElementById('saleNotes').value,
+        items: JSON.parse(JSON.stringify(saleItems)),
+        subtotal: totals.subtotal, discAmt: totals.discAmt, vatAmt: totals.vatAmt,
+        netTotal: totals.net, costTotal: saleItems.reduce((s,it)=>s+(it.cost*it.qty),0),
+        discount: parseFloat(document.getElementById('saleDiscount').value)||0,
+        vat: parseFloat(document.getElementById('saleVat').value)||0
+    };
+    saleItems.forEach(it => { const p = db.products.find(x=>x.id===it.productId); if(p) p.qty -= it.qty; });
+    db.invoices.push(inv); saveDB();
+    alert('✅ تم حفظ فاتورة المبيعات بنجاح برقم ' + invNum);
+    clearSaleForm(); showPage('dashboard');
+}
+
+function clearSaleForm() {
+    saleItems = [];
+    document.getElementById('saleDiscount').value = '0';
+    document.getElementById('saleNotes').value = '';
+    document.getElementById('saleItemQty').value = '1';
+    document.getElementById('saleItemPrice').value = '';
+    document.getElementById('saleItemTotal').value = '';
+    initSaleForm();
+}
+
+function previewSaleInvoice() {
+    if (saleItems.length === 0) return alert('أضف عناصر أولاً');
+    const totals = calcSaleTotals();
+    const custId = document.getElementById('saleCustomer').value || 'cust0';
+    const cust = db.customers.find(c => c.id === custId);
+    const html = buildInvoiceHTML({
+        type: 'sale', num: getNextInvNum('S'),
+        date: document.getElementById('saleDate').value,
+        personName: cust ? cust.name : 'عميل نقدي',
+        payType: document.getElementById('salePayType').value,
+        notes: document.getElementById('saleNotes').value,
+        items: saleItems, totals, s: db.settings
+    });
+    const w = window.open('','_blank'); w.document.write(html); w.document.close();
+}
+
+// ===================== فاتورة مشتريات =====================
+let purchItems = [];
+function initPurchForm() {
+    document.getElementById('purchSupplier').innerHTML = db.suppliers.length ?
+        db.suppliers.map(s=>`<option value="${s.id}">${s.name}</option>`).join('') :
+        '<option value="">-- أضف مورداً أولاً --</option>';
+    document.getElementById('purchItemProd').innerHTML = '<option value="">-- اختر صنفاً --</option><option value="__new__">+ إضافة صنف جديد</option>' +
+        db.products.map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+    document.getElementById('purchDate').value = getTodayDate();
+    document.getElementById('purchInvNum').textContent = 'رقم السند: ' + getNextInvNum('P');
+    purchItems = []; renderPurchItems();
+}
+
+function fillPurchItem() {
+    const v = document.getElementById('purchItemProd').value;
+    if (v === '__new__') { openProductModal(null, true); document.getElementById('purchItemProd').value = ''; return; }
+    const p = db.products.find(x=>x.id===v);
+    if (p) { document.getElementById('purchItemCost').value = p.cost||0; calcPurchItemTotal(); }
+}
+
+function calcPurchItemTotal() {
+    const q = parseFloat(document.getElementById('purchItemQty').value)||0;
+    const c = parseFloat(document.getElementById('purchItemCost').value)||0;
+    document.getElementById('purchItemTotal').value = fmt(q*c);
+}
+
+function addPurchItem() {
+    const pid = document.getElementById('purchItemProd').value;
+    if (!pid || pid==='__new__') return alert('يرجى اختيار صنف');
+    const p = db.products.find(x=>x.id===pid);
+    if (!p) return alert('لم يتم العثور على الصنف');
+    const qty = parseInt(document.getElementById('purchItemQty').value)||0;
+    const cost = parseFloat(document.getElementById('purchItemCost').value)||0;
+    if (qty <= 0) return alert('الكمية يجب أن تكون وحدة فأكثر');
+    const existing = purchItems.find(x=>x.productId===pid);
+    if (existing) { existing.qty += qty; existing.total = existing.qty * existing.cost; }
+    else purchItems.push({ productId: pid, name: p.name, qty, cost, total: qty*cost });
+    renderPurchItems();
+}
+
+function removePurchItem(idx) { purchItems.splice(idx,1); renderPurchItems(); }
+
+function renderPurchItems() {
+    document.getElementById('purchItemsList').innerHTML = purchItems.length ? purchItems.map((it,i) => `
+        <div class="invoice-row">
+            <span>${i+1}</span><span>${it.name}</span><span>${it.qty}</span>
+            <span>${fmt(it.cost)}</span><span style="font-weight:700">${fmt(it.total)}</span>
+            <button class="btn btn-danger btn-sm" onclick="removePurchItem(${i})">✕</button>
+        </div>
+    `).join('') : '<div style="padding:16px;text-align:center;color:var(--text3);font-size:13px">لم يتم إضافة أي بنود</div>';
+    const sub = purchItems.reduce((s,it)=>s+it.total,0);
+    document.getElementById('purchTotals').innerHTML = `
+        <div><span class="label" style="font-weight:800;color:var(--primary)">إجمالي تكلفة المشتريات</span><span class="value" style="color:var(--primary);font-size:18px">${fmt(sub)} ر.س</span></div>
+    `;
+}
+
+function savePurchInvoice() {
+    if (purchItems.length === 0) return alert('الرجاء إدراج بنود التوريد أولاً');
+    const suppId = document.getElementById('purchSupplier').value;
+    if (!suppId) return alert('الرجاء تعيين المورد');
+    const supp = db.suppliers.find(s=>s.id===suppId);
+    const sub = purchItems.reduce((s,it)=>s+it.total,0);
+    const invNum = getNextInvNum('P');
+    const inv = {
+        id: genId('PINV'), type: 'purchase', num: invNum,
+        date: document.getElementById('purchDate').value,
+        supplierId: suppId, supplierName: supp ? supp.name : 'مورد غير محدد',
+        extNum: document.getElementById('purchExtNum').value,
+        payType: document.getElementById('purchPayType').value,
+        notes: document.getElementById('purchNotes').value,
+        items: JSON.parse(JSON.stringify(purchItems)), netTotal: sub
+    };
+    purchItems.forEach(it => {
+        const p = db.products.find(x=>x.id===it.productId);
+        if (p) { p.qty += it.qty; p.cost = it.cost; }
+    });
+    db.invoices.push(inv); saveDB();
+    alert('✅ تم حفظ مستند التوريد برقم ' + invNum);
+    clearPurchForm(); showPage('invoices');
+}
+
+function clearPurchForm() {
+    purchItems = [];
+    document.getElementById('purchExtNum').value = '';
+    document.getElementById('purchNotes').value = '';
+    initPurchForm();
+}
+
+function getNextInvNum(type) {
+    const prefix = type === 'S' ? 'S' : 'P';
+    const last = db.invoices.filter(i=>i.num&&i.num.startsWith(prefix)).map(i=>parseInt(i.num.replace(prefix,''))||0);
+    return prefix + String((last.length ? Math.max(...last) : 0) + 1).padStart(5,'0');
+}
+
+// ===================== سجل الفواتير =====================
+function renderInvoices() {
+    const type = document.getElementById('invFilterType').value;
+    const month = document.getElementById('invFilterMonth').value;
+    let invs = [...db.invoices].sort((a,b)=>b.date.localeCompare(a.date));
+    if (type) invs = invs.filter(i=>i.type===type);
+    if (month) invs = invs.filter(i=>i.date.startsWith(month));
+    document.getElementById('invoicesTable').innerHTML = `
+        <thead><tr><th>رقم الحركة</th><th>النوع</th><th>التاريخ</th><th>الطرف</th><th>الصافي</th><th>الدفع</th><th>عمليات</th></tr></thead>
+        <tbody>${invs.length ? invs.map(i=>`
+            <tr>
+                <td><b>${i.num}</b></td>
+                <td><span class="badge ${i.type==='sale'?'badge-success':'badge-info'}">${i.type==='sale'?'بيع':'شراء'}</span></td>
+                <td>${i.date}</td>
+                <td>${i.customerName||i.supplierName||'-'}</td>
+                <td style="font-weight:700;color:${i.type==='sale'?'var(--success)':'var(--danger)'}">${fmt(i.netTotal)} ر.س</td>
+                <td>${payLabel(i.payType)}</td>
+                <td>
+                    <button class="btn btn-outline btn-sm" onclick="printInvoice('${i.id}')">🖨️ طباعة</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteInvoice('${i.id}')">🗑️ حذف</button>
+                </td>
+            </tr>
+        `).join('') : '<tr><td colspan="7" class="empty-state">لا توجد سجلات</td></tr>'}</tbody>
+    `;
+}
+
+function payLabel(t) {
+    const m = { cash:'نقدي', card:'بطاقة', credit:'آجل', transfer:'تحويل' };
+    return m[t] || t || '-';
+}
+
+function deleteInvoice(id) {
+    if (!confirm('هل تود حذف هذه الفاتورة؟')) return;
+    db.invoices = db.invoices.filter(i=>i.id!==id); saveDB(); renderInvoices();
+}
+
+function printInvoice(id) {
+    const inv = db.invoices.find(i=>i.id===id);
+    if (!inv) return;
+    const totals = { subtotal: inv.subtotal||inv.netTotal, discAmt: inv.discAmt||0, vatAmt: inv.vatAmt||0, net: inv.netTotal };
+    const html = buildInvoiceHTML({ type:inv.type, num:inv.num, date:inv.date, personName:inv.customerName||inv.supplierName||'-', payType:inv.payType, notes:inv.notes, items:inv.items, totals, s:db.settings });
+    const w = window.open('','_blank'); w.document.write(html); w.document.close();
+}
+
+function buildInvoiceHTML({type, num, date, personName, payType, notes, items, totals, s}) {
+    return `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>مستند رقم ${num}</title>
+    <style>body{font-family:Tahoma,Arial,sans-serif;margin:0;padding:30px;direction:rtl;color:#1a2332;font-size:13px}.inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:30px;border-bottom:3px solid #1a3a5c;padding-bottom:16px}.inv-company{font-size:22px;font-weight:800;color:#1a3a5c}.inv-sub{font-size:12px;color:#666;margin-top:4px}.inv-title{font-size:24px;font-weight:800;color:#1a3a5c;text-align:left}.inv-num{font-size:14px;color:#444;text-align:left;margin-top:6px}.inv-info{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;background:#f8f9fa;padding:16px;border-radius:8px;border:1px solid #eee}table{width:100%;border-collapse:collapse;margin:20px 0}th{background:#1a3a5c;color:white;padding:10px 14px;text-align:right}td{padding:10px 14px;border-bottom:1px solid #eee}.total-section{padding-top:12px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}.total-row{display:flex;justify-content:space-between;width:280px;font-size:13px;border-bottom:1px dashed #ddd;padding:4px 0}.total-row.grand{font-size:18px;font-weight:800;color:#1a3a5c;border-bottom:none;border-top:2px solid #1a3a5c;padding-top:8px}.footer{margin-top:50px;text-align:center;font-size:11px;color:#999;border-top:1px solid #eee;padding-top:12px}@media print{body{padding:0}}</style></head><body>
+    <div class="inv-header">
+        <div><div class="inv-company">${s.storeName||'نظام حسابات المكتبة'}</div><div class="inv-sub">${s.address||''}</div><div class="inv-sub">هاتف: ${s.phone||'-'}</div>${s.vatNum?`<div class="inv-sub">الرقم الضريبي: ${s.vatNum}</div>`:''}</div>
+        <div><div class="inv-title">${type==='sale'?'فاتورة مبيعات ضريبية':'سند استلام مشتريات'}</div><div class="inv-num">الرقم: ${num}</div><div class="inv-num">التاريخ: ${date}</div></div>
+    </div>
+    <div class="inv-info">
+        <div><label>${type==='sale'?'العميل':'المورد'}:</label> ${personName}</div>
+        <div><label>طريقة السداد:</label> ${payLabel(payType)}</div>
+        ${notes?`<div style="grid-column:span 2"><label>ملاحظات:</label> ${notes}</div>`:''}
+    </div>
+    <table><thead><tr><th>#</th><th>الصنف</th><th>الكمية</th><th>سعر الوحدة</th><th>الإجمالي</th></tr></thead>
+    <tbody>${items.map((it,i)=>`<tr><td>${i+1}</td><td><b>${it.name}</b></td><td>${it.qty}</td><td>${fmt(it.price||it.cost||0)} ريال</td><td>${fmt(it.total)} ريال</td></tr>`).join('')}</tbody></table>
+    <div class="total-section">
+        <div class="total-row"><span>الإجمالي قبل الخصم</span><span>${fmt(totals.subtotal)} ريال</span></div>
+        ${totals.discAmt>0?`<div class="total-row"><span>الخصم</span><span>- ${fmt(totals.discAmt)} ريال</span></div>`:''}
+        ${totals.vatAmt>0?`<div class="total-row"><span>ضريبة القيمة المضافة</span><span>+ ${fmt(totals.vatAmt)} ريال</span></div>`:''}
+        <div class="total-row grand"><span>الصافي النهائي</span><span>${fmt(totals.net)} ريال سعودي</span></div>
+    </div>
+    <div class="footer">صُدرت تلقائياً | تاريخ الطباعة: ${new Date().toLocaleString('ar-SA')}</div>
+    <script>window.onload=()=>{window.print();window.close();}<\/script></body></html>`;
+}
+
+// ===================== المنتجات =====================
+function renderProducts() {
+    const q = (document.getElementById('productSearch').value||'').toLowerCase();
+    const cat = document.getElementById('productCatFilter').value;
+    const cf = document.getElementById('productCatFilter');
+    cf.innerHTML = '<option value="">كل الفئات</option>' + db.categories.map(c=>`<option value="${c.id}"${c.id===cat?' selected':''}>${c.name}</option>`).join('');
+    let prods = db.products;
+    if (q) prods = prods.filter(p=>p.name.toLowerCase().includes(q)||(p.barcode||'').includes(q));
+    if (cat) prods = prods.filter(p=>p.categoryId===cat);
+    const minStock = db.settings.minStock || 5;
+    document.getElementById('productsTable').innerHTML = `
+        <thead><tr><th>الباركود</th><th>الاسم</th><th>الفئة</th><th>المخزون</th><th>حد الأمان</th><th>التكلفة</th><th>سعر البيع</th><th>الحالة</th><th>إجراءات</th></tr></thead>
+        <tbody>${prods.length ? prods.map(p=>{
+            const lowQ = p.qty <= (p.minStock||minStock);
+            const cInfo = db.categories.find(c=>c.id===p.categoryId);
+            return `<tr class="${p.qty===0||lowQ?'low-stock-row':''}">
+                <td style="font-family:monospace;color:var(--text3)">${p.barcode||'-'}</td>
+                <td><b>${p.name}</b><br><small style="color:var(--text3)">${p.author||''}</small></td>
+                <td>${cInfo?cInfo.name:'-'}</td>
+                <td style="font-weight:800;color:${p.qty===0?'var(--danger)':lowQ?'var(--warning)':'var(--success)'}">${p.qty} وحدة</td>
+                <td>${p.minStock||minStock}</td>
+                <td>${fmt(p.cost)} ر.س</td>
+                <td style="font-weight:700;color:var(--primary)">${fmt(p.price)} ر.س</td>
+                <td>${p.qty===0?'<span class="badge badge-danger">نفد</span>':lowQ?'<span class="badge badge-warning">منخفض</span>':'<span class="badge badge-success">متوفر</span>'}</td>
+                <td style="display:flex;gap:4px">
+                    <button class="btn btn-outline btn-sm" onclick="openProductModal('${p.id}')">✏️ تعديل</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteProduct('${p.id}')">🗑️</button>
+                </td>
+            </tr>`;
+        }).join('') : '<tr><td colspan="9" class="empty-state">لا توجد سلع مدرجة</td></tr>'}</tbody>
+    `;
+}
+
+function openProductModal(id, fromPurch=false) {
+    const p = id ? db.products.find(x=>x.id===id) : null;
+    document.getElementById('modalTitle').textContent = p ? 'تعديل الصنف' : 'إضافة صنف جديد';
+    document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid form-grid-2">
+            <div class="form-group"><label>اسم المادة / الكتاب *</label><input type="text" class="form-control" id="pmName" value="${p?p.name:''}"></div>
+            <div class="form-group"><label>الباركود / ISBN</label><input type="text" class="form-control" id="pmBarcode" value="${p?p.barcode||'':''}"></div>
+            <div class="form-group"><label>الفئة</label>
+                <select class="form-control" id="pmCat">
+                    <option value="">-- بدون تصنيف --</option>
+                    ${db.categories.map(c=>`<option value="${c.id}"${p&&p.categoryId===c.id?' selected':''}>${c.name}</option>`).join('')}
+                </select>
+            </div>
+            <div class="form-group"><label>المؤلف / جهة النشر</label><input type="text" class="form-control" id="pmAuthor" value="${p?p.author||'':''}"></div>
+            <div class="form-group"><label>الكمية الافتتاحية</label><input type="number" class="form-control" id="pmQty" value="${p?p.qty:0}" min="0"></div>
+            <div class="form-group"><label>حد الأمان الأدنى</label><input type="number" class="form-control" id="pmMin" value="${p?p.minStock||5:5}" min="0"></div>
+            <div class="form-group"><label>سعر التكلفة (ريال)</label><input type="number" class="form-control" id="pmCost" value="${p?p.cost||0:0}" step="0.01"></div>
+            <div class="form-group"><label>سعر البيع (ريال)</label><input type="number" class="form-control" id="pmPrice" value="${p?p.price||0:0}" step="0.01"></div>
+            <div class="form-group" style="grid-column:span 2"><label>الوصف والملاحظات</label><input type="text" class="form-control" id="pmDesc" value="${p?p.desc||'':''}"></div>
+        </div>
+    `;
+    document.getElementById('modalFooter').innerHTML = `
+        <button class="btn btn-outline" onclick="closeModalNow()">إلغاء</button>
+        <button class="btn btn-primary" onclick="saveProduct('${id||''}', ${fromPurch})">💾 حفظ الصنف</button>
+    `;
+    document.getElementById('modalOverlay').style.display = 'flex';
+}
+
+function saveProduct(id, fromPurch) {
+    const name = document.getElementById('pmName').value.trim();
+    if (!name) return alert('يجب تسمية الصنف');
+    const prod = {
+        id: id || genId('PRD'), name,
+        barcode: document.getElementById('pmBarcode').value.trim(),
+        categoryId: document.getElementById('pmCat').value,
+        author: document.getElementById('pmAuthor').value.trim(),
+        qty: parseInt(document.getElementById('pmQty').value)||0,
+        minStock: parseInt(document.getElementById('pmMin').value)||5,
+        cost: parseFloat(document.getElementById('pmCost').value)||0,
+        price: parseFloat(document.getElementById('pmPrice').value)||0,
+        desc: document.getElementById('pmDesc').value.trim()
+    };
+    if (id) { const idx=db.products.findIndex(x=>x.id===id); if(idx>=0) db.products[idx]=prod; }
+    else db.products.push(prod);
+    saveDB(); closeModalNow();
+    if (fromPurch) initPurchForm(); else renderProducts();
+}
+
+function deleteProduct(id) {
+    if (!confirm('هل تود حذف هذه السلعة؟')) return;
+    db.products = db.products.filter(x=>x.id!==id); saveDB(); renderProducts();
+}
+
+// ===================== الفئات =====================
+function renderCategories() {
+    document.getElementById('catsTableBody').innerHTML = db.categories.map((c,i)=>`
+        <tr>
+            <td>${i+1}</td>
+            <td><b>${c.name}</b></td>
+            <td><span class="badge badge-info">${db.products.filter(p=>p.categoryId===c.id).length} صنف</span></td>
+            <td>
+                <button class="btn btn-outline btn-sm" onclick="openCatModal('${c.id}')">✏️ تعديل</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteCat('${c.id}')">🗑️ حذف</button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function openCatModal(id) {
+    const c = id ? db.categories.find(x=>x.id===id) : null;
+    document.getElementById('modalTitle').textContent = c ? 'تعديل الفئة' : 'إضافة فئة جديدة';
+    document.getElementById('modalBody').innerHTML = `<div class="form-group"><label>اسم الفئة *</label><input type="text" class="form-control" id="catName" value="${c?c.name:''}"></div>`;
+    document.getElementById('modalFooter').innerHTML = `<button class="btn btn-outline" onclick="closeModalNow()">إلغاء</button><button class="btn btn-primary" onclick="saveCat('${id||''}')">💾 حفظ</button>`;
+    document.getElementById('modalOverlay').style.display = 'flex';
+}
+
+function saveCat(id) {
+    const name = document.getElementById('catName').value.trim();
+    if (!name) return alert('الرجاء كتابة اسم الفئة');
+    if (id) { const c=db.categories.find(x=>x.id===id); if(c) c.name=name; }
+    else db.categories.push({ id: genId('CAT'), name });
+    saveDB(); closeModalNow(); renderCategories();
+}
+
+function deleteCat(id) {
+    if (!confirm('حذف الفئة لا يحذف السلع المرتبطة بها، هل تريد الاستمرار؟')) return;
+    db.categories = db.categories.filter(x=>x.id!==id); saveDB(); renderCategories();
+}
+
+// ===================== العملاء والموردون =====================
+function renderCustomers() {
+    const q = (document.getElementById('custSearch').value||'').toLowerCase();
+    const custs = db.customers.filter(c=>c.name.toLowerCase().includes(q)||(c.phone||'').includes(q));
+    document.getElementById('customersTable').innerHTML = `
+        <thead><tr><th>اسم العميل</th><th>رقم الجوال</th><th>العنوان</th><th>إجمالي مشترياته</th><th>عمليات</th></tr></thead>
+        <tbody>${custs.map(c=>{
+            const totalSales = db.invoices.filter(i=>i.type==='sale'&&i.customerId===c.id).reduce((s,i)=>s+(i.netTotal||0),0);
+            return `<tr><td><b>${c.name}</b></td><td>${c.phone||'-'}</td><td>${c.address||'-'}</td><td style="font-weight:700;color:var(--success)">${fmt(totalSales)} ر.س</td>
+            <td>
+                <button class="btn btn-outline btn-sm" onclick="openPersonModal('customer','${c.id}')">✏️ تعديل</button>
+                ${c.id!=='cust0'?`<button class="btn btn-danger btn-sm" onclick="deletePerson('customer','${c.id}')">🗑️</button>`:''}
+            </td></tr>`;
+        }).join('')}</tbody>
+    `;
+}
+
+function renderSuppliers() {
+    const q = (document.getElementById('suppSearch').value||'').toLowerCase();
+    const supps = db.suppliers.filter(s=>s.name.toLowerCase().includes(q)||(s.phone||'').includes(q));
+    document.getElementById('suppliersTable').innerHTML = `
+        <thead><tr><th>اسم المورد</th><th>رقم الجوال</th><th>العنوان</th><th>إجمالي التوريدات</th><th>عمليات</th></tr></thead>
+        <tbody>${supps.length ? supps.map(s=>{
+            const totalPurch = db.invoices.filter(i=>i.type==='purchase'&&i.supplierId===s.id).reduce((sum,i)=>sum+(i.netTotal||0),0);
+            return `<tr><td><b>${s.name}</b></td><td>${s.phone||'-'}</td><td>${s.address||'-'}</td><td style="font-weight:700;color:var(--info)">${fmt(totalPurch)} ر.س</td>
+            <td>
+                <button class="btn btn-outline btn-sm" onclick="openPersonModal('supplier','${s.id}')">✏️ تعديل</button>
+                <button class="btn btn-danger btn-sm" onclick="deletePerson('supplier','${s.id}')">🗑️</button>
+            </td></tr>`;
+        }).join('') : '<tr><td colspan="5" class="empty-state">لا يوجد موردون</td></tr>'}</tbody>
+    `;
+}
+
+function openPersonModal(type, id) {
+    const arr = type==='customer' ? db.customers : db.suppliers;
+    const item = id ? arr.find(x=>x.id===id) : null;
+    const lbl = type==='customer' ? 'العميل' : 'المورد';
+    document.getElementById('modalTitle').textContent = (item?'تعديل بيانات ':'إضافة ') + lbl;
+    document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid">
+            <div class="form-group"><label>الاسم الكامل *</label><input type="text" class="form-control" id="perName" value="${item?item.name:''}"></div>
+            <div class="form-group"><label>رقم الهاتف</label><input type="text" class="form-control" id="perPhone" value="${item?item.phone||'':''}"></div>
+            <div class="form-group"><label>العنوان</label><input type="text" class="form-control" id="perAddress" value="${item?item.address||'':''}"></div>
+        </div>
+    `;
+    document.getElementById('modalFooter').innerHTML = `
+        <button class="btn btn-outline" onclick="closeModalNow()">إغلاق</button>
+        <button class="btn btn-primary" onclick="savePerson('${type}','${id||''}')">💾 حفظ</button>
+    `;
+    document.getElementById('modalOverlay').style.display = 'flex';
+}
+
+function savePerson(type, id) {
+    const name = document.getElementById('perName').value.trim();
+    if (!name) return alert('الاسم حقل إلزامي');
+    const arr = type==='customer' ? db.customers : db.suppliers;
+    const data = {
+        id: id || genId(type==='customer'?'CST':'SPL'), name,
+        phone: document.getElementById('perPhone').value.trim(),
+        address: document.getElementById('perAddress').value.trim()
+    };
+    if (id) { const idx=arr.findIndex(x=>x.id===id); if(idx>=0) arr[idx]=data; }
+    else arr.push(data);
+    saveDB(); closeModalNow();
+    type==='customer' ? renderCustomers() : renderSuppliers();
+}
+
+function deletePerson(type, id) {
+    if (!confirm('هل تود حذف هذا الطرف؟')) return;
+    if (type==='customer') { db.customers=db.customers.filter(x=>x.id!==id); renderCustomers(); }
+    else { db.suppliers=db.suppliers.filter(x=>x.id!==id); renderSuppliers(); }
+    saveDB();
+}
+
+// ===================== المصروفات =====================
+function fillExpCatSelect() {
+    const sel = document.getElementById('expCat');
+    if (sel) sel.innerHTML = db.expenseCategories.map(c=>`<option>${c}</option>`).join('');
+}
+
+function addExpense() {
+    const desc = document.getElementById('expDesc').value.trim();
+    const amount = parseFloat(document.getElementById('expAmount').value)||0;
+    const category = document.getElementById('expCat').value;
+    const date = document.getElementById('expDate').value;
+    if (!desc || amount <= 0 || !date) return alert('يرجى استيفاء جميع الحقول والمبلغ أكبر من صفر');
+    db.expenses.push({ id: genId('EXP'), desc, amount, category, date });
+    saveDB();
+    document.getElementById('expDesc').value = '';
+    document.getElementById('expAmount').value = '';
+    renderExpenses();
+}
+
+function openExpCatModal() {
+    document.getElementById('modalTitle').textContent = '⚙️ إدارة فئات المصروفات';
+    document.getElementById('modalBody').innerHTML = `
+        <div style="margin-bottom:16px">
+            <div style="font-weight:700;font-size:13px;margin-bottom:8px;color:var(--primary)">إضافة فئة جديدة:</div>
+            <div style="display:flex;gap:8px">
+                <input type="text" class="form-control" id="newExpCatName" placeholder="اسم الفئة الجديدة...">
+                <button class="btn btn-primary btn-sm" onclick="addExpCat()">+ إضافة</button>
+            </div>
+        </div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:8px;color:var(--text2)">الفئات الحالية:</div>
+        <div id="expCatsList"></div>
+    `;
+    document.getElementById('modalFooter').innerHTML = `<button class="btn btn-outline" onclick="closeModalNow();renderExpenses()">إغلاق</button>`;
+    renderExpCatsList();
+    document.getElementById('modalOverlay').style.display = 'flex';
+}
+
+function renderExpCatsList() {
+    const el = document.getElementById('expCatsList');
+    if (!el) return;
+    el.innerHTML = db.expenseCategories.map((c,i)=>`
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border:1px solid var(--border);border-radius:6px;margin-bottom:6px">
+            <span>📌 ${c}</span>
+            <button class="btn btn-danger btn-sm" onclick="deleteExpCat(${i})">🗑️ حذف</button>
+        </div>
+    `).join('');
+}
+
+function addExpCat() {
+    const name = document.getElementById('newExpCatName').value.trim();
+    if (!name) return alert('أدخل اسم الفئة');
+    if (db.expenseCategories.includes(name)) return alert('هذه الفئة موجودة مسبقاً');
+    db.expenseCategories.push(name);
+    saveDB();
+    document.getElementById('newExpCatName').value = '';
+    renderExpCatsList();
+    fillExpCatSelect();
+}
+
+function deleteExpCat(idx) {
+    if (!confirm('هل تود حذف هذه الفئة؟')) return;
+    db.expenseCategories.splice(idx, 1);
+    saveDB();
+    renderExpCatsList();
+    fillExpCatSelect();
+}
+
+function renderExpenses() {
+    document.getElementById('expDate').value = getTodayDate();
+    fillExpCatSelect();
+    const filterMonth = document.getElementById('expFilter').value || getTodayDate().slice(0,7);
+    document.getElementById('expFilter').value = filterMonth;
+    const list = db.expenses.filter(e=>e.date.startsWith(filterMonth));
+    const sumEx = list.reduce((s,e)=>s+e.amount, 0);
+    document.getElementById('expensesTable').innerHTML = `
+        <thead><tr><th>التاريخ</th><th>البيان</th><th>الفئة</th><th>المبلغ</th><th>إجراءات</th></tr></thead>
+        <tbody>${list.length ? list.map(e=>`
+            <tr>
+                <td>${e.date}</td>
+                <td><b>${e.desc}</b></td>
+                <td><span class="badge badge-warning">${e.category}</span></td>
+                <td style="font-weight:700;color:var(--danger)">${fmt(e.amount)} ر.س</td>
+                <td><button class="btn btn-danger btn-sm" onclick="deleteExpense('${e.id}')">🗑️ شطب</button></td>
+            </tr>
+        `).join('') : '<tr><td colspan="5" class="empty-state">لم يتم تدوين قيود هذا الشهر</td></tr>'}
+        <tr style="background:#f1f3f5;font-weight:bold"><td colspan="3">مجموع النفقات الكلي للشهر</td><td style="color:var(--danger);font-size:14px">${fmt(sumEx)} ر.س</td><td></td></tr>
+        </tbody>
+    `;
+}
+
+function deleteExpense(id) {
+    if (!confirm('هل تريد شطب قيد هذا المصروف؟')) return;
+    db.expenses = db.expenses.filter(e=>e.id!==id); saveDB(); renderExpenses();
+}
+
+// ===================== الإعدادات والمستخدمون =====================
+function renderSettings() {
+    document.getElementById('setStoreName').value = db.settings.storeName || '';
+    document.getElementById('setPhone').value = db.settings.phone || '';
+    document.getElementById('setAddress').value = db.settings.address || '';
+    document.getElementById('setVatNum').value = db.settings.vatNum || '';
+    document.getElementById('setMinStock').value = db.settings.minStock || 5;
+    document.getElementById('setVatPct').value = db.settings.vatPct || 15;
+
+    document.getElementById('usersList').innerHTML = db.users.map(u=>`
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px">
+            <div>
+                <span>👤 <b>${u.username}</b></span>
+                <div style="font-size:11px;color:var(--text3);margin-top:4px">الصلاحيات: ${(u.permissions||[]).map(p=>{const perm=ALL_PERMISSIONS.find(x=>x.key===p);return perm?perm.label:p;}).join(' • ')}</div>
+            </div>
+            <div style="display:flex;gap:6px;align-items:center">
+                <button class="btn btn-outline btn-sm" onclick="openEditUserModal('${u.username}')">✏️ تعديل</button>
+                ${u.username !== currentUser.username ? `<button class="btn btn-danger btn-sm" onclick="deleteUser('${u.username}')">🗑️ حذف</button>` : '<small style="color:var(--text3)">حسابك الحالي</small>'}
+            </div>
+        </div>
+    `).join('');
+
+    // رسم مربعات الصلاحيات للمستخدم الجديد
+    renderPermGrid('permGrid', []);
+}
+
+function renderPermGrid(containerId, selected) {
+    document.getElementById(containerId).innerHTML = ALL_PERMISSIONS.map(p=>`
+        <label class="perm-item ${selected.includes(p.key)?'checked':''}">
+            <input type="checkbox" value="${p.key}" ${selected.includes(p.key)?'checked':''} onchange="this.closest('.perm-item').classList.toggle('checked',this.checked)">
+            ${p.label}
+        </label>
+    `).join('');
+}
+
+function getSelectedPerms(containerId) {
+    return [...document.querySelectorAll(`#${containerId} input[type=checkbox]:checked`)].map(x=>x.value);
+}
+
+function openEditUserModal(username) {
+    const u = db.users.find(x=>x.username===username);
+    if (!u) return;
+    document.getElementById('modalTitle').textContent = 'تعديل المستخدم: ' + username;
+    document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid" style="margin-bottom:16px">
+            <div class="form-group"><label>اسم المستخدم الجديد</label><input type="text" class="form-control" id="editUsername" value="${u.username}"></div>
+            <div class="form-group"><label>كلمة المرور الجديدة</label>
+                <div class="pass-wrap">
+                    <input type="password" class="form-control" id="editPassword" value="${u.password}" style="padding-left:44px">
+                    <span class="pass-toggle" onclick="togglePassVisibility('editPassword', this)">👁️</span>
+                </div>
+            </div>
+        </div>
+        <div style="font-weight:700;font-size:12px;margin-bottom:8px;color:var(--text2)">الصلاحيات:</div>
+        <div class="perm-grid" id="editPermGrid"></div>
+    `;
+    document.getElementById('modalFooter').innerHTML = `
+        <button class="btn btn-outline" onclick="closeModalNow()">إلغاء</button>
+        <button class="btn btn-primary" onclick="saveEditUser('${username}')">💾 حفظ التعديلات</button>
+    `;
+    renderPermGrid('editPermGrid', u.permissions || []);
+    document.getElementById('modalOverlay').style.display = 'flex';
+}
+
+function saveEditUser(oldUsername) {
+    const newUsername = document.getElementById('editUsername').value.trim();
+    const newPassword = document.getElementById('editPassword').value;
+    const perms = getSelectedPerms('editPermGrid');
+    if (!newUsername || !newPassword) return alert('يرجى تعبئة اسم المستخدم وكلمة المرور');
+    if (newUsername !== oldUsername && db.users.some(x=>x.username===newUsername)) return alert('اسم المستخدم مستخدم مسبقاً');
+    const u = db.users.find(x=>x.username===oldUsername);
+    if (u) { u.username = newUsername; u.password = newPassword; u.permissions = perms; }
+    // تحديث المستخدم الحالي إن كان هو نفسه
+    if (currentUser.username === oldUsername) {
+        currentUser.username = newUsername;
+        currentUser.password = newPassword;
+        currentUser.permissions = perms;
+        document.getElementById('topbarUser').textContent = '👤 ' + newUsername;
+    }
+    saveDB(); closeModalNow(); renderSettings();
+    alert('✅ تم تحديث بيانات المستخدم بنجاح');
+}
+
+function saveSettings() {
+    db.settings = {
+        storeName: document.getElementById('setStoreName').value.trim(),
+        phone: document.getElementById('setPhone').value.trim(),
+        address: document.getElementById('setAddress').value.trim(),
+        vatNum: document.getElementById('setVatNum').value.trim(),
+        minStock: parseInt(document.getElementById('setMinStock').value)||5,
+        vatPct: parseFloat(document.getElementById('setVatPct').value)||0
+    };
+    document.getElementById('storeName').textContent = db.settings.storeName;
+    saveDB();
+    alert('✅ تم حفظ الإعدادات بنجاح');
+}
+
+function saveUser() {
+    const u = document.getElementById('newUsername').value.trim();
+    const p = document.getElementById('newPassword').value;
+    const perms = getSelectedPerms('permGrid');
+    if (!u || !p) return alert('يرجى تعبئة اسم الحساب وكلمة المرور');
+    if (db.users.some(x=>x.username===u)) return alert('اسم المستخدم مسجل مسبقاً');
+    db.users.push({ username: u, password: p, permissions: perms });
+    saveDB();
+    document.getElementById('newUsername').value = '';
+    document.getElementById('newPassword').value = '';
+    renderSettings();
+    alert('✅ تم إنشاء المستخدم الجديد بنجاح');
+}
+
+function deleteUser(username) {
+    if (!confirm(`هل تود حذف المستخدم [${username}]؟`)) return;
+    db.users = db.users.filter(x=>x.username!==username); saveDB(); renderSettings();
+}
+
+// ===================== النسخ الاحتياطي =====================
+function backupData() {
+    try {
+        const rawStr = btoa(unescape(encodeURIComponent(JSON.stringify(db))));
+        const dataUri = 'data:application/json;charset=utf-8;base64,' + rawStr;
+        const exportName = 'نسخة_احتياطية_' + new Date().toISOString().split('T')[0] + '.json';
+        const a = document.createElement('a');
+        a.setAttribute('href', dataUri);
+        a.setAttribute('download', exportName);
+        a.click();
+    } catch(e) { alert('تعذر إنشاء ملف التصدير: ' + e.message); }
+}
+
+function importBackup() {
+    if (confirm('تحذير: استعادة نسخة احتياطية سيحل محل البيانات الحالية بالكامل، هل تريد المتابعة؟')) {
+        document.getElementById('importFile').click();
+    }
+}
+
+function doImport(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+        try {
+            let rawData = evt.target.result;
+            if (!rawData.trim().startsWith('{')) rawData = decodeURIComponent(escape(atob(rawData.trim())));
+            const parsed = JSON.parse(rawData);
+            if (parsed.settings && parsed.users) {
+                db = parsed;
+                saveDB();
+                alert('✅ تم استعادة قاعدة البيانات بنجاح، سيتم إعادة التحميل.');
+                location.reload();
+            } else alert('فشل الاستيراد: هيكلية الملف غير متطابقة');
+        } catch(err) { alert('تعذر قراءة الملف: ' + err.message); }
+    };
+    reader.readAsText(file);
+}
+
+// ===================== MODAL =====================
+function closeModal(e) { if(e.target.id==='modalOverlay') closeModalNow(); }
+function closeModalNow() { document.getElementById('modalOverlay').style.display = 'none'; }
+
+// ===================== تهيئة التطبيق =====================
+function initApp() {
+    loadDB();
+    buildSidebar();
+    document.getElementById('storeName').textContent = db.settings.storeName;
+    // الصفحة الأولى حسب الصلاحيات
+    const firstPage = ALL_PERMISSIONS.find(p => hasPermission(p.key));
+    if (firstPage) showPage(firstPage.key);
+}
+
+window.onload = () => { loadDB(); };
+</script>
+</body>
+</html>
+HTMLEOF
+echo "Done"
+Output
+
+Done
